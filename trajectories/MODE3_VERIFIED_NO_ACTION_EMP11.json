@@ -1,0 +1,341 @@
+{
+  "employee_id": "EMP11",
+  "mode": "MODE_3_VERIFIED",
+  "status": "NO_ACTION",
+  "requires_human_decision": false,
+  "tool_calls_used": 8,
+  "verify_retries": 0,
+  "usage": {
+    "llm_calls": 9,
+    "total_tokens": 23667,
+    "estimated_cost_usd": 0.0,
+    "wall_clock_seconds": 50.78
+  },
+  "final_decision": {
+    "risk_level": "Medium",
+    "rationale": "Employee EMP11 has Medium risk (attrition probability: 0.3574). Two real drivers were identified: DistanceFromHome (logit_contribution: 0.8396, severity_percentile: 8.8) and JobLevel (logit_contribution: 0.7268, severity_percentile: 0.0). Both meet the criteria of logit_contribution >= 0.4 and severity_percentile <= 35.0. However, no interventions exist for either driver per the intervention mapping rules (DistanceFromHome and JobLevel are explicitly listed as having NO INTERVENTION EXISTS). Therefore, no intervention is recommended.",
+    "recommended_intervention": "",
+    "confirmed_drivers": [
+      "DistanceFromHome",
+      "JobLevel"
+    ]
+  },
+  "verification": {
+    "agent": "claim_verifier",
+    "verdict": "VERIFIED",
+    "problems": [],
+    "checks_run": [
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7"
+    ],
+    "recomputed_risk": {
+      "attrition_probability": 0.3574,
+      "risk_level": "Medium"
+    },
+    "verified_drivers": [
+      {
+        "feature": "DistanceFromHome",
+        "label": "Commute distance",
+        "value": 24.0,
+        "cohort_mean": 9.1,
+        "percentile": 91.2,
+        "severity_percentile": 8.8,
+        "has_lever": false,
+        "logit_contribution": 0.8396,
+        "statement": "Commute distance is 24 vs cohort mean 9.1 (91st percentile, worst 9% of the cohort) \u2014 a moderate contributor (logit +0.84)."
+      },
+      {
+        "feature": "JobLevel",
+        "label": "Job level",
+        "value": 1.0,
+        "cohort_mean": 1.6,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "has_lever": false,
+        "logit_contribution": 0.7268,
+        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73)."
+      }
+    ],
+    "rejected_claims": [],
+    "claimed_drivers": [
+      "DistanceFromHome",
+      "JobLevel"
+    ],
+    "recommended_intervention": null,
+    "simulated": null
+  },
+  "trace": [
+    {
+      "step": "start",
+      "employee_id": "EMP11",
+      "mode": "MODE_3_VERIFIED",
+      "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+      "tool_budget": 12
+    },
+    {
+      "step": "tool_call",
+      "turn": 1,
+      "n": 1,
+      "tool": "get_employee_profile",
+      "args": {
+        "employee_id": "EMP11"
+      },
+      "result": {
+        "employee_id": "EMP11",
+        "attrition": 0,
+        "JobSatisfaction": 3,
+        "EnvironmentSatisfaction": 4,
+        "JobInvolvement": 3,
+        "WorkLifeBalance": 3,
+        "RelationshipSatisfaction": 2,
+        "TrainingTimesLastYear": 2,
+        "OverTime_flag": 0,
+        "DistanceFromHome": 24,
+        "BusinessTravel_freq": 1,
+        "JobLevel": 1,
+        "StockOptionLevel": 1,
+        "NumCompaniesWorked": 1,
+        "YearsWithCurrManager": 0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 2,
+      "n": 2,
+      "tool": "predict_risk",
+      "args": {
+        "employee_id": "EMP11"
+      },
+      "result": {
+        "attrition_probability": 0.3574
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 3,
+      "n": 3,
+      "tool": "get_risk_drivers",
+      "args": {
+        "top_n": 6,
+        "employee_id": "EMP11"
+      },
+      "result": [
+        {
+          "feature": "DistanceFromHome",
+          "label": "Commute distance",
+          "value": 24.0,
+          "cohort_mean": 9.1,
+          "logit_contribution": 0.8396,
+          "raises_risk": true
+        },
+        {
+          "feature": "JobLevel",
+          "label": "Job level",
+          "value": 1.0,
+          "cohort_mean": 1.6,
+          "logit_contribution": 0.7268,
+          "raises_risk": true
+        },
+        {
+          "feature": "YearsWithCurrManager",
+          "label": "Years with current manager",
+          "value": 0.0,
+          "cohort_mean": 0.68,
+          "logit_contribution": 0.3221,
+          "raises_risk": true
+        },
+        {
+          "feature": "RelationshipSatisfaction",
+          "label": "Relationship satisfaction",
+          "value": 2.0,
+          "cohort_mean": 2.77,
+          "logit_contribution": 0.2588,
+          "raises_risk": true
+        },
+        {
+          "feature": "TrainingTimesLastYear",
+          "label": "Training sessions attended",
+          "value": 2.0,
+          "cohort_mean": 2.8,
+          "logit_contribution": 0.1093,
+          "raises_risk": true
+        },
+        {
+          "feature": "WorkLifeBalance",
+          "label": "Work-life balance",
+          "value": 3.0,
+          "cohort_mean": 2.75,
+          "logit_contribution": -0.0745,
+          "raises_risk": false
+        }
+      ]
+    },
+    {
+      "step": "tool_call",
+      "turn": 4,
+      "n": 4,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "DistanceFromHome",
+        "employee_id": "EMP11"
+      },
+      "result": {
+        "feature": "DistanceFromHome",
+        "value": 24.0,
+        "percentile": 91.2,
+        "bad_when": "high",
+        "severity_percentile": 8.8,
+        "cohort_median": 7.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 5,
+      "n": 5,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP11",
+        "feature": "JobLevel"
+      },
+      "result": {
+        "feature": "JobLevel",
+        "value": 1.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 1.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 6,
+      "n": 6,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "YearsWithCurrManager",
+        "employee_id": "EMP11"
+      },
+      "result": {
+        "feature": "YearsWithCurrManager",
+        "value": 0.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 0.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 7,
+      "n": 7,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "RelationshipSatisfaction",
+        "employee_id": "EMP11"
+      },
+      "result": {
+        "feature": "RelationshipSatisfaction",
+        "value": 2.0,
+        "percentile": 16.1,
+        "bad_when": "low",
+        "severity_percentile": 16.1,
+        "cohort_median": 3.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 8,
+      "n": 8,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP11",
+        "feature": "TrainingTimesLastYear"
+      },
+      "result": {
+        "feature": "TrainingTimesLastYear",
+        "value": 2.0,
+        "percentile": 8.5,
+        "bad_when": "low",
+        "severity_percentile": 8.5,
+        "cohort_median": 3.0
+      }
+    },
+    {
+      "step": "verification",
+      "turn": 9,
+      "attempt": 1,
+      "agent": "claim_verifier",
+      "verdict": "VERIFIED",
+      "problems": [],
+      "checks_run": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6",
+        "V7"
+      ],
+      "recomputed_risk": {
+        "attrition_probability": 0.3574,
+        "risk_level": "Medium"
+      },
+      "verified_drivers": [
+        {
+          "feature": "DistanceFromHome",
+          "label": "Commute distance",
+          "value": 24.0,
+          "cohort_mean": 9.1,
+          "percentile": 91.2,
+          "severity_percentile": 8.8,
+          "has_lever": false,
+          "logit_contribution": 0.8396,
+          "statement": "Commute distance is 24 vs cohort mean 9.1 (91st percentile, worst 9% of the cohort) \u2014 a moderate contributor (logit +0.84)."
+        },
+        {
+          "feature": "JobLevel",
+          "label": "Job level",
+          "value": 1.0,
+          "cohort_mean": 1.6,
+          "percentile": 0.0,
+          "severity_percentile": 0.0,
+          "has_lever": false,
+          "logit_contribution": 0.7268,
+          "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73)."
+        }
+      ],
+      "rejected_claims": [],
+      "claimed_drivers": [
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "recommended_intervention": null,
+      "simulated": null
+    },
+    {
+      "step": "finalize",
+      "turn": 9,
+      "decision": {
+        "risk_level": "Medium",
+        "rationale": "Employee EMP11 has Medium risk (attrition probability: 0.3574). Two real drivers were identified: DistanceFromHome (logit_contribution: 0.8396, severity_percentile: 8.8) and JobLevel (logit_contribution: 0.7268, severity_percentile: 0.0). Both meet the criteria of logit_contribution >= 0.4 and severity_percentile <= 35.0. However, no interventions exist for either driver per the intervention mapping rules (DistanceFromHome and JobLevel are explicitly listed as having NO INTERVENTION EXISTS). Therefore, no intervention is recommended.",
+        "recommended_intervention": "",
+        "confirmed_drivers": [
+          "DistanceFromHome",
+          "JobLevel"
+        ]
+      }
+    },
+    {
+      "step": "usage",
+      "llm_calls": 9,
+      "total_tokens": 23667,
+      "estimated_cost_usd": 0.0,
+      "wall_clock_seconds": 50.78
+    }
+  ]
+}

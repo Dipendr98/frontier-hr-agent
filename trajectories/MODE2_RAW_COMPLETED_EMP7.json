@@ -1,0 +1,239 @@
+{
+  "employee_id": "EMP7",
+  "mode": "MODE_2_RAW",
+  "status": "COMPLETED",
+  "requires_human_decision": false,
+  "tool_calls_used": 8,
+  "verify_retries": 0,
+  "usage": {
+    "llm_calls": 9,
+    "total_tokens": 23120,
+    "estimated_cost_usd": 0.0,
+    "wall_clock_seconds": 51.28
+  },
+  "final_decision": {
+    "rationale": "EMP7 has Medium attrition risk (35.19% probability). EnvironmentSatisfaction is a verified real driver: it contributes 1.0615 to logit (\u2265 0.4 threshold) and is extremely unusual for the cohort (severity_percentile 0.0 \u2264 35.0). While JobLevel and NumCompaniesWorked also contribute significantly, no interventions exist for these factors per the rules. team_environment_review was simulated and shows the largest risk reduction (-12.72 percentage points) among available interventions targeting verified drivers.",
+    "confirmed_drivers": [
+      "EnvironmentSatisfaction"
+    ],
+    "risk_level": "Medium",
+    "recommended_intervention": "team_environment_review"
+  },
+  "verification": null,
+  "trace": [
+    {
+      "step": "start",
+      "employee_id": "EMP7",
+      "mode": "MODE_2_RAW",
+      "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+      "tool_budget": 12
+    },
+    {
+      "step": "tool_call",
+      "turn": 1,
+      "n": 1,
+      "tool": "get_employee_profile",
+      "args": {
+        "employee_id": "EMP7"
+      },
+      "result": {
+        "employee_id": "EMP7",
+        "attrition": 0,
+        "JobSatisfaction": 2,
+        "EnvironmentSatisfaction": 1,
+        "JobInvolvement": 3,
+        "WorkLifeBalance": 3,
+        "RelationshipSatisfaction": 4,
+        "TrainingTimesLastYear": 3,
+        "OverTime_flag": 0,
+        "DistanceFromHome": 2,
+        "BusinessTravel_freq": 1,
+        "JobLevel": 1,
+        "StockOptionLevel": 1,
+        "NumCompaniesWorked": 9,
+        "YearsWithCurrManager": 2
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 2,
+      "n": 2,
+      "tool": "predict_risk",
+      "args": {
+        "employee_id": "EMP7"
+      },
+      "result": {
+        "attrition_probability": 0.3519
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 3,
+      "n": 3,
+      "tool": "get_risk_drivers",
+      "args": {
+        "employee_id": "EMP7",
+        "top_n": 6
+      },
+      "result": [
+        {
+          "feature": "EnvironmentSatisfaction",
+          "label": "Environment satisfaction",
+          "value": 1.0,
+          "cohort_mean": 2.69,
+          "logit_contribution": 1.0615,
+          "raises_risk": true
+        },
+        {
+          "feature": "JobLevel",
+          "label": "Job level",
+          "value": 1.0,
+          "cohort_mean": 1.6,
+          "logit_contribution": 0.7268,
+          "raises_risk": true
+        },
+        {
+          "feature": "NumCompaniesWorked",
+          "label": "Previous employers",
+          "value": 9.0,
+          "cohort_mean": 3.16,
+          "logit_contribution": 0.4157,
+          "raises_risk": true
+        },
+        {
+          "feature": "JobSatisfaction",
+          "label": "Job satisfaction",
+          "value": 2.0,
+          "cohort_mean": 2.76,
+          "logit_contribution": 0.3565,
+          "raises_risk": true
+        },
+        {
+          "feature": "TrainingTimesLastYear",
+          "label": "Training sessions attended",
+          "value": 3.0,
+          "cohort_mean": 2.8,
+          "logit_contribution": -0.0167,
+          "raises_risk": false
+        },
+        {
+          "feature": "WorkLifeBalance",
+          "label": "Work-life balance",
+          "value": 3.0,
+          "cohort_mean": 2.75,
+          "logit_contribution": -0.0745,
+          "raises_risk": false
+        }
+      ]
+    },
+    {
+      "step": "tool_call",
+      "turn": 4,
+      "n": 4,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP7",
+        "feature": "EnvironmentSatisfaction"
+      },
+      "result": {
+        "feature": "EnvironmentSatisfaction",
+        "value": 1.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 3.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 5,
+      "n": 5,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP7",
+        "feature": "JobLevel"
+      },
+      "result": {
+        "feature": "JobLevel",
+        "value": 1.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 1.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 6,
+      "n": 6,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "NumCompaniesWorked",
+        "employee_id": "EMP7"
+      },
+      "result": {
+        "feature": "NumCompaniesWorked",
+        "value": 9.0,
+        "percentile": 95.6,
+        "bad_when": "high",
+        "severity_percentile": 4.4,
+        "cohort_median": 2.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 7,
+      "n": 7,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP7",
+        "feature": "JobSatisfaction"
+      },
+      "result": {
+        "feature": "JobSatisfaction",
+        "value": 2.0,
+        "percentile": 18.1,
+        "bad_when": "low",
+        "severity_percentile": 18.1,
+        "cohort_median": 3.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 8,
+      "n": 8,
+      "tool": "simulate_intervention",
+      "args": {
+        "intervention_key": "team_environment_review",
+        "employee_id": "EMP7"
+      },
+      "result": {
+        "intervention": "team_environment_review",
+        "label": "Review team environment and working conditions",
+        "risk_before": 0.3519,
+        "risk_after_simulated": 0.2247,
+        "delta_pp": -12.72,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "finalize",
+      "turn": 9,
+      "decision": {
+        "rationale": "EMP7 has Medium attrition risk (35.19% probability). EnvironmentSatisfaction is a verified real driver: it contributes 1.0615 to logit (\u2265 0.4 threshold) and is extremely unusual for the cohort (severity_percentile 0.0 \u2264 35.0). While JobLevel and NumCompaniesWorked also contribute significantly, no interventions exist for these factors per the rules. team_environment_review was simulated and shows the largest risk reduction (-12.72 percentage points) among available interventions targeting verified drivers.",
+        "confirmed_drivers": [
+          "EnvironmentSatisfaction"
+        ],
+        "risk_level": "Medium",
+        "recommended_intervention": "team_environment_review"
+      }
+    },
+    {
+      "step": "usage",
+      "llm_calls": 9,
+      "total_tokens": 23120,
+      "estimated_cost_usd": 0.0,
+      "wall_clock_seconds": 51.28
+    }
+  ]
+}

@@ -1,0 +1,573 @@
+{
+  "employee_id": "EMP10",
+  "mode": "MODE_3_VERIFIED",
+  "status": "APPROVED_FOR_REVIEW",
+  "requires_human_decision": true,
+  "tool_calls_used": 11,
+  "verify_retries": 1,
+  "usage": {
+    "llm_calls": 13,
+    "total_tokens": 36194,
+    "estimated_cost_usd": 0.0,
+    "wall_clock_seconds": 49.29
+  },
+  "final_decision": {
+    "risk_level": "High",
+    "rationale": "Risk probability 0.6366 exceeds High threshold (>=0.60). Verified drivers: OverTime_flag (logit 1.209, severity_percentile 30.4), JobSatisfaction (0.8318, 0.0), RelationshipSatisfaction (0.5968, 0.0), JobLevel (0.7268, 0.0). All have logit_contribution >=0.4 and severity_percentile <=35. WorkLifeBalance excluded (logit 0.2282 <0.4). Intervention simulation shows workload_review reduces risk by 45.58 pp, larger than role_fit_conversation (-11.53 pp), and directly addresses the top driver OverTime_flag.",
+    "confirmed_drivers": [
+      "OverTime_flag",
+      "JobSatisfaction",
+      "RelationshipSatisfaction",
+      "JobLevel"
+    ],
+    "recommended_intervention": "workload_review"
+  },
+  "verification": {
+    "agent": "claim_verifier",
+    "verdict": "VERIFIED",
+    "problems": [],
+    "checks_run": [
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7"
+    ],
+    "recomputed_risk": {
+      "attrition_probability": 0.6366,
+      "risk_level": "High"
+    },
+    "verified_drivers": [
+      {
+        "feature": "OverTime_flag",
+        "label": "Working overtime",
+        "value": 1.0,
+        "cohort_mean": 0.3,
+        "percentile": 69.6,
+        "severity_percentile": 30.4,
+        "has_lever": true,
+        "logit_contribution": 1.209,
+        "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21)."
+      },
+      {
+        "feature": "JobSatisfaction",
+        "label": "Job satisfaction",
+        "value": 1.0,
+        "cohort_mean": 2.76,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "has_lever": true,
+        "logit_contribution": 0.8318,
+        "statement": "Job satisfaction is 1 vs cohort mean 2.76 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.83)."
+      },
+      {
+        "feature": "RelationshipSatisfaction",
+        "label": "Relationship satisfaction",
+        "value": 1.0,
+        "cohort_mean": 2.77,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "has_lever": true,
+        "logit_contribution": 0.5968,
+        "statement": "Relationship satisfaction is 1 vs cohort mean 2.77 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.60)."
+      },
+      {
+        "feature": "JobLevel",
+        "label": "Job level",
+        "value": 1.0,
+        "cohort_mean": 1.6,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "has_lever": false,
+        "logit_contribution": 0.7268,
+        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73)."
+      }
+    ],
+    "rejected_claims": [],
+    "claimed_drivers": [
+      "OverTime_flag",
+      "JobSatisfaction",
+      "RelationshipSatisfaction",
+      "JobLevel"
+    ],
+    "recommended_intervention": "workload_review",
+    "simulated": {
+      "intervention": "workload_review",
+      "label": "Review workload and reduce overtime",
+      "risk_before": 0.6366,
+      "risk_after_simulated": 0.1809,
+      "delta_pp": -45.58,
+      "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+    }
+  },
+  "trace": [
+    {
+      "step": "start",
+      "employee_id": "EMP10",
+      "mode": "MODE_3_VERIFIED",
+      "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+      "tool_budget": 12
+    },
+    {
+      "step": "tool_call",
+      "turn": 1,
+      "n": 1,
+      "tool": "get_employee_profile",
+      "args": {
+        "employee_id": "EMP10"
+      },
+      "result": {
+        "employee_id": "EMP10",
+        "attrition": 0,
+        "JobSatisfaction": 1,
+        "EnvironmentSatisfaction": 3,
+        "JobInvolvement": 4,
+        "WorkLifeBalance": 2,
+        "RelationshipSatisfaction": 1,
+        "TrainingTimesLastYear": 3,
+        "OverTime_flag": 1,
+        "DistanceFromHome": 3,
+        "BusinessTravel_freq": 1,
+        "JobLevel": 1,
+        "StockOptionLevel": 3,
+        "NumCompaniesWorked": 4,
+        "YearsWithCurrManager": 0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 2,
+      "n": 2,
+      "tool": "predict_risk",
+      "args": {
+        "employee_id": "EMP10"
+      },
+      "result": {
+        "attrition_probability": 0.6366
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 3,
+      "n": 3,
+      "tool": "get_risk_drivers",
+      "args": {
+        "top_n": 8,
+        "employee_id": "EMP10"
+      },
+      "result": [
+        {
+          "feature": "OverTime_flag",
+          "label": "Working overtime",
+          "value": 1.0,
+          "cohort_mean": 0.3,
+          "logit_contribution": 1.209,
+          "raises_risk": true
+        },
+        {
+          "feature": "JobSatisfaction",
+          "label": "Job satisfaction",
+          "value": 1.0,
+          "cohort_mean": 2.76,
+          "logit_contribution": 0.8318,
+          "raises_risk": true
+        },
+        {
+          "feature": "JobLevel",
+          "label": "Job level",
+          "value": 1.0,
+          "cohort_mean": 1.6,
+          "logit_contribution": 0.7268,
+          "raises_risk": true
+        },
+        {
+          "feature": "RelationshipSatisfaction",
+          "label": "Relationship satisfaction",
+          "value": 1.0,
+          "cohort_mean": 2.77,
+          "logit_contribution": 0.5968,
+          "raises_risk": true
+        },
+        {
+          "feature": "YearsWithCurrManager",
+          "label": "Years with current manager",
+          "value": 0.0,
+          "cohort_mean": 0.68,
+          "logit_contribution": 0.3221,
+          "raises_risk": true
+        },
+        {
+          "feature": "WorkLifeBalance",
+          "label": "Work-life balance",
+          "value": 2.0,
+          "cohort_mean": 2.75,
+          "logit_contribution": 0.2282,
+          "raises_risk": true
+        },
+        {
+          "feature": "NumCompaniesWorked",
+          "label": "Previous employers",
+          "value": 4.0,
+          "cohort_mean": 3.16,
+          "logit_contribution": 0.0647,
+          "raises_risk": true
+        },
+        {
+          "feature": "TrainingTimesLastYear",
+          "label": "Training sessions attended",
+          "value": 3.0,
+          "cohort_mean": 2.8,
+          "logit_contribution": -0.0167,
+          "raises_risk": false
+        }
+      ]
+    },
+    {
+      "step": "tool_call",
+      "turn": 4,
+      "n": 4,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "OverTime_flag",
+        "employee_id": "EMP10"
+      },
+      "result": {
+        "feature": "OverTime_flag",
+        "value": 1.0,
+        "percentile": 69.6,
+        "bad_when": "high",
+        "severity_percentile": 30.4,
+        "cohort_median": 0.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 5,
+      "n": 5,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP10",
+        "feature": "JobSatisfaction"
+      },
+      "result": {
+        "feature": "JobSatisfaction",
+        "value": 1.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 3.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 6,
+      "n": 6,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "RelationshipSatisfaction",
+        "employee_id": "EMP10"
+      },
+      "result": {
+        "feature": "RelationshipSatisfaction",
+        "value": 1.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 3.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 7,
+      "n": 7,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP10",
+        "feature": "JobLevel"
+      },
+      "result": {
+        "feature": "JobLevel",
+        "value": 1.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 1.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 8,
+      "n": 8,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP10",
+        "feature": "YearsWithCurrManager"
+      },
+      "result": {
+        "feature": "YearsWithCurrManager",
+        "value": 0.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 0.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 9,
+      "n": 9,
+      "tool": "get_cohortune",
+      "args": {
+        "intervention_key": "workload_review",
+        "employee_id": "EMP10"
+      },
+      "result": {
+        "error": "unknown_tool",
+        "tool": "get_cohortune",
+        "valid_tools": [
+          "get_employee_profile",
+          "predict_risk",
+          "get_risk_drivers",
+          "get_cohort_percentile",
+          "simulate_intervention",
+          "finalize"
+        ]
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 10,
+      "n": 10,
+      "tool": "simulate_intervention",
+      "args": {
+        "intervention_key": "workload_review",
+        "employee_id": "EMP10"
+      },
+      "result": {
+        "intervention": "workload_review",
+        "label": "Review workload and reduce overtime",
+        "risk_before": 0.6366,
+        "risk_after_simulated": 0.1809,
+        "delta_pp": -45.58,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 11,
+      "n": 11,
+      "tool": "simulate_intervention",
+      "args": {
+        "employee_id": "EMP10",
+        "intervention_key": "role_fit_conversation"
+      },
+      "result": {
+        "intervention": "role_fit_conversation",
+        "label": "Hold a role-fit conversation and adjust responsibilities",
+        "risk_before": 0.6366,
+        "risk_after_simulated": 0.5214,
+        "delta_pp": -11.53,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "verification",
+      "turn": 12,
+      "attempt": 1,
+      "agent": "claim_verifier",
+      "verdict": "REJECTED",
+      "problems": [
+        "unverified_driver: Years with current manager contributes only +0.32 to the logit, below the 0.4 floor required to call it a driver."
+      ],
+      "checks_run": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6",
+        "V7"
+      ],
+      "recomputed_risk": {
+        "attrition_probability": 0.6366,
+        "risk_level": "High"
+      },
+      "verified_drivers": [
+        {
+          "feature": "OverTime_flag",
+          "label": "Working overtime",
+          "value": 1.0,
+          "cohort_mean": 0.3,
+          "percentile": 69.6,
+          "severity_percentile": 30.4,
+          "has_lever": true,
+          "logit_contribution": 1.209,
+          "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21)."
+        },
+        {
+          "feature": "JobSatisfaction",
+          "label": "Job satisfaction",
+          "value": 1.0,
+          "cohort_mean": 2.76,
+          "percentile": 0.0,
+          "severity_percentile": 0.0,
+          "has_lever": true,
+          "logit_contribution": 0.8318,
+          "statement": "Job satisfaction is 1 vs cohort mean 2.76 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.83)."
+        },
+        {
+          "feature": "RelationshipSatisfaction",
+          "label": "Relationship satisfaction",
+          "value": 1.0,
+          "cohort_mean": 2.77,
+          "percentile": 0.0,
+          "severity_percentile": 0.0,
+          "has_lever": true,
+          "logit_contribution": 0.5968,
+          "statement": "Relationship satisfaction is 1 vs cohort mean 2.77 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.60)."
+        },
+        {
+          "feature": "JobLevel",
+          "label": "Job level",
+          "value": 1.0,
+          "cohort_mean": 1.6,
+          "percentile": 0.0,
+          "severity_percentile": 0.0,
+          "has_lever": false,
+          "logit_contribution": 0.7268,
+          "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73)."
+        }
+      ],
+      "rejected_claims": [
+        {
+          "feature": "YearsWithCurrManager",
+          "reason": "contribution_below_floor",
+          "logit_contribution": 0.3221
+        }
+      ],
+      "claimed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "RelationshipSatisfaction",
+        "JobLevel",
+        "YearsWithCurrManager"
+      ],
+      "recommended_intervention": "workload_review",
+      "simulated": {
+        "intervention": "workload_review",
+        "label": "Review workload and reduce overtime",
+        "risk_before": 0.6366,
+        "risk_after_simulated": 0.1809,
+        "delta_pp": -45.58,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "verification",
+      "turn": 13,
+      "attempt": 2,
+      "agent": "claim_verifier",
+      "verdict": "VERIFIED",
+      "problems": [],
+      "checks_run": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6",
+        "V7"
+      ],
+      "recomputed_risk": {
+        "attrition_probability": 0.6366,
+        "risk_level": "High"
+      },
+      "verified_drivers": [
+        {
+          "feature": "OverTime_flag",
+          "label": "Working overtime",
+          "value": 1.0,
+          "cohort_mean": 0.3,
+          "percentile": 69.6,
+          "severity_percentile": 30.4,
+          "has_lever": true,
+          "logit_contribution": 1.209,
+          "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21)."
+        },
+        {
+          "feature": "JobSatisfaction",
+          "label": "Job satisfaction",
+          "value": 1.0,
+          "cohort_mean": 2.76,
+          "percentile": 0.0,
+          "severity_percentile": 0.0,
+          "has_lever": true,
+          "logit_contribution": 0.8318,
+          "statement": "Job satisfaction is 1 vs cohort mean 2.76 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.83)."
+        },
+        {
+          "feature": "RelationshipSatisfaction",
+          "label": "Relationship satisfaction",
+          "value": 1.0,
+          "cohort_mean": 2.77,
+          "percentile": 0.0,
+          "severity_percentile": 0.0,
+          "has_lever": true,
+          "logit_contribution": 0.5968,
+          "statement": "Relationship satisfaction is 1 vs cohort mean 2.77 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.60)."
+        },
+        {
+          "feature": "JobLevel",
+          "label": "Job level",
+          "value": 1.0,
+          "cohort_mean": 1.6,
+          "percentile": 0.0,
+          "severity_percentile": 0.0,
+          "has_lever": false,
+          "logit_contribution": 0.7268,
+          "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73)."
+        }
+      ],
+      "rejected_claims": [],
+      "claimed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "RelationshipSatisfaction",
+        "JobLevel"
+      ],
+      "recommended_intervention": "workload_review",
+      "simulated": {
+        "intervention": "workload_review",
+        "label": "Review workload and reduce overtime",
+        "risk_before": 0.6366,
+        "risk_after_simulated": 0.1809,
+        "delta_pp": -45.58,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "finalize",
+      "turn": 13,
+      "decision": {
+        "risk_level": "High",
+        "rationale": "Risk probability 0.6366 exceeds High threshold (>=0.60). Verified drivers: OverTime_flag (logit 1.209, severity_percentile 30.4), JobSatisfaction (0.8318, 0.0), RelationshipSatisfaction (0.5968, 0.0), JobLevel (0.7268, 0.0). All have logit_contribution >=0.4 and severity_percentile <=35. WorkLifeBalance excluded (logit 0.2282 <0.4). Intervention simulation shows workload_review reduces risk by 45.58 pp, larger than role_fit_conversation (-11.53 pp), and directly addresses the top driver OverTime_flag.",
+        "confirmed_drivers": [
+          "OverTime_flag",
+          "JobSatisfaction",
+          "RelationshipSatisfaction",
+          "JobLevel"
+        ],
+        "recommended_intervention": "workload_review"
+      }
+    },
+    {
+      "step": "usage",
+      "llm_calls": 13,
+      "total_tokens": 36194,
+      "estimated_cost_usd": 0.0,
+      "wall_clock_seconds": 49.29
+    }
+  ]
+}
