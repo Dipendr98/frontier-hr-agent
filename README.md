@@ -6,7 +6,7 @@ recommendations filtered out, and a human making every decision that touches a
 person.
 
 ```bash
-git clone <repo> && cd frontier-hr-agent
+git clone https://github.com/Dipendr98/frontier-hr-agent.git && cd frontier-hr-agent
 ./run_all.sh          # ~60 seconds, no API keys, $0
 ```
 
@@ -357,7 +357,7 @@ Trajectory:
 Python 3.11+. **Total runtime ~60 seconds from an empty virtualenv. No API keys required, $0 cost.**
 
 ```bash
-git clone <repo> && cd frontier-hr-agent
+git clone https://github.com/Dipendr98/frontier-hr-agent.git && cd frontier-hr-agent
 ./run_all.sh          # creates .venv, installs pinned deps, runs everything
 ```
 
