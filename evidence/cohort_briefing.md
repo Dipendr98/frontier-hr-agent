@@ -1,6 +1,6 @@
 # Onboarding risk review — cohort briefing
 
-342 employees reviewed in 1.97s (6 ms per case). Provider: `provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b`.
+342 employees reviewed in 1.82s (5 ms per case). Provider: `provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b`.
 
 **Nothing in this document has been actioned.** Every row is a case prepared for a human decision. The system does not contact anyone, change any record, or take any HR action.
 

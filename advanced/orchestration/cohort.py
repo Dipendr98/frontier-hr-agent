@@ -56,7 +56,7 @@ STATUS_PRIORITY = {"ESCALATED": 0, "HALTED_DATA_QUALITY": 1,
 
 def run_cohort(limit: int = None, use_memory: bool = True,
                data_path: str = None, save: bool = True,
-               narrate: bool = False) -> dict:
+               narrate: bool = False, toolbox: ToolBox = None) -> dict:
     """
     Triage a whole cohort. Returns the report; writes the briefing when `save`.
 
@@ -71,7 +71,15 @@ def run_cohort(limit: int = None, use_memory: bool = True,
     got the hour-long path. A default that only holds for one caller is not a
     default. Nothing about narration changes a decision.
     """
-    toolbox = ToolBox(data_path=data_path) if data_path else ToolBox()
+    # An already-built ToolBox can be handed in. The dashboard has one cached
+    # per dataset, and rebuilding it here reloaded the model and re-sorted every
+    # feature column on each run — 0.7s of a 2.5s job, spent reproducing
+    # something already in memory. It also let the two callers disagree about
+    # WHICH cohort was being triaged: the Cohort page built its own from the
+    # default file, so a CSV uploaded on the Case review page was silently
+    # ignored here and the run reported on the wrong company.
+    if toolbox is None:
+        toolbox = ToolBox(data_path=data_path) if data_path else ToolBox()
     df = toolbox.cohort if limit is None else toolbox.cohort.head(limit)
     employees = [row.to_dict() for _, row in df.iterrows()]
 

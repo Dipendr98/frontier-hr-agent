@@ -149,3 +149,22 @@ def test_wrong_file_types_are_named_not_misdiagnosed(raw, expect):
     """
     with pytest.raises(CohortSchemaError, match=expect):
         _load(raw)
+
+
+def test_cohort_triage_honours_a_supplied_toolbox(cohort_df, tmp_path):
+    """
+    Regression: the Cohort page built its own ToolBox from the default file, so
+    a CSV uploaded on the Case review page was silently ignored and the briefing
+    described a different company than the one on screen. Silently-wrong data is
+    worse than an error, because nothing looks broken.
+    """
+    from advanced.orchestration.cohort import run_cohort
+    small = cohort_df.head(40).copy()
+    small["employee_id"] = [f"X{i}" for i in range(40)]
+    path = tmp_path / "other_cohort.csv"
+    small.to_csv(path, index=False)
+
+    tb = ToolBox(data_path=str(path))
+    report = run_cohort(use_memory=True, save=False, toolbox=tb)
+    assert report["n_employees"] == 40, "triaged the default cohort, not the supplied one"
+    assert all(r["employee_id"].startswith("X") for r in report["worklist"])

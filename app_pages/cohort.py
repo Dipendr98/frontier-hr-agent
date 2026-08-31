@@ -5,17 +5,30 @@ import pandas as pd
 import streamlit as st
 
 from advanced.orchestration.cohort import run_cohort
-from app_shared import BASE_DIR, render_sidebar_provider
+from app_shared import BASE_DIR, load_cohort, render_sidebar_provider
 
 st.title("Cohort triage")
 st.caption("A prioritised worklist with every case already built — and the "
            "findings that no single case can show.")
 
+# Same uploader as the Case review page, reading the same cached ToolBox.
+# Without it this page built its own from the default file, so a cohort you
+# uploaded on the other page was silently ignored and the briefing described a
+# different company than the one on screen.
+with st.sidebar:
+    st.subheader("Data")
+    uploaded = st.file_uploader("Cohort CSV", type=["csv"],
+                                help="Optional. Defaults to the prepared IBM "
+                                     "onboarding cohort.")
+
+toolbox = load_cohort(uploaded)
 render_sidebar_provider()
 
 with st.sidebar:
     st.subheader("Run")
-    limit = st.slider("Employees to review", 20, 342, 342, step=20)
+    n_total = len(toolbox.cohort)
+    limit = st.slider("Employees to review", min(20, n_total), n_total,
+                      n_total, step=max(1, n_total // 20))
     use_memory = st.toggle("Cross-case memory", value=True,
                            help="Adds cohort context and systemic findings. "
                                 "Never changes an outcome.")
@@ -34,14 +47,14 @@ with st.sidebar:
                    icon=":material/play_arrow:")
 
 if not go:
-    st.info("Set the size on the left and run. The full 342-employee cohort "
-            "takes about two seconds and needs no API key.",
+    st.info(f"Set the size on the left and run. All {n_total} employees take "
+            f"about two seconds and need no API key.",
             icon=":material/groups:")
     st.stop()
 
 with st.spinner(f"Reviewing {limit} employees..."):
     report = run_cohort(limit=limit, use_memory=use_memory, save=True,
-                        narrate=narrate)
+                        narrate=narrate, toolbox=toolbox)
 
 counts = report["status_counts"]
 with st.container(horizontal=True):

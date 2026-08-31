@@ -3,8 +3,8 @@
   "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
   "memory": "enabled",
   "n_employees": 342,
-  "wall_clock_seconds": 1.97,
-  "seconds_per_case": 0.0058,
+  "wall_clock_seconds": 1.82,
+  "seconds_per_case": 0.0053,
   "status_counts": {
     "ESCALATED": 1,
     "APPROVED_FOR_REVIEW": 172,
