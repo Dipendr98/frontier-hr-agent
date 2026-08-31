@@ -94,6 +94,9 @@ PRESETS = {
 # and we are not going to pretend this is a billing record.
 PRICING_PER_MTOK = {
     "gpt-4o-mini":                      {"in": 0.15,  "out": 0.60},
+    "claude-opus-5":                    {"in": 5.00,  "out": 25.00},
+    "claude-sonnet-5":                  {"in": 3.00,  "out": 15.00},
+    "claude-haiku-4-5":                 {"in": 1.00,  "out": 5.00},
     "claude-sonnet-4-6":                {"in": 3.00,  "out": 15.00},
     "gemini-2.0-flash":                 {"in": 0.10,  "out": 0.40},
     "llama-3.3-70b-versatile":          {"in": 0.59,  "out": 0.79},

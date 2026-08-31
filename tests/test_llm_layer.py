@@ -285,3 +285,14 @@ def test_anthropic_preset_names_a_current_model():
     model = llm.PRESETS["anthropic"]["model"]
     assert model.startswith("claude-")
     assert "claude-3" not in model, f"{model} is two generations old"
+
+
+def test_every_preset_default_has_a_published_price(monkeypatch):
+    """
+    An unpriced model silently falls back to DEFAULT_PRICING, which understated
+    claude-opus-5 by 10x. A cost figure nobody notices is wrong is worse than no
+    cost figure, in a project that reports cost per case.
+    """
+    unpriced = [name for name, cfg in llm.PRESETS.items()
+                if cfg["model"] not in llm.PRICING_PER_MTOK]
+    assert unpriced == ["ollama"], f"unpriced preset defaults: {unpriced}"
