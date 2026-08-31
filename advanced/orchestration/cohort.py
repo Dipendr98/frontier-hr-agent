@@ -34,6 +34,7 @@ import os
 import sys
 import time
 from collections import Counter
+from datetime import datetime
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
@@ -42,7 +43,8 @@ import pandas as pd
 from advanced import llm
 from advanced.memory import CohortMemory
 from advanced.orchestration.workflow import run_for_employee
-from advanced.tools import CohortSchemaError, ToolBox, expected_features
+from advanced.tools import (FEATURE_META, CohortSchemaError, ToolBox,
+                            expected_features)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 EVIDENCE_DIR = os.path.join(BASE_DIR, "evidence")
@@ -52,6 +54,10 @@ EVIDENCE_DIR = os.path.join(BASE_DIR, "evidence")
 # ones that go stale worst if they sit behind routine approvals.
 STATUS_PRIORITY = {"ESCALATED": 0, "HALTED_DATA_QUALITY": 1,
                    "APPROVED_FOR_REVIEW": 2, "NO_ACTION": 3}
+
+# A proposed action whose simulated effect is weaker than this is flagged to the
+# reviewer as marginal rather than presented as a plan.
+MARGINAL_DELTA_PP = -2.0
 
 
 def run_cohort(limit: int = None, use_memory: bool = True,
@@ -196,10 +202,17 @@ def _write_briefing(report: dict) -> str:
     they qualify rather than collected in a footer nobody reads.
     """
     rows = report["worklist"]
+    # Environmental notes are identical across most cards; hoist them so each
+    # one is stated once instead of 126 times.
+    envs = sorted({n for r in rows for n in r["memory_notes"]
+                   if "specific to this employee" not in n})
     L = []
     A = L.append
 
     A("# Onboarding risk review — cohort briefing")
+    A("")
+    A(f"Generated {datetime.now().astimezone().strftime('%Y-%m-%d %H:%M %Z')}. "
+      "Employee identifiers map to your HRIS; no names appear in this system.")
     A("")
     A(f"{report['n_employees']} employees reviewed in "
       f"{report['wall_clock_seconds']}s "
@@ -225,6 +238,37 @@ def _write_briefing(report: dict) -> str:
     A(f"| Halted (data quality) | {counts.get('HALTED_DATA_QUALITY', 0)} | "
       "Record failed validation and was never scored. |")
     A("")
+
+    A("## Before you open a single case")
+    A("")
+    A("These cases are decision support, not a verdict, and how they are used "
+      "matters as much as what they say.")
+    A("")
+    A("- **Do not tell anyone a model flagged them.** Nothing here is a "
+      "finding about a person's performance, intent or loyalty. It is a "
+      "pattern in survey and scheduling data that is worth a conversation.")
+    A("- **The evidence is the conversation starter, not the script.** "
+      "\"Your work-life balance score is the lowest on the team\" is a real "
+      "thing to ask about. \"You are 89% likely to leave\" is not something to "
+      "say to anyone.")
+    A("- **Roughly two in five High-risk flags will not materialise** "
+      "(precision 0.56 on held-out data). Treat a flag as a reason to ask, "
+      "never as a reason to act on someone's standing, pay or progression.")
+    A("- **A case with no proposed action is not a case with no answer.** "
+      "Escalated means the system would not sign it off, and that is "
+      "information.")
+    A("")
+
+    if envs:
+        A("## Context that applies to most of this cohort")
+        A("")
+        A("The following came up on so many cases that repeating it per person "
+          "would be noise. It describes the environment rather than any "
+          "individual, and it is worth knowing before you read the cases.")
+        A("")
+        for note in envs:
+            A(f"- {note}")
+        A("")
 
     if report["systemic_findings"]:
         A("## Cohort-level findings")
@@ -276,18 +320,40 @@ def _write_briefing(report: dict) -> str:
                   f"{r.get('reason') or 'No single driver clears the evidence floors.'}")
                 A("")
             if r["recommendation"]:
+                delta = r["simulated_delta_pp"] or 0.0
                 A(f"**Proposed** {r['recommendation']} "
-                  f"(simulated {r['simulated_delta_pp']:+.1f} pp — model what-if, "
+                  f"(simulated {delta:+.1f} pp — model what-if, "
                   "not a causal estimate)")
+                # Flag an action that barely moves anything.
+                #
+                # Without this the reviewer is asked to spend a meeting on a
+                # 98.9%-risk employee for a modelled improvement of 0.9 points,
+                # with nothing on the page saying that is all there is. It is
+                # the best available option, and saying so is the difference
+                # between a considered recommendation and a box being ticked.
+                if delta > MARGINAL_DELTA_PP:
+                    A("")
+                    A(f"  :warning: This is the best available option, and it is "
+                      f"marginal — the model moves by {abs(delta):.1f} points. "
+                      f"The drivers that matter most for this person have no "
+                      f"lever here. Worth deciding whether it is worth the "
+                      f"conversation.")
                 A("")
             if r["contextual_features"]:
-                A(f"**Noted, no lever** {', '.join(r['contextual_features'])} — "
+                labels = [FEATURE_META.get(f, {}).get("label", f)
+                          for f in r["contextual_features"]]
+                A(f"**Noted, cannot be changed here** {', '.join(labels)} — "
                   "real for this employee, but nothing in this system can "
                   "honestly claim to change it.")
                 A("")
+            # Only the DISTINGUISHING notes appear per case. The environmental
+            # ones ("job level is a driver for 63% of the cohort") were true of
+            # 126 of 172 cards and identical on every one — noise that trains a
+            # reader to skip the section. They are stated once, at cohort level.
             for n in r["memory_notes"]:
-                A(f"**Cohort context** {n}")
-                A("")
+                if "specific to this employee" in n:
+                    A(f"**Specific to this person** {n}")
+                    A("")
             if r["precedent"].get("inconsistent"):
                 p = r["precedent"]
                 A(f"**Consistency check** {p['comparable_cases']} comparable "

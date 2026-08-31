@@ -131,10 +131,25 @@ def evidence_statement(label: str, value: float, cohort_mean: float,
         standing = "the best in the cohort"
     else:
         standing = f"worst {severity_percentile:.0f}% of the cohort"
+
+    # Say how much this matters in words, then keep the number.
+    #
+    # "contributing +1.18 to the risk logit" is exact, auditable, and means
+    # nothing to the HR business partner this document is written for — nobody
+    # outside modelling reads a logit. The magnitude is still printed, because
+    # the rubric re-derives it and an auditor should be able to check it, but it
+    # no longer has to carry the meaning on its own.
+    if abs(contribution) >= 1.0:
+        weight = "a strong contributor to the score"
+    elif abs(contribution) >= 0.6:
+        weight = "a moderate contributor"
+    else:
+        weight = "a smaller contributor"
+
     return (
         f"{label} is {value:g} vs cohort mean {cohort_mean:g} "
-        f"({ordinal(percentile)} percentile, {standing}), contributing "
-        f"{contribution:+.2f} to the risk logit."
+        f"({ordinal(percentile)} percentile, {standing}) — {weight} "
+        f"(logit {contribution:+.2f})."
     )
 
 

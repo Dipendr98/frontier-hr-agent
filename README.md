@@ -630,7 +630,8 @@ these are the places where there is none:
   more missing, and differently distributed.
 - **No real user.** No HR business partner has used this. The claim that these
   cases are more useful than a bare score is argued from a rubric we wrote, not
-  from a reviewer who tried both. That is the single biggest gap.
+  from a reviewer who tried both. That is the single biggest gap, and the
+  heuristic review below does not close it.
 - **The interventions are hand-authored.** `FEATURE_LEVERS` and the catalogue
   encode our assumptions about which actions plausibly address which drivers.
   They are not derived from evidence about what actually retains people.
@@ -647,6 +648,35 @@ these are the places where there is none:
   attributes excluded — but design intent is not a guarantee, and a real
   deployment would need consent, an appeals path, and monitoring for
   disparate impact that this project does not have.
+
+### The heuristic review we did instead
+
+Lacking a reviewer, we ran a structured critique of `evidence/cohort_briefing.md`
+against the question *"could someone act on this, and is there anything here
+they should not say to the employee?"* This is a **heuristic evaluation, not
+user validation** — the same people who built the system read its output, which
+finds usability defects but cannot tell you whether a practitioner would act on
+it. It changed six things:
+
+| Found | Changed |
+|---|---|
+| "contributing +1.18 to the risk logit" — exact, auditable, meaningless to anyone outside modelling | Leads with plain language ("a strong contributor to the score"); the logit stays in parentheses for auditing |
+| A 98.9%-risk case proposing an action worth **−0.9 pp**, presented like any other plan | Actions weaker than 2 pp are flagged: best available, marginal, decide whether it is worth the meeting |
+| The same environmental note repeated on **126 of 172 cards** | Stated once, at cohort level; only genuinely distinguishing notes stay per-case |
+| Raw column names (`BusinessTravel_freq`) leaking into reviewer-facing text | Human labels throughout |
+| No guidance on using this **with a person** | A "Before you open a single case" section: do not tell anyone a model flagged them; two in five High flags will not materialise; never act on standing, pay or progression |
+| No generation date, no note on identifiers | Both added |
+
+The fifth row is the one that matters. Everything else is polish; a document
+that tells a manager to open a conversation, with no guidance on how to do that
+without harming the person, is the kind of gap that only shows up when you read
+it as the person who has to hold the meeting.
+
+**What this is still not.** Nobody who does this job has read it. The remaining
+study is small and specific: give one reviewer five cases from BASELINE+ and
+five from the agent, unlabelled and shuffled, and ask which they would rather
+receive, which they could act on without looking anything up, and whether
+anything in it should not be put in front of the person it describes.
 
 The honest summary: **a credible prototype of a real solution to a real problem,
 evaluated rigorously against a fair baseline on fictional data.** The evaluation
