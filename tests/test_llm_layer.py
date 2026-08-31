@@ -235,3 +235,53 @@ def test_every_preset_is_complete():
 def test_describe_never_contains_the_api_key(monkeypatch, openai_provider):
     monkeypatch.setattr(llm, "API_KEY", "sk-super-secret-value")
     assert "secret" not in llm.describe()
+
+
+# --- Anthropic path: regressions from a previous round of fixes ------------
+
+def test_anthropic_merges_consecutive_user_messages(monkeypatch):
+    """
+    Anthropic rejects two `user` turns in a row. The Mode 2/3 loop produces
+    exactly that: a tool_result (which becomes role=user) followed by the
+    "Call a tool, or call finalize" nudge.
+    """
+    monkeypatch.setattr(llm, "PROVIDER", "anthropic")
+    monkeypatch.setattr(llm, "API_KEY", "k")
+    seen = {}
+    monkeypatch.setattr(llm, "_post_json", lambda u, p, h: (
+        seen.update(p), {"content": [{"type": "text", "text": "ok"}], "usage": {}})[1])
+
+    llm.chat([
+        {"role": "user", "content": "investigate"},
+        {"role": "assistant", "tool_calls": [
+            {"id": "t1", "function": {"name": "f", "arguments": "{}"}}]},
+        {"role": "tool", "tool_call_id": "t1", "content": "42"},
+        {"role": "user", "content": "Call a tool, or call finalize to stop."},
+    ])
+    roles = [m["role"] for m in seen["messages"]]
+    assert all(not (a == b == "user") for a, b in zip(roles, roles[1:])), roles
+
+
+def test_anthropic_honours_the_max_tokens_floor(monkeypatch):
+    """
+    Current Claude models think by default and thinking counts against
+    max_tokens, so a 200-token ceiling can be spent before any visible output.
+    The floor was applied to the OpenAI-compatible path only.
+    """
+    monkeypatch.setattr(llm, "PROVIDER", "anthropic")
+    monkeypatch.setattr(llm, "API_KEY", "k")
+    seen = {}
+    monkeypatch.setattr(llm, "_post_json", lambda u, p, h: (
+        seen.update(p), {"content": [{"type": "text", "text": "ok"}], "usage": {}})[1])
+    llm.chat([{"role": "user", "content": "x"}], max_tokens=200)
+    assert seen["max_tokens"] >= llm.MIN_MAX_TOKENS
+
+
+def test_anthropic_preset_names_a_current_model():
+    """
+    A default nobody can call is worse than no default. Guards against both
+    invented IDs and silently ageing ones.
+    """
+    model = llm.PRESETS["anthropic"]["model"]
+    assert model.startswith("claude-")
+    assert "claude-3" not in model, f"{model} is two generations old"

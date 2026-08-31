@@ -78,7 +78,10 @@ PRESETS = {
     },
     "anthropic": {
         "base_url": "",                       # native API, not OpenAI-compatible
-        "model": "claude-3-5-sonnet-20241022",
+        # Current model. A previous fix replaced a non-existent ID with
+        # claude-3-5-sonnet-20241022, which exists but is two generations old;
+        # override with LLM_MODEL if you want a cheaper tier.
+        "model": "claude-opus-5",
     },
     "ollama": {
         "base_url": "http://localhost:11434/v1",
@@ -394,7 +397,12 @@ def _call_anthropic(messages: list, tools: list = None, max_tokens: int = 400) -
 
     payload = {
         "model": active_model(),
-        "max_tokens": max_tokens,
+        # Same floor as the OpenAI-compatible path. Current Claude models think
+        # by default, and thinking tokens count against max_tokens — a 200-token
+        # ceiling can be consumed entirely before a single visible token is
+        # emitted, leaving `content` empty. The floor was applied on one path
+        # and not the other.
+        "max_tokens": max(max_tokens, MIN_MAX_TOKENS),
         "messages": merged_messages,
     }
     if system:
