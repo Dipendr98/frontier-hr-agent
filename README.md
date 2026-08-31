@@ -76,6 +76,41 @@ Note the counter-metric moved slightly *against* us (31.7% → 33.3%) in the
 second build pass. That is discussed rather than buried — see
 [CHANGELOG.md](CHANGELOG.md) § An honest note on the counter-metric.
 
+### In the brief's summary format
+
+| Metric | Simple baseline | Agent solution | Change |
+|---|---:|---:|---|
+| **Primary outcome** — reviewer case quality | 42.8% | **93.0%** | +50.2pp |
+| — versus the strengthened baseline | 68.4% | **93.0%** | **+24.6pp** |
+| Verifiable evidence per case | 0.00 | **2.56** | 0 → 220 statements |
+| Cases with unverifiable claims | 0 | **0** | unchanged |
+| Machine time per case | 0.6 ms | 2.7 ms | +2.1 ms |
+| **Cost per case** | $0.00 | **$0.00** | unchanged |
+| Human time per case | *not measured* | *not measured* | — |
+
+**On cost.** The reported configuration uses no API calls at all, so the honest
+figure is zero and it is zero for both columns. With an LLM provider enabled the
+optional prose layer adds two short completions per case — under $0.01 on every
+provider listed in `.env.example`, and $0 on the free NVIDIA tier we used. The
+meter is real: every run reports its own token count and estimated cost.
+
+**On human time — the row we cannot fill.** The brief asks for it and we do not
+have it, so it is blank rather than estimated. Measuring it means timing a real
+reviewer reconstructing a case from the raw record versus reading the generated
+one, and no HR reviewer has used this system. Guessing "saves 20 minutes per
+case" would be the single least defensible number in this report, and the
+project deletes numbers like that elsewhere (see the removed ROI estimates in
+[CHANGELOG.md](CHANGELOG.md)). What we can measure — whether the case contains
+verifiable, case-specific, actionable evidence — is what the primary metric
+scores.
+
+**Disclosed resource difference.** All three systems share the same trained
+model, the same feature set, the same risk thresholds and the same 86 frozen
+holdout cases. The agent may additionally call tools the baselines do not: logit
+decomposition, cohort percentile, and intervention simulation. Those tools *are*
+the intervention under evaluation, so the difference is the point rather than a
+confound — but it is stated here so a reader can weigh it.
+
 ### The rubric
 
 **Reviewer Case Quality Score**, 0–5 per case, five dimensions any of the three
