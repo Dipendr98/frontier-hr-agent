@@ -113,7 +113,7 @@ def score_case(case_result: dict, employee: dict, features: list) -> dict:
     if not flagged:
         d4 = 1 if actual_attrition == 0 else 0   # correctly doing nothing counts
     else:
-        d4 = int(bool(targets & ACTIONABLE_FEATURES & (cited or targets)))
+        d4 = int(bool(targets & ACTIONABLE_FEATURES & cited))
 
     # 5. Proportionality
     level = case_result.get("risk_level")

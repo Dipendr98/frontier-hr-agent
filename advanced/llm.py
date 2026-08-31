@@ -78,7 +78,7 @@ PRESETS = {
     },
     "anthropic": {
         "base_url": "",                       # native API, not OpenAI-compatible
-        "model": "claude-sonnet-4-6",
+        "model": "claude-3-5-sonnet-20241022",
     },
     "ollama": {
         "base_url": "http://localhost:11434/v1",
@@ -377,10 +377,25 @@ def _call_anthropic(messages: list, tools: list = None, max_tokens: int = 400) -
     system = "\n\n".join(m["content"] for m in messages if m.get("role") == "system")
     convo = [m for m in messages if m.get("role") != "system"]
 
+    raw_messages = [_to_anthropic_message(m) for m in convo]
+    merged_messages = []
+    for rm in raw_messages:
+        if merged_messages and merged_messages[-1]["role"] == rm["role"] == "user":
+            if isinstance(merged_messages[-1]["content"], list) and isinstance(rm["content"], list):
+                merged_messages[-1]["content"].extend(rm["content"])
+            elif isinstance(merged_messages[-1]["content"], str) and isinstance(rm["content"], list):
+                merged_messages[-1]["content"] = [{"type": "text", "text": merged_messages[-1]["content"]}] + rm["content"]
+            elif isinstance(merged_messages[-1]["content"], list) and isinstance(rm["content"], str):
+                merged_messages[-1]["content"].append({"type": "text", "text": rm["content"]})
+            else:
+                merged_messages[-1]["content"] += "\n" + rm["content"]
+        else:
+            merged_messages.append(rm)
+
     payload = {
         "model": active_model(),
         "max_tokens": max_tokens,
-        "messages": [_to_anthropic_message(m) for m in convo],
+        "messages": merged_messages,
     }
     if system:
         payload["system"] = system
