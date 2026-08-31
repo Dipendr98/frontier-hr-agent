@@ -28,12 +28,12 @@
       "n_cases": 86,
       "n_leavers": 26,
       "n_stayers": 60,
-      "reviewer_case_quality_mean": 3.163,
-      "reviewer_case_quality_pct": 0.6326,
+      "reviewer_case_quality_mean": 3.419,
+      "reviewer_case_quality_pct": 0.6837,
       "d1_correct_triage": 0.6977,
       "d2_evidence_present": 0.5116,
       "d3_evidence_verifiable": 0.5116,
-      "d4_action_has_mechanism": 0.4419,
+      "d4_action_has_mechanism": 0.6977,
       "d5_proportionate": 1.0,
       "catch_rate_with_verified_evidence": 0.8462,
       "raw_flag_rate_on_leavers": 0.8462,
@@ -60,13 +60,13 @@
       "unverifiable_evidence_claims": 0,
       "wasted_intervention_rate": 0.3333,
       "total_interventions_proposed": 42,
-      "wall_clock_seconds": 0.22,
+      "wall_clock_seconds": 0.23,
       "avg_tool_calls": 5.8,
       "escalated_to_human": 0
     }
   },
   "headline_delta_vs_strongest_baseline": {
-    "reviewer_case_quality_pct": 0.2976,
+    "reviewer_case_quality_pct": 0.2465,
     "wasted_intervention_rate": -0.0334
   }
 }

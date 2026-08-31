@@ -6,7 +6,7 @@ import streamlit as st
 from advanced import llm
 from advanced.memory import CohortMemory
 from advanced.orchestration import llm_agent, workflow
-from app_shared import (get_toolbox, provider_status, render_employee_profile,
+from app_shared import (load_cohort, provider_status, render_employee_profile,
                         render_evidence, render_risk, render_sidebar_provider,
                         render_status)
 
@@ -33,7 +33,7 @@ with st.sidebar:
                                 help="Optional. Defaults to the prepared IBM "
                                      "onboarding cohort.")
 
-toolbox = get_toolbox(uploaded.getvalue() if uploaded else None)
+toolbox = load_cohort(uploaded)
 df = toolbox.cohort
 render_sidebar_provider()
 

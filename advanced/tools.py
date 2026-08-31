@@ -85,6 +85,10 @@ INTERVENTION_CATALOG = {
     },
 }
 
+# Below this, cohort percentiles are not a meaningful statement about anyone,
+# so a cohort this small is refused rather than scored.
+MIN_COHORT_ROWS = 20
+
 # Ranges the survey-style features are valid within, so simulations stay
 # inside the space the model was trained on.
 FEATURE_BOUNDS = {
@@ -134,6 +138,69 @@ def evidence_statement(label: str, value: float, cohort_mean: float,
     )
 
 
+class CohortSchemaError(ValueError):
+    """
+    A supplied cohort cannot be scored by this model.
+
+    Raised with a message written for the person who supplied the file, not for
+    a stack trace. The dashboard's CSV upload and the cohort runner's `--data`
+    flag both accept arbitrary files, and before this existed every wrong file
+    produced a different raw exception from somewhere deep in pandas or
+    scikit-learn — `KeyError: 'employee_id'`, a reduction error on a string
+    column, or a feature-name mismatch from inside the pipeline. None of those
+    tell you what to fix.
+    """
+
+
+def expected_features(model_dir: str = MODEL_DIR) -> list:
+    """The feature names the trained model declares. One source of truth."""
+    model = joblib.load(os.path.join(model_dir, "attrition_model.joblib"))
+    return list(getattr(model, "feature_names_in_", []))
+
+
+def validate_cohort(df: pd.DataFrame, expected: list) -> list:
+    """
+    Check a cohort against the trained model's schema. Returns a list of
+    human-readable problems; empty means it can be scored.
+
+    Ordered deliberately: structural problems first (is this even a cohort
+    file?), then schema, then dtypes. Reporting "column X is not numeric" for a
+    file that is actually a PDF would send someone in the wrong direction.
+    """
+    problems = []
+    if df is None or df.empty:
+        return ["The file is empty, or could not be read as a CSV. "
+                "This uploader takes a CSV — not a PDF, Excel file, or Word document."]
+
+    if "employee_id" not in df.columns:
+        problems.append(
+            "No `employee_id` column. Every row needs an identifier so a "
+            "reviewer can tell whose case they are reading. Columns found: "
+            + ", ".join(map(str, df.columns[:12]))
+            + (" ..." if len(df.columns) > 12 else ""))
+
+    missing = [c for c in expected if c not in df.columns]
+    if missing:
+        problems.append(
+            f"Missing {len(missing)} feature(s) the model was trained on: "
+            + ", ".join(missing)
+            + ". The model cannot score a record without them.")
+
+    for col in expected:
+        if col in df.columns and not pd.api.types.is_numeric_dtype(df[col]):
+            sample = df[col].dropna().astype(str).head(2).tolist()
+            problems.append(
+                f"`{col}` is not numeric (found e.g. {sample}). Survey scales "
+                "must be numbers, not labels like 'high' or 'yes'.")
+
+    if not problems and len(df) < MIN_COHORT_ROWS:
+        problems.append(
+            f"Only {len(df)} row(s). Evidence here is relative to the cohort — "
+            f"a percentile over {len(df)} people is not meaningful. At least "
+            f"{MIN_COHORT_ROWS} rows are needed.")
+    return problems
+
+
 class ToolBox:
     """All tools available to the agents."""
 
@@ -143,9 +210,17 @@ class ToolBox:
             self.cohort = dataframe
         else:
             self.cohort = pd.read_csv(data_path)
-        
-        self.features = [c for c in self.cohort.columns
-                         if c not in ("employee_id", "attrition")]
+
+        # Validate against the schema the MODEL declares, not against whatever
+        # the file happens to contain — extra columns are fine and ignored,
+        # missing or non-numeric ones are not.
+        expected = list(getattr(self.model, "feature_names_in_", []))
+        problems = validate_cohort(self.cohort, expected)
+        if problems:
+            raise CohortSchemaError("\n".join(problems))
+
+        self.features = expected or [c for c in self.cohort.columns
+                                     if c not in ("employee_id", "attrition")]
         self.call_log = []
 
         # Sorted copy of each feature column, built once.

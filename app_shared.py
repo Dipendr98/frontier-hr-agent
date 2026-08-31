@@ -16,10 +16,15 @@ import pandas as pd
 import streamlit as st
 
 from advanced import llm
-from advanced.tools import FEATURE_META, ToolBox
+from advanced.tools import (FEATURE_META, CohortSchemaError,  # noqa: F401
+                            ToolBox, expected_features)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 EVIDENCE_DIR = os.path.join(BASE_DIR, "evidence")
+
+# The schema an uploaded cohort must satisfy, read from the trained model
+# itself so it can never drift from what the model actually needs.
+EXPECTED_FEATURES = expected_features()
 
 RISK_COLOUR = {"High": "red", "Medium": "orange", "Low": "green"}
 STATUS_BADGE = {
@@ -44,7 +49,63 @@ def get_toolbox(data_bytes: bytes = None) -> ToolBox:
     if data_bytes is None:
         return ToolBox()
     import io
-    return ToolBox(dataframe=pd.read_csv(io.BytesIO(data_bytes)))
+
+    # Sniff the format before parsing.
+    #
+    # pandas does not reliably refuse a non-CSV: handed a PDF it read the
+    # "%PDF-1.4" header as a single-column table, and the run then failed three
+    # checks later with "No employee_id column" — technically true, and pointing
+    # at entirely the wrong problem. Naming the actual file type is the
+    # difference between fixing it in ten seconds and editing a spreadsheet that
+    # was never wrong.
+    WRONG_TYPES = [(b"%PDF", "a PDF"),
+                   (b"PK\x03\x04", "an Excel (.xlsx) or Word (.docx) file"),
+                   (b"\xd0\xcf\x11\xe0", "a legacy Excel or Word file"),
+                   (b"{", "a JSON file"),
+                   (b"<", "an HTML or XML file")]
+    head = data_bytes.lstrip()[:8]
+    for magic, described in WRONG_TYPES:
+        if head[:len(magic)] == magic:
+            raise CohortSchemaError(
+                f"This looks like {described}, not a CSV. Open it in Excel or "
+                "Google Sheets and use File → Save as / Export → CSV, then "
+                "upload that.")
+
+    try:
+        df = pd.read_csv(io.BytesIO(data_bytes))
+    except Exception as e:
+        raise CohortSchemaError(
+            "This file could not be read as a CSV. The uploader takes a plain "
+            "CSV — one header row, then one row per employee, comma separated.\n"
+            f"(the parser reported: {type(e).__name__})")
+    return ToolBox(dataframe=df)
+
+
+def load_cohort(uploaded):
+    """
+    Build a ToolBox from an upload, or explain the problem and stop the page.
+
+    Every wrong file used to reach the user as a raw traceback from inside
+    pandas or scikit-learn — `KeyError: 'employee_id'`, a median-on-strings
+    error, a feature-name mismatch. Those are accurate and useless. A person
+    who uploaded the wrong file needs to know what this expects, so that is
+    what gets shown.
+    """
+    try:
+        return get_toolbox(uploaded.getvalue() if uploaded else None)
+    except CohortSchemaError as e:
+        st.error("This file can't be scored by the trained model.",
+                 icon=":material/error:")
+        for line in str(e).splitlines():
+            if line.strip():
+                st.markdown(f"- {line}")
+        with st.expander("What this expects", icon=":material/table_rows:"):
+            st.markdown(
+                "A CSV with one row per employee, an `employee_id` column, and "
+                "these 13 numeric columns. Extra columns are ignored.")
+            st.code("employee_id," + ",".join(EXPECTED_FEATURES), language="text")
+            st.caption("`data/onboarding_data.csv` in the repo is a working example.")
+        st.stop()
 
 
 def load_evidence(name: str):

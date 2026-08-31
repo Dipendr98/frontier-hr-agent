@@ -42,7 +42,7 @@ import pandas as pd
 from advanced import llm
 from advanced.memory import CohortMemory
 from advanced.orchestration.workflow import run_for_employee
-from advanced.tools import ToolBox
+from advanced.tools import CohortSchemaError, ToolBox, expected_features
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 EVIDENCE_DIR = os.path.join(BASE_DIR, "evidence")
@@ -325,8 +325,23 @@ def main():
                          "completion per agent per case; changes no decision)")
     args = ap.parse_args()
 
-    report = run_cohort(limit=args.limit, use_memory=not args.no_memory,
-                        data_path=args.data, narrate=args.narrate)
+    # A person who passed the wrong --data file needs to be told which file and
+    # what is wrong with it, not shown where in our call stack it was noticed.
+    # The dashboard already handled this; the CLI was still raising, which is
+    # the same defect wearing a different interface.
+    try:
+        report = run_cohort(limit=args.limit, use_memory=not args.no_memory,
+                            data_path=args.data, narrate=args.narrate)
+    except FileNotFoundError:
+        raise SystemExit(f"No such file: {args.data}")
+    except CohortSchemaError as e:
+        raise SystemExit(
+            f"{args.data} cannot be scored by the trained model:\n\n"
+            + "\n".join(f"  - {line}" for line in str(e).splitlines() if line.strip())
+            + "\n\nExpected a CSV with an `employee_id` column plus these "
+              "numeric columns (extra columns are ignored):\n  "
+            + ", ".join(expected_features())
+            + "\n\ndata/onboarding_data.csv is a working example.")
 
     print(f"Reviewed {report['n_employees']} employees in "
           f"{report['wall_clock_seconds']}s "

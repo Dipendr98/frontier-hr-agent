@@ -6,7 +6,7 @@ recommendations filtered out, and a human making every decision that touches a
 person.
 
 ```bash
-git clone https://github.com/Dipendr98/frontier-hr-agent.git && cd frontier-hr-agent
+git clone <repo> && cd frontier-hr-agent
 ./run_all.sh          # ~60 seconds, no API keys, $0
 ```
 
@@ -45,20 +45,21 @@ after the score.
 
 **BASELINE** — score + static risk-band rules.
 **BASELINE+** — the same, plus the employee's largest cohort deviation cited as
-a reason. This exists so the agent cannot win by construction: a metric that
-rewards evidence would beat an opponent that returns none, so we built the
-strongest cheap alternative — score, top deviation, template — and ran it under
-the identical rubric.
+a reason **and the intervention that has a lever on it**. This exists so the
+agent cannot win by construction: a metric that rewards evidence would beat an
+opponent that returns none, so we built the strongest cheap alternative and ran
+it under the identical rubric. It was under-powered on the first attempt and we
+found that by auditing it — see [CHANGELOG.md](CHANGELOG.md) § It. 21.
 **AGENT** — the full workflow.
 
 | Metric | BASELINE | BASELINE+ | AGENT |
 |---|---:|---:|---:|
-| **Reviewer case quality** (primary) | 42.8% | 63.3% | **93.0%** |
-| mean score (0–5) | 2.14 | 3.16 | **4.65** |
+| **Reviewer case quality** (primary) | 42.8% | 68.4% | **93.0%** |
+| mean score (0–5) | 2.14 | 3.42 | **4.65** |
 | — d1 correct triage | 69.8% | 69.8% | 72.1% |
 | — d2 evidence present | 0.0% | 51.2% | 98.8% |
 | — d3 evidence verifiable | 0.0% | 51.2% | 98.8% |
-| — d4 action has a mechanism | 44.2% | 44.2% | 95.3% |
+| — d4 action has a mechanism | 44.2% | 69.8% | 95.3% |
 | — d5 proportionate | 100% | 100% | 100% |
 | **Wasted intervention rate** (counter) | 36.7% | 36.7% | 33.3% |
 | Catch rate w/ verified evidence | 0.0% | 84.6% | 84.6% |
@@ -68,7 +69,7 @@ the identical rubric.
 | Avg tool calls per case | 0 | 0 | 5.8 |
 | Wall clock, 86 cases | 0.05s | 0.05s | 0.25s |
 
-**The headline is +29.8pp over BASELINE+**, not the larger gap over the naive
+**The headline is +24.6pp over BASELINE+**, not the larger gap over the naive
 baseline. We report the harder comparison because it is the honest one.
 
 Note the counter-metric moved slightly *against* us (31.7% → 33.3%) in the
@@ -357,7 +358,7 @@ Trajectory:
 Python 3.11+. **Total runtime ~60 seconds from an empty virtualenv. No API keys required, $0 cost.**
 
 ```bash
-git clone https://github.com/Dipendr98/frontier-hr-agent.git && cd frontier-hr-agent
+git clone <repo> && cd frontier-hr-agent
 ./run_all.sh          # creates .venv, installs pinned deps, runs everything
 ```
 
