@@ -513,6 +513,37 @@ command to run rather than showing a traceback.
 `LLM_PRESET`, `LLM_API_KEY` and `LLM_TIMEOUT` as environment variables — never in
 the image.
 
+```bash
+docker build -t frontier-hr .
+docker run -p 8501:8501 frontier-hr
+```
+
+**The container is a second reproducibility check, not just a deployment
+target.** It runs **Python 3.11** where development was on **3.14**, and it
+retrains the model at build time rather than shipping the committed artifact —
+so if the pinned versions did not actually determine the result, the container
+would disagree with the README. It does not:
+
+| | Host (Python 3.14) | Container (Python 3.11.16) |
+|---|---:|---:|
+| Reviewer case quality | 42.8 / 68.4 / **93.0%** | 42.8 / 68.4 / **93.0%** |
+| ROC-AUC | 0.798 | 0.798 |
+| 5-fold CV ROC-AUC | 0.826 | 0.826 |
+| Data SHA-256 (16) | `d2368983a4fc7c12` | `d2368983a4fc7c12` |
+| Tests | 107 passed, 7 skipped | 107 passed, 7 skipped |
+
+Verify it yourself against a running container:
+
+```bash
+docker exec <container> python evaluation/evaluate.py
+docker exec -e FRONTIER_SKIP_LIVE=1 <container> python -m pytest tests/ -q
+```
+
+A `HEALTHCHECK` polls Streamlit's `/_stcore/health`, and `CMD` uses
+`exec` so the app is PID 1 and receives SIGTERM directly — without that,
+`docker stop` waited the full 10-second grace period and then killed it, which
+on a managed platform is an unclean shutdown on every deploy.
+
 ---
 
 ## Data

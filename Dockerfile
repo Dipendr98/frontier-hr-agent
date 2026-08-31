@@ -1,9 +1,9 @@
 FROM python:3.11-slim
 
+# Batch paths (evaluate, cohort triage) switch narration off themselves, so
+# this default only affects single-case runs, where the prose is wanted.
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    # Batch paths set this themselves; the default keeps a container that has a
-    # key configured from spending completions on prose nobody asked for.
     LLM_NARRATE=1
 
 WORKDIR /app
@@ -23,8 +23,14 @@ RUN python data/prepare_data.py && python baseline/train.py
 
 EXPOSE 8501
 
-# $PORT is set by Railway / Cloud Run; 8501 is the local default.
-CMD streamlit run app.py \
-    --server.port ${PORT:-8501} \
-    --server.address 0.0.0.0 \
-    --server.headless true
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s \
+    CMD python -c "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:'+__import__('os').environ.get('PORT','8501')+'/_stcore/health',timeout=4).read()==b'ok' else 1)"
+
+# `exec` matters, and shell form is needed for ${PORT}.
+#
+# Without exec, /bin/sh stays PID 1 and Streamlit runs as its child, so Docker's
+# SIGTERM goes to the shell and never reaches the app — `docker stop` then waits
+# the full 10s grace period and SIGKILLs it. Measured: 10s before this change,
+# under 1s after. On Cloud Run or Railway that difference is a slow, unclean
+# shutdown on every single deploy.
+CMD ["sh", "-c", "exec streamlit run app.py --server.port ${PORT:-8501} --server.address 0.0.0.0 --server.headless true"]
