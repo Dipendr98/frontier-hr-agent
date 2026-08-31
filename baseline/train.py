@@ -11,8 +11,12 @@ What is here:
     each CV fold, not leaked across folds
   - class_weight='balanced' because attrition is the minority class
   - a held-out test set touched once, at the end
-  - the measured AUC cost of excluding protected attributes, so the ethical
-    choice is reported with a number attached rather than asserted
+  - an environment and data fingerprint, so a reviewer can confirm the
+    artifact matches the report rather than discovering a drift silently
+
+The AUC cost of excluding protected attributes is measured in
+baseline/fairness_cost.py, not here — this docstring used to claim it was in
+this file, which it never was.
 """
 import json
 import os

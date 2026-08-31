@@ -16,7 +16,8 @@ Three decisions are made here, all deliberate and all defensible:
    routes retention interventions by protected class is not deployable
    whatever its AUC, and the hackathon rulebook requires an ethical use of
    people's data. The measured cost of this exclusion is reported in
-   evidence/fairness_note.md rather than hidden.
+   evidence/fairness_cost.json rather than hidden — run
+   `python baseline/fairness_cost.py` to regenerate it.
 
 3. NO FABRICATED PRODUCTIVITY TARGET. The raw data has no time-to-
    productivity column. Rather than invent one, the regression head is
@@ -76,8 +77,31 @@ def prepare() -> pd.DataFrame:
     df["OverTime_flag"] = (df["OverTime"] == "Yes").astype(int)
     df["BusinessTravel_freq"] = df["BusinessTravel"].map(BUSINESS_TRAVEL_MAP).fillna(1).astype(int)
 
+    # The exclusions above are enforced here, not merely announced.
+    #
+    # `keep` is a whitelist, so the protected attributes are absent as a side
+    # effect of not being listed — which means the script would happily print
+    # "Excluded (protected): ['Gender', ...]" while including Gender, if anyone
+    # ever added it to FEATURES. A claim that can go quietly false is the exact
+    # defect this project found in its own evidence gate, so it is asserted.
+    banned = set(PROTECTED_ATTRIBUTES) | set(CONSTANT_COLUMNS) | set(LEAKY_OR_ID)
+    leaked = banned & set(FEATURES)
+    if leaked:
+        raise ValueError(
+            f"FEATURES contains excluded column(s): {sorted(leaked)}. "
+            "Protected attributes, constant columns and identifiers must not "
+            "be modelled.")
+
     keep = ["employee_id", "attrition"] + FEATURES
     out = df[keep].dropna().reset_index(drop=True)
+
+    # Nothing should be lost here — the tenure filter already selected complete
+    # rows. Say so if that ever stops being true, rather than silently shipping
+    # a smaller cohort than the README describes.
+    dropped = len(df) - len(out)
+    if dropped:
+        print(f"WARNING: dropped {dropped} row(s) with missing values "
+              f"({len(df)} -> {len(out)})")
     return out
 
 

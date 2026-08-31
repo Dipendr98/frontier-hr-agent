@@ -3,8 +3,8 @@
   "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
   "memory": "enabled",
   "n_employees": 342,
-  "wall_clock_seconds": 1.84,
-  "seconds_per_case": 0.0054,
+  "wall_clock_seconds": 1.77,
+  "seconds_per_case": 0.0052,
   "status_counts": {
     "ESCALATED": 1,
     "APPROVED_FOR_REVIEW": 172,
@@ -38,13 +38,13 @@
     }
   ],
   "llm_usage": {
-    "llm_calls": 2,
+    "llm_calls": 0,
     "retries": 0,
     "failures": 0,
-    "prompt_tokens": 390,
-    "completion_tokens": 173,
-    "total_tokens": 563,
-    "llm_seconds": 12.53,
+    "prompt_tokens": 0,
+    "completion_tokens": 0,
+    "total_tokens": 0,
+    "llm_seconds": 0.0,
     "estimated_cost_usd": 0.0,
     "cost_basis": "ESTIMATED from published per-token rates for nvidia/nemotron-3-super-120b-a12b; not a billing record."
   },
