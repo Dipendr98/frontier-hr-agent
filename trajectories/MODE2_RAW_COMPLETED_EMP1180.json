@@ -1,0 +1,333 @@
+{
+  "employee_id": "EMP1180",
+  "mode": "MODE_2_RAW",
+  "status": "COMPLETED",
+  "requires_human_decision": false,
+  "tool_calls_used": 11,
+  "verify_retries": 0,
+  "usage": {
+    "llm_calls": 12,
+    "total_tokens": 35629,
+    "estimated_cost_usd": 0.0,
+    "wall_clock_seconds": 45.39
+  },
+  "final_decision": {
+    "risk_level": "High",
+    "confirmed_drivers": [
+      "OverTime_flag",
+      "BusinessTravel_freq",
+      "DistanceFromHome",
+      "WorkLifeBalance",
+      "JobInvolvement"
+    ],
+    "recommended_intervention": "workload_review",
+    "rationale": "Employee shows extremely high attrition risk (89.5%). Five drivers were verified as both material contributors to risk (logit_contribution >= 0.4) and unusual compared to cohort (severity_percentile <= 35.0): working overtime (contribution 1.209, percentile 30.4), frequent business travel (1.1822, 19.3), long commute (0.9528, 3.5), poor work-life balance (0.5309, 0.0), and low job involvement (0.384, 6.4). Workload review intervention shows the largest potential risk reduction (-37.6 percentage points) by addressing overtime and work-life balance issues, outperforming ownership_assignment (-7.0 pp)."
+  },
+  "verification": null,
+  "trace": [
+    {
+      "step": "start",
+      "employee_id": "EMP1180",
+      "mode": "MODE_2_RAW",
+      "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+      "tool_budget": 12
+    },
+    {
+      "step": "tool_call",
+      "turn": 1,
+      "n": 1,
+      "tool": "get_employee_profile",
+      "args": {
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "employee_id": "EMP1180",
+        "attrition": 0,
+        "JobSatisfaction": 4,
+        "EnvironmentSatisfaction": 3,
+        "JobInvolvement": 2,
+        "WorkLifeBalance": 1,
+        "RelationshipSatisfaction": 4,
+        "TrainingTimesLastYear": 3,
+        "OverTime_flag": 1,
+        "DistanceFromHome": 26,
+        "BusinessTravel_freq": 2,
+        "JobLevel": 2,
+        "StockOptionLevel": 1,
+        "NumCompaniesWorked": 3,
+        "YearsWithCurrManager": 0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 2,
+      "n": 2,
+      "tool": "predict_risk",
+      "args": {
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "attrition_probability": 0.8954
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 3,
+      "n": 3,
+      "tool": "get_risk_drivers",
+      "args": {
+        "employee_id": "EMP1180",
+        "top_n": 10
+      },
+      "result": [
+        {
+          "feature": "OverTime_flag",
+          "label": "Working overtime",
+          "value": 1.0,
+          "cohort_mean": 0.3,
+          "logit_contribution": 1.209,
+          "raises_risk": true
+        },
+        {
+          "feature": "BusinessTravel_freq",
+          "label": "Business travel frequency",
+          "value": 2.0,
+          "cohort_mean": 1.1,
+          "logit_contribution": 1.1822,
+          "raises_risk": true
+        },
+        {
+          "feature": "DistanceFromHome",
+          "label": "Commute distance",
+          "value": 26.0,
+          "cohort_mean": 9.1,
+          "logit_contribution": 0.9528,
+          "raises_risk": true
+        },
+        {
+          "feature": "WorkLifeBalance",
+          "label": "Work-life balance",
+          "value": 1.0,
+          "cohort_mean": 2.75,
+          "logit_contribution": 0.5309,
+          "raises_risk": true
+        },
+        {
+          "feature": "JobInvolvement",
+          "label": "Job involvement",
+          "value": 2.0,
+          "cohort_mean": 2.66,
+          "logit_contribution": 0.384,
+          "raises_risk": true
+        },
+        {
+          "feature": "YearsWithCurrManager",
+          "label": "Years with current manager",
+          "value": 0.0,
+          "cohort_mean": 0.68,
+          "logit_contribution": 0.3221,
+          "raises_risk": true
+        },
+        {
+          "feature": "NumCompaniesWorked",
+          "label": "Previous employers",
+          "value": 3.0,
+          "cohort_mean": 3.16,
+          "logit_contribution": -0.0055,
+          "raises_risk": false
+        },
+        {
+          "feature": "TrainingTimesLastYear",
+          "label": "Training sessions attended",
+          "value": 3.0,
+          "cohort_mean": 2.8,
+          "logit_contribution": -0.0167,
+          "raises_risk": false
+        },
+        {
+          "feature": "StockOptionLevel",
+          "label": "Stock option level",
+          "value": 1.0,
+          "cohort_mean": 0.7,
+          "logit_contribution": -0.1692,
+          "raises_risk": false
+        },
+        {
+          "feature": "EnvironmentSatisfaction",
+          "label": "Environment satisfaction",
+          "value": 3.0,
+          "cohort_mean": 2.69,
+          "logit_contribution": -0.1937,
+          "raises_risk": false
+        }
+      ]
+    },
+    {
+      "step": "tool_call",
+      "turn": 4,
+      "n": 4,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP1180",
+        "feature": "OverTime_flag"
+      },
+      "result": {
+        "feature": "OverTime_flag",
+        "value": 1.0,
+        "percentile": 69.6,
+        "bad_when": "high",
+        "severity_percentile": 30.4,
+        "cohort_median": 0.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 5,
+      "n": 5,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP1180",
+        "feature": "BusinessTravel_freq"
+      },
+      "result": {
+        "feature": "BusinessTravel_freq",
+        "value": 2.0,
+        "percentile": 80.7,
+        "bad_when": "high",
+        "severity_percentile": 19.3,
+        "cohort_median": 1.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 6,
+      "n": 6,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "DistanceFromHome",
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "feature": "DistanceFromHome",
+        "value": 26.0,
+        "percentile": 96.5,
+        "bad_when": "high",
+        "severity_percentile": 3.5,
+        "cohort_median": 7.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 7,
+      "n": 7,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "WorkLifeBalance",
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "feature": "WorkLifeBalance",
+        "value": 1.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 3.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 8,
+      "n": 8,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP1180",
+        "feature": "JobInvolvement"
+      },
+      "result": {
+        "feature": "JobInvolvement",
+        "value": 2.0,
+        "percentile": 6.4,
+        "bad_when": "low",
+        "severity_percentile": 6.4,
+        "cohort_median": 3.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 9,
+      "n": 9,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "employee_id": "EMP1180",
+        "feature": "YearsWithCurrManager"
+      },
+      "result": {
+        "feature": "YearsWithCurrManager",
+        "value": 0.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 0.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 10,
+      "n": 10,
+      "tool": "simulate_intervention",
+      "args": {
+        "employee_id": "EMP1180",
+        "intervention_key": "workload_review"
+      },
+      "result": {
+        "intervention": "workload_review",
+        "label": "Review workload and reduce overtime",
+        "risk_before": 0.8954,
+        "risk_after_simulated": 0.519,
+        "delta_pp": -37.64,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 11,
+      "n": 11,
+      "tool": "simulate_intervention",
+      "args": {
+        "employee_id": "EMP1180",
+        "intervention_key": "ownership_assignment"
+      },
+      "result": {
+        "intervention": "ownership_assignment",
+        "label": "Assign clear ownership of a meaningful workstream",
+        "risk_before": 0.8954,
+        "risk_after_simulated": 0.8251,
+        "delta_pp": -7.03,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "finalize",
+      "turn": 12,
+      "decision": {
+        "risk_level": "High",
+        "confirmed_drivers": [
+          "OverTime_flag",
+          "BusinessTravel_freq",
+          "DistanceFromHome",
+          "WorkLifeBalance",
+          "JobInvolvement"
+        ],
+        "recommended_intervention": "workload_review",
+        "rationale": "Employee shows extremely high attrition risk (89.5%). Five drivers were verified as both material contributors to risk (logit_contribution >= 0.4) and unusual compared to cohort (severity_percentile <= 35.0): working overtime (contribution 1.209, percentile 30.4), frequent business travel (1.1822, 19.3), long commute (0.9528, 3.5), poor work-life balance (0.5309, 0.0), and low job involvement (0.384, 6.4). Workload review intervention shows the largest potential risk reduction (-37.6 percentage points) by addressing overtime and work-life balance issues, outperforming ownership_assignment (-7.0 pp)."
+      }
+    },
+    {
+      "step": "usage",
+      "llm_calls": 12,
+      "total_tokens": 35629,
+      "estimated_cost_usd": 0.0,
+      "wall_clock_seconds": 45.39
+    }
+  ]
+}

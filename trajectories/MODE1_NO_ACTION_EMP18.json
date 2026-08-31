@@ -34,7 +34,7 @@
         "bad_when": "low",
         "has_lever": false,
         "logit_contribution": 0.7268,
-        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit."
+        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73)."
       },
       {
         "feature": "DistanceFromHome",
@@ -46,7 +46,7 @@
         "bad_when": "high",
         "has_lever": false,
         "logit_contribution": 0.5566,
-        "statement": "Commute distance is 19 vs cohort mean 9.1 (83rd percentile, worst 17% of the cohort), contributing +0.56 to the risk logit."
+        "statement": "Commute distance is 19 vs cohort mean 9.1 (83rd percentile, worst 17% of the cohort) \u2014 a smaller contributor (logit +0.56)."
       },
       {
         "feature": "EnvironmentSatisfaction",
@@ -58,7 +58,7 @@
         "bad_when": "low",
         "has_lever": true,
         "logit_contribution": 0.4339,
-        "statement": "Environment satisfaction is 2 vs cohort mean 2.69 (21st percentile, worst 21% of the cohort), contributing +0.43 to the risk logit."
+        "statement": "Environment satisfaction is 2 vs cohort mean 2.69 (21st percentile, worst 21% of the cohort) \u2014 a smaller contributor (logit +0.43)."
       }
     ],
     "rejected_drivers": [
@@ -72,7 +72,7 @@
         "reason_rejected": "contribution_below_floor"
       }
     ],
-    "explanation": "Primary drivers: Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit.; Commute distance is 19 vs cohort mean 9.1 (83rd percentile, worst 17% of the cohort), contributing +0.56 to the risk logit.; Environment satisfaction is 2 vs cohort mean 2.69 (21st percentile, worst 21% of the cohort), contributing +0.43 to the risk logit.",
+    "explanation": "Primary drivers: Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73).; Commute distance is 19 vs cohort mean 9.1 (83rd percentile, worst 17% of the cohort) \u2014 a smaller contributor (logit +0.56).; Environment satisfaction is 2 vs cohort mean 2.69 (21st percentile, worst 21% of the cohort) \u2014 a smaller contributor (logit +0.43).",
     "actionable_features": [
       "EnvironmentSatisfaction"
     ],

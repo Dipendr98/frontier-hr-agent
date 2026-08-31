@@ -163,7 +163,9 @@ def main():
     df = pd.read_csv(os.path.join(BASE_DIR, "data", "onboarding_data.csv"))
 
     for f in os.listdir(HERE):
-        if f.endswith(".json"):
+        if not f.endswith(".json"):
+            continue
+        if f.startswith("MODE1_") or (args.llm and (f.startswith("MODE2_") or f.startswith("MODE3_"))):
             os.remove(os.path.join(HERE, f))
 
     generate_mode1(toolbox, df)

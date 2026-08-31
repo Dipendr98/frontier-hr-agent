@@ -34,7 +34,7 @@
         "bad_when": "high",
         "has_lever": true,
         "logit_contribution": 1.209,
-        "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit."
+        "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21)."
       },
       {
         "feature": "BusinessTravel_freq",
@@ -46,7 +46,7 @@
         "bad_when": "high",
         "has_lever": false,
         "logit_contribution": 1.1822,
-        "statement": "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit."
+        "statement": "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort) \u2014 a strong contributor to the score (logit +1.18)."
       },
       {
         "feature": "DistanceFromHome",
@@ -58,7 +58,7 @@
         "bad_when": "high",
         "has_lever": false,
         "logit_contribution": 0.9528,
-        "statement": "Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort), contributing +0.95 to the risk logit."
+        "statement": "Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort) \u2014 a moderate contributor (logit +0.95)."
       },
       {
         "feature": "WorkLifeBalance",
@@ -70,11 +70,11 @@
         "bad_when": "low",
         "has_lever": true,
         "logit_contribution": 0.5309,
-        "statement": "Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort), contributing +0.53 to the risk logit."
+        "statement": "Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.53)."
       }
     ],
     "rejected_drivers": [],
-    "explanation": "Primary drivers: Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit.; Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit.; Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort), contributing +0.95 to the risk logit.; Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort), contributing +0.53 to the risk logit.",
+    "explanation": "Primary drivers: Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21).; Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort) \u2014 a strong contributor to the score (logit +1.18).; Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort) \u2014 a moderate contributor (logit +0.95).; Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.53).",
     "actionable_features": [
       "OverTime_flag",
       "WorkLifeBalance"
@@ -132,10 +132,10 @@
     "risk_level": "High",
     "proposed_recommendation": "Review workload and reduce overtime",
     "evidence": [
-      "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit.",
-      "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit.",
-      "Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort), contributing +0.95 to the risk logit.",
-      "Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort), contributing +0.53 to the risk logit."
+      "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21).",
+      "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort) \u2014 a strong contributor to the score (logit +1.18).",
+      "Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort) \u2014 a moderate contributor (logit +0.95).",
+      "Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.53)."
     ],
     "simulated_delta_pp": -37.64,
     "caveat": "Simulated model what-if, not a causal effect estimate.",

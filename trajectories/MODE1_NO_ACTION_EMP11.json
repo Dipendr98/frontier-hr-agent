@@ -34,7 +34,7 @@
         "bad_when": "high",
         "has_lever": false,
         "logit_contribution": 0.8396,
-        "statement": "Commute distance is 24 vs cohort mean 9.1 (91st percentile, worst 9% of the cohort), contributing +0.84 to the risk logit."
+        "statement": "Commute distance is 24 vs cohort mean 9.1 (91st percentile, worst 9% of the cohort) \u2014 a moderate contributor (logit +0.84)."
       },
       {
         "feature": "JobLevel",
@@ -46,7 +46,7 @@
         "bad_when": "low",
         "has_lever": false,
         "logit_contribution": 0.7268,
-        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit."
+        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73)."
       }
     ],
     "rejected_drivers": [
@@ -69,7 +69,7 @@
         "reason_rejected": "contribution_below_floor"
       }
     ],
-    "explanation": "Primary drivers: Commute distance is 24 vs cohort mean 9.1 (91st percentile, worst 9% of the cohort), contributing +0.84 to the risk logit.; Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit.",
+    "explanation": "Primary drivers: Commute distance is 24 vs cohort mean 9.1 (91st percentile, worst 9% of the cohort) \u2014 a moderate contributor (logit +0.84).; Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73).",
     "actionable_features": [],
     "contextual_features": [
       "DistanceFromHome",

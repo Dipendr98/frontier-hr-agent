@@ -34,7 +34,7 @@
         "bad_when": "high",
         "has_lever": true,
         "logit_contribution": 1.209,
-        "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit."
+        "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21)."
       },
       {
         "feature": "JobLevel",
@@ -46,7 +46,7 @@
         "bad_when": "low",
         "has_lever": false,
         "logit_contribution": 0.7268,
-        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit."
+        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73)."
       },
       {
         "feature": "StockOptionLevel",
@@ -58,7 +58,7 @@
         "bad_when": "low",
         "has_lever": true,
         "logit_contribution": 0.4008,
-        "statement": "Stock option level is 0 vs cohort mean 0.7 (0th percentile, the worst in the cohort), contributing +0.40 to the risk logit."
+        "statement": "Stock option level is 0 vs cohort mean 0.7 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.40)."
       }
     ],
     "rejected_drivers": [
@@ -72,7 +72,7 @@
         "reason_rejected": "contribution_below_floor"
       }
     ],
-    "explanation": "Primary drivers: Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit.; Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit.; Stock option level is 0 vs cohort mean 0.7 (0th percentile, the worst in the cohort), contributing +0.40 to the risk logit.",
+    "explanation": "Primary drivers: Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21).; Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73).; Stock option level is 0 vs cohort mean 0.7 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.40).",
     "actionable_features": [
       "OverTime_flag",
       "StockOptionLevel"
@@ -135,9 +135,9 @@
     "risk_level": "High",
     "proposed_recommendation": "Review workload and reduce overtime",
     "evidence": [
-      "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit.",
-      "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit.",
-      "Stock option level is 0 vs cohort mean 0.7 (0th percentile, the worst in the cohort), contributing +0.40 to the risk logit."
+      "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21).",
+      "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort) \u2014 a moderate contributor (logit +0.73).",
+      "Stock option level is 0 vs cohort mean 0.7 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.40)."
     ],
     "simulated_delta_pp": -46.82,
     "caveat": "Simulated model what-if, not a causal effect estimate.",

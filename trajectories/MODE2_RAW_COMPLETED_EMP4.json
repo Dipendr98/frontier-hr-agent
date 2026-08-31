@@ -1,0 +1,243 @@
+{
+  "employee_id": "EMP4",
+  "mode": "MODE_2_RAW",
+  "status": "COMPLETED",
+  "requires_human_decision": false,
+  "tool_calls_used": 8,
+  "verify_retries": 0,
+  "usage": {
+    "llm_calls": 9,
+    "total_tokens": 24509,
+    "estimated_cost_usd": 0.0,
+    "wall_clock_seconds": 53.83
+  },
+  "final_decision": {
+    "confirmed_drivers": [
+      "OverTime_flag",
+      "JobLevel",
+      "StockOptionLevel"
+    ],
+    "rationale": "Employee EMP4 has High risk (79.04% attrition probability). Three confirmed drivers were identified: OverTime_flag (logit_contribution=1.209, severity_percentile=30.4), JobLevel (logit_contribution=0.727, severity_percentile=0.0), and StockOptionLevel (logit_contribution=0.401, severity_percentile=0.0). All meet the criteria of logit_contribution >= 0.4 and severity_percentile <= 35.0. Among addressable drivers, workload_review (for OverTime_flag) shows the largest risk reduction (-46.82 pp) compared to compensation_review (-10.96 pp), so workload_review is recommended.",
+    "recommended_intervention": "workload_review",
+    "risk_level": "High"
+  },
+  "verification": null,
+  "trace": [
+    {
+      "step": "start",
+      "employee_id": "EMP4",
+      "mode": "MODE_2_RAW",
+      "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+      "tool_budget": 12
+    },
+    {
+      "step": "tool_call",
+      "turn": 1,
+      "n": 1,
+      "tool": "get_employee_profile",
+      "args": {
+        "employee_id": "EMP4"
+      },
+      "result": {
+        "employee_id": "EMP4",
+        "attrition": 1,
+        "JobSatisfaction": 3,
+        "EnvironmentSatisfaction": 4,
+        "JobInvolvement": 2,
+        "WorkLifeBalance": 3,
+        "RelationshipSatisfaction": 2,
+        "TrainingTimesLastYear": 3,
+        "OverTime_flag": 1,
+        "DistanceFromHome": 2,
+        "BusinessTravel_freq": 1,
+        "JobLevel": 1,
+        "StockOptionLevel": 0,
+        "NumCompaniesWorked": 6,
+        "YearsWithCurrManager": 0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 2,
+      "n": 2,
+      "tool": "predict_risk",
+      "args": {
+        "employee_id": "EMP4"
+      },
+      "result": {
+        "attrition_probability": 0.7904
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 3,
+      "n": 3,
+      "tool": "get_risk_drivers",
+      "args": {
+        "top_n": 6,
+        "employee_id": "EMP4"
+      },
+      "result": [
+        {
+          "feature": "OverTime_flag",
+          "label": "Working overtime",
+          "value": 1.0,
+          "cohort_mean": 0.3,
+          "logit_contribution": 1.209,
+          "raises_risk": true
+        },
+        {
+          "feature": "JobLevel",
+          "label": "Job level",
+          "value": 1.0,
+          "cohort_mean": 1.6,
+          "logit_contribution": 0.7268,
+          "raises_risk": true
+        },
+        {
+          "feature": "StockOptionLevel",
+          "label": "Stock option level",
+          "value": 0.0,
+          "cohort_mean": 0.7,
+          "logit_contribution": 0.4008,
+          "raises_risk": true
+        },
+        {
+          "feature": "JobInvolvement",
+          "label": "Job involvement",
+          "value": 2.0,
+          "cohort_mean": 2.66,
+          "logit_contribution": 0.384,
+          "raises_risk": true
+        },
+        {
+          "feature": "YearsWithCurrManager",
+          "label": "Years with current manager",
+          "value": 0.0,
+          "cohort_mean": 0.68,
+          "logit_contribution": 0.3221,
+          "raises_risk": true
+        },
+        {
+          "feature": "RelationshipSatisfaction",
+          "label": "Relationship satisfaction",
+          "value": 2.0,
+          "cohort_mean": 2.77,
+          "logit_contribution": 0.2588,
+          "raises_risk": true
+        }
+      ]
+    },
+    {
+      "step": "tool_call",
+      "turn": 4,
+      "n": 4,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "OverTime_flag",
+        "employee_id": "EMP4"
+      },
+      "result": {
+        "feature": "OverTime_flag",
+        "value": 1.0,
+        "percentile": 69.6,
+        "bad_when": "high",
+        "severity_percentile": 30.4,
+        "cohort_median": 0.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 5,
+      "n": 5,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "JobLevel",
+        "employee_id": "EMP4"
+      },
+      "result": {
+        "feature": "JobLevel",
+        "value": 1.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 1.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 6,
+      "n": 6,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "StockOptionLevel",
+        "employee_id": "EMP4"
+      },
+      "result": {
+        "feature": "StockOptionLevel",
+        "value": 0.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 0.5
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 7,
+      "n": 7,
+      "tool": "simulate_intervention",
+      "args": {
+        "intervention_key": "workload_review",
+        "employee_id": "EMP4"
+      },
+      "result": {
+        "intervention": "workload_review",
+        "label": "Review workload and reduce overtime",
+        "risk_before": 0.7904,
+        "risk_after_simulated": 0.3222,
+        "delta_pp": -46.82,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 8,
+      "n": 8,
+      "tool": "simulate_intervention",
+      "args": {
+        "employee_id": "EMP4",
+        "intervention_key": "compensation_review"
+      },
+      "result": {
+        "intervention": "compensation_review",
+        "label": "Review compensation and equity package",
+        "risk_before": 0.7904,
+        "risk_after_simulated": 0.6808,
+        "delta_pp": -10.96,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "finalize",
+      "turn": 9,
+      "decision": {
+        "confirmed_drivers": [
+          "OverTime_flag",
+          "JobLevel",
+          "StockOptionLevel"
+        ],
+        "rationale": "Employee EMP4 has High risk (79.04% attrition probability). Three confirmed drivers were identified: OverTime_flag (logit_contribution=1.209, severity_percentile=30.4), JobLevel (logit_contribution=0.727, severity_percentile=0.0), and StockOptionLevel (logit_contribution=0.401, severity_percentile=0.0). All meet the criteria of logit_contribution >= 0.4 and severity_percentile <= 35.0. Among addressable drivers, workload_review (for OverTime_flag) shows the largest risk reduction (-46.82 pp) compared to compensation_review (-10.96 pp), so workload_review is recommended.",
+        "recommended_intervention": "workload_review",
+        "risk_level": "High"
+      }
+    },
+    {
+      "step": "usage",
+      "llm_calls": 9,
+      "total_tokens": 24509,
+      "estimated_cost_usd": 0.0,
+      "wall_clock_seconds": 53.83
+    }
+  ]
+}

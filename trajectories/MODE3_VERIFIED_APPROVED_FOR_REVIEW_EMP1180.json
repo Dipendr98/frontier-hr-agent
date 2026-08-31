@@ -1,0 +1,605 @@
+{
+  "employee_id": "EMP1180",
+  "mode": "MODE_3_VERIFIED",
+  "status": "APPROVED_FOR_REVIEW",
+  "requires_human_decision": true,
+  "tool_calls_used": 12,
+  "verify_retries": 1,
+  "usage": {
+    "llm_calls": 14,
+    "total_tokens": 40891,
+    "estimated_cost_usd": 0.0,
+    "wall_clock_seconds": 42.58
+  },
+  "final_decision": {
+    "risk_level": "High",
+    "rationale": "Risk probability 0.8954 (High). Four drivers verified: each has logit_contribution >= 0.4 and severity_percentile <= 30.4 (all <= 35). Workload_review reduces risk by 37.6 pp, the largest delta among tested interventions.",
+    "recommended_intervention": "workload_review",
+    "confirmed_drivers": [
+      "OverTime_flag",
+      "BusinessTravel_freq",
+      "DistanceFromHome",
+      "WorkLifeBalance"
+    ]
+  },
+  "verification": {
+    "agent": "claim_verifier",
+    "verdict": "VERIFIED",
+    "problems": [],
+    "checks_run": [
+      "V1",
+      "V2",
+      "V3",
+      "V4",
+      "V5",
+      "V6",
+      "V7"
+    ],
+    "recomputed_risk": {
+      "attrition_probability": 0.8954,
+      "risk_level": "High"
+    },
+    "verified_drivers": [
+      {
+        "feature": "OverTime_flag",
+        "label": "Working overtime",
+        "value": 1.0,
+        "cohort_mean": 0.3,
+        "percentile": 69.6,
+        "severity_percentile": 30.4,
+        "has_lever": true,
+        "logit_contribution": 1.209,
+        "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21)."
+      },
+      {
+        "feature": "BusinessTravel_freq",
+        "label": "Business travel frequency",
+        "value": 2.0,
+        "cohort_mean": 1.1,
+        "percentile": 80.7,
+        "severity_percentile": 19.3,
+        "has_lever": false,
+        "logit_contribution": 1.1822,
+        "statement": "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort) \u2014 a strong contributor to the score (logit +1.18)."
+      },
+      {
+        "feature": "DistanceFromHome",
+        "label": "Commute distance",
+        "value": 26.0,
+        "cohort_mean": 9.1,
+        "percentile": 96.5,
+        "severity_percentile": 3.5,
+        "has_lever": false,
+        "logit_contribution": 0.9528,
+        "statement": "Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort) \u2014 a moderate contributor (logit +0.95)."
+      },
+      {
+        "feature": "WorkLifeBalance",
+        "label": "Work-life balance",
+        "value": 1.0,
+        "cohort_mean": 2.75,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "has_lever": true,
+        "logit_contribution": 0.5309,
+        "statement": "Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.53)."
+      }
+    ],
+    "rejected_claims": [],
+    "claimed_drivers": [
+      "OverTime_flag",
+      "BusinessTravel_freq",
+      "DistanceFromHome",
+      "WorkLifeBalance"
+    ],
+    "recommended_intervention": "workload_review",
+    "simulated": {
+      "intervention": "workload_review",
+      "label": "Review workload and reduce overtime",
+      "risk_before": 0.8954,
+      "risk_after_simulated": 0.519,
+      "delta_pp": -37.64,
+      "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+    }
+  },
+  "trace": [
+    {
+      "step": "start",
+      "employee_id": "EMP1180",
+      "mode": "MODE_3_VERIFIED",
+      "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+      "tool_budget": 12
+    },
+    {
+      "step": "tool_call",
+      "turn": 1,
+      "n": 1,
+      "tool": "get_employee_profile",
+      "args": {
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "employee_id": "EMP1180",
+        "attrition": 0,
+        "JobSatisfaction": 4,
+        "EnvironmentSatisfaction": 3,
+        "JobInvolvement": 2,
+        "WorkLifeBalance": 1,
+        "RelationshipSatisfaction": 4,
+        "TrainingTimesLastYear": 3,
+        "OverTime_flag": 1,
+        "DistanceFromHome": 26,
+        "BusinessTravel_freq": 2,
+        "JobLevel": 2,
+        "StockOptionLevel": 1,
+        "NumCompaniesWorked": 3,
+        "YearsWithCurrManager": 0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 2,
+      "n": 2,
+      "tool": "predict_risk",
+      "args": {
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "attrition_probability": 0.8954
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 3,
+      "n": 3,
+      "tool": "get_risk_drivers",
+      "args": {
+        "employee_id": "EMP1180",
+        "top_n": 10
+      },
+      "result": [
+        {
+          "feature": "OverTime_flag",
+          "label": "Working overtime",
+          "value": 1.0,
+          "cohort_mean": 0.3,
+          "logit_contribution": 1.209,
+          "raises_risk": true
+        },
+        {
+          "feature": "BusinessTravel_freq",
+          "label": "Business travel frequency",
+          "value": 2.0,
+          "cohort_mean": 1.1,
+          "logit_contribution": 1.1822,
+          "raises_risk": true
+        },
+        {
+          "feature": "DistanceFromHome",
+          "label": "Commute distance",
+          "value": 26.0,
+          "cohort_mean": 9.1,
+          "logit_contribution": 0.9528,
+          "raises_risk": true
+        },
+        {
+          "feature": "WorkLifeBalance",
+          "label": "Work-life balance",
+          "value": 1.0,
+          "cohort_mean": 2.75,
+          "logit_contribution": 0.5309,
+          "raises_risk": true
+        },
+        {
+          "feature": "JobInvolvement",
+          "label": "Job involvement",
+          "value": 2.0,
+          "cohort_mean": 2.66,
+          "logit_contribution": 0.384,
+          "raises_risk": true
+        },
+        {
+          "feature": "YearsWithCurrManager",
+          "label": "Years with current manager",
+          "value": 0.0,
+          "cohort_mean": 0.68,
+          "logit_contribution": 0.3221,
+          "raises_risk": true
+        },
+        {
+          "feature": "NumCompaniesWorked",
+          "label": "Previous employers",
+          "value": 3.0,
+          "cohort_mean": 3.16,
+          "logit_contribution": -0.0055,
+          "raises_risk": false
+        },
+        {
+          "feature": "TrainingTimesLastYear",
+          "label": "Training sessions attended",
+          "value": 3.0,
+          "cohort_mean": 2.8,
+          "logit_contribution": -0.0167,
+          "raises_risk": false
+        },
+        {
+          "feature": "StockOptionLevel",
+          "label": "Stock option level",
+          "value": 1.0,
+          "cohort_mean": 0.7,
+          "logit_contribution": -0.1692,
+          "raises_risk": false
+        },
+        {
+          "feature": "EnvironmentSatisfaction",
+          "label": "Environment satisfaction",
+          "value": 3.0,
+          "cohort_mean": 2.69,
+          "logit_contribution": -0.1937,
+          "raises_risk": false
+        }
+      ]
+    },
+    {
+      "step": "tool_call",
+      "turn": 4,
+      "n": 4,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "OverTime_flag",
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "feature": "OverTime_flag",
+        "value": 1.0,
+        "percentile": 69.6,
+        "bad_when": "high",
+        "severity_percentile": 30.4,
+        "cohort_median": 0.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 5,
+      "n": 5,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "BusinessTravel_freq",
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "feature": "BusinessTravel_freq",
+        "value": 2.0,
+        "percentile": 80.7,
+        "bad_when": "high",
+        "severity_percentile": 19.3,
+        "cohort_median": 1.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 6,
+      "n": 6,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "DistanceFromHome",
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "feature": "DistanceFromHome",
+        "value": 26.0,
+        "percentile": 96.5,
+        "bad_when": "high",
+        "severity_percentile": 3.5,
+        "cohort_median": 7.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 7,
+      "n": 7,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "WorkLifeBalance",
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "feature": "WorkLifeBalance",
+        "value": 1.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 3.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 8,
+      "n": 8,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "JobInvolvement",
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "feature": "JobInvolvement",
+        "value": 2.0,
+        "percentile": 6.4,
+        "bad_when": "low",
+        "severity_percentile": 6.4,
+        "cohort_median": 3.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 9,
+      "n": 9,
+      "tool": "get_cohort_percentile",
+      "args": {
+        "feature": "YearsWithCurrManager",
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "feature": "YearsWithCurrManager",
+        "value": 0.0,
+        "percentile": 0.0,
+        "bad_when": "low",
+        "severity_percentile": 0.0,
+        "cohort_median": 0.0
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 10,
+      "n": 10,
+      "tool": "simulate_intervention",
+      "args": {
+        "employee_id": "EMP1180",
+        "intervention_key": "workload_review"
+      },
+      "result": {
+        "intervention": "workload_review",
+        "label": "Review workload and reduce overtime",
+        "risk_before": 0.8954,
+        "risk_after_simulated": 0.519,
+        "delta_pp": -37.64,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 11,
+      "n": 11,
+      "tool": "simulate_intervention",
+      "args": {
+        "employee_id": "employee_id",
+        "intervention_key": "increase_manager_checkins"
+      },
+      "result": {
+        "error": "employee_not_found"
+      }
+    },
+    {
+      "step": "tool_call",
+      "turn": 12,
+      "n": 12,
+      "tool": "simulate_intervention",
+      "args": {
+        "intervention_key": "increase_manager_checkins",
+        "employee_id": "EMP1180"
+      },
+      "result": {
+        "intervention": "increase_manager_checkins",
+        "label": "Increase manager check-in frequency to weekly",
+        "risk_before": 0.8954,
+        "risk_after_simulated": 0.8954,
+        "delta_pp": 0.0,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "verification",
+      "turn": 13,
+      "attempt": 1,
+      "agent": "claim_verifier",
+      "verdict": "REJECTED",
+      "problems": [
+        "unverified_driver: Job involvement contributes only +0.38 to the logit, below the 0.4 floor required to call it a driver.",
+        "unverified_driver: Years with current manager contributes only +0.32 to the logit, below the 0.4 floor required to call it a driver."
+      ],
+      "checks_run": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6",
+        "V7"
+      ],
+      "recomputed_risk": {
+        "attrition_probability": 0.8954,
+        "risk_level": "High"
+      },
+      "verified_drivers": [
+        {
+          "feature": "OverTime_flag",
+          "label": "Working overtime",
+          "value": 1.0,
+          "cohort_mean": 0.3,
+          "percentile": 69.6,
+          "severity_percentile": 30.4,
+          "has_lever": true,
+          "logit_contribution": 1.209,
+          "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21)."
+        },
+        {
+          "feature": "BusinessTravel_freq",
+          "label": "Business travel frequency",
+          "value": 2.0,
+          "cohort_mean": 1.1,
+          "percentile": 80.7,
+          "severity_percentile": 19.3,
+          "has_lever": false,
+          "logit_contribution": 1.1822,
+          "statement": "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort) \u2014 a strong contributor to the score (logit +1.18)."
+        },
+        {
+          "feature": "DistanceFromHome",
+          "label": "Commute distance",
+          "value": 26.0,
+          "cohort_mean": 9.1,
+          "percentile": 96.5,
+          "severity_percentile": 3.5,
+          "has_lever": false,
+          "logit_contribution": 0.9528,
+          "statement": "Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort) \u2014 a moderate contributor (logit +0.95)."
+        },
+        {
+          "feature": "WorkLifeBalance",
+          "label": "Work-life balance",
+          "value": 1.0,
+          "cohort_mean": 2.75,
+          "percentile": 0.0,
+          "severity_percentile": 0.0,
+          "has_lever": true,
+          "logit_contribution": 0.5309,
+          "statement": "Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.53)."
+        }
+      ],
+      "rejected_claims": [
+        {
+          "feature": "JobInvolvement",
+          "reason": "contribution_below_floor",
+          "logit_contribution": 0.384
+        },
+        {
+          "feature": "YearsWithCurrManager",
+          "reason": "contribution_below_floor",
+          "logit_contribution": 0.3221
+        }
+      ],
+      "claimed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "DistanceFromHome",
+        "WorkLifeBalance",
+        "JobInvolvement",
+        "YearsWithCurrManager"
+      ],
+      "recommended_intervention": "workload_review",
+      "simulated": {
+        "intervention": "workload_review",
+        "label": "Review workload and reduce overtime",
+        "risk_before": 0.8954,
+        "risk_after_simulated": 0.519,
+        "delta_pp": -37.64,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "verification",
+      "turn": 14,
+      "attempt": 2,
+      "agent": "claim_verifier",
+      "verdict": "VERIFIED",
+      "problems": [],
+      "checks_run": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6",
+        "V7"
+      ],
+      "recomputed_risk": {
+        "attrition_probability": 0.8954,
+        "risk_level": "High"
+      },
+      "verified_drivers": [
+        {
+          "feature": "OverTime_flag",
+          "label": "Working overtime",
+          "value": 1.0,
+          "cohort_mean": 0.3,
+          "percentile": 69.6,
+          "severity_percentile": 30.4,
+          "has_lever": true,
+          "logit_contribution": 1.209,
+          "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort) \u2014 a strong contributor to the score (logit +1.21)."
+        },
+        {
+          "feature": "BusinessTravel_freq",
+          "label": "Business travel frequency",
+          "value": 2.0,
+          "cohort_mean": 1.1,
+          "percentile": 80.7,
+          "severity_percentile": 19.3,
+          "has_lever": false,
+          "logit_contribution": 1.1822,
+          "statement": "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort) \u2014 a strong contributor to the score (logit +1.18)."
+        },
+        {
+          "feature": "DistanceFromHome",
+          "label": "Commute distance",
+          "value": 26.0,
+          "cohort_mean": 9.1,
+          "percentile": 96.5,
+          "severity_percentile": 3.5,
+          "has_lever": false,
+          "logit_contribution": 0.9528,
+          "statement": "Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort) \u2014 a moderate contributor (logit +0.95)."
+        },
+        {
+          "feature": "WorkLifeBalance",
+          "label": "Work-life balance",
+          "value": 1.0,
+          "cohort_mean": 2.75,
+          "percentile": 0.0,
+          "severity_percentile": 0.0,
+          "has_lever": true,
+          "logit_contribution": 0.5309,
+          "statement": "Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort) \u2014 a smaller contributor (logit +0.53)."
+        }
+      ],
+      "rejected_claims": [],
+      "claimed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "DistanceFromHome",
+        "WorkLifeBalance"
+      ],
+      "recommended_intervention": "workload_review",
+      "simulated": {
+        "intervention": "workload_review",
+        "label": "Review workload and reduce overtime",
+        "risk_before": 0.8954,
+        "risk_after_simulated": 0.519,
+        "delta_pp": -37.64,
+        "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+      }
+    },
+    {
+      "step": "finalize",
+      "turn": 14,
+      "decision": {
+        "risk_level": "High",
+        "rationale": "Risk probability 0.8954 (High). Four drivers verified: each has logit_contribution >= 0.4 and severity_percentile <= 30.4 (all <= 35). Workload_review reduces risk by 37.6 pp, the largest delta among tested interventions.",
+        "recommended_intervention": "workload_review",
+        "confirmed_drivers": [
+          "OverTime_flag",
+          "BusinessTravel_freq",
+          "DistanceFromHome",
+          "WorkLifeBalance"
+        ]
+      }
+    },
+    {
+      "step": "usage",
+      "llm_calls": 14,
+      "total_tokens": 40891,
+      "estimated_cost_usd": 0.0,
+      "wall_clock_seconds": 42.58
+    }
+  ]
+}
