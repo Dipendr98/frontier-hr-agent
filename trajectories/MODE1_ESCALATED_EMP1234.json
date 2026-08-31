@@ -1,0 +1,516 @@
+[
+  {
+    "step": "config",
+    "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+    "memory": "enabled"
+  },
+  {
+    "step": "data_quality",
+    "agent": "data_quality",
+    "verdict": "PASS",
+    "issues": [],
+    "fields_checked": 13
+  },
+  {
+    "step": "risk_analysis",
+    "agent": "risk_analysis",
+    "employee_id": "EMP1234",
+    "attrition_probability": 0.6457,
+    "risk_level": "High"
+  },
+  {
+    "step": "root_cause_attempt_1",
+    "strictness": 1.0,
+    "agent": "root_cause",
+    "status": "EXPLAINED",
+    "confirmed_drivers": [
+      {
+        "feature": "BusinessTravel_freq",
+        "label": "Business travel frequency",
+        "value": 2.0,
+        "cohort_mean": 1.1,
+        "percentile": 80.7,
+        "severity_percentile": 19.3,
+        "bad_when": "high",
+        "has_lever": false,
+        "logit_contribution": 1.1822,
+        "statement": "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit."
+      },
+      {
+        "feature": "JobLevel",
+        "label": "Job level",
+        "value": 1.0,
+        "cohort_mean": 1.6,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "bad_when": "low",
+        "has_lever": false,
+        "logit_contribution": 0.7268,
+        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit."
+      }
+    ],
+    "rejected_drivers": [
+      {
+        "feature": "JobInvolvement",
+        "label": "Job involvement",
+        "value": 2.0,
+        "cohort_mean": 2.66,
+        "logit_contribution": 0.384,
+        "raises_risk": true,
+        "reason_rejected": "contribution_below_floor"
+      },
+      {
+        "feature": "JobSatisfaction",
+        "label": "Job satisfaction",
+        "value": 2.0,
+        "cohort_mean": 2.76,
+        "logit_contribution": 0.3565,
+        "raises_risk": true,
+        "reason_rejected": "contribution_below_floor"
+      }
+    ],
+    "explanation": "Primary drivers: Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit.; Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit.",
+    "actionable_features": [],
+    "contextual_features": [
+      "BusinessTravel_freq",
+      "JobLevel"
+    ]
+  },
+  {
+    "step": "intervention_attempt_1",
+    "agent": "intervention",
+    "status": "NO_ACTION_PROPOSED",
+    "reason": "No confirmed driver has an available lever. Escalating for human review rather than proposing an unsupported intervention.",
+    "options_considered": [],
+    "recommendation": null
+  },
+  {
+    "step": "critic_attempt_1",
+    "agent": "critic",
+    "verdict": "REVISE",
+    "problems": [
+      "high_risk_no_action: risk is high but no intervention was proposed; this must be escalated to a human, not closed."
+    ],
+    "checks_run": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5"
+    ]
+  },
+  {
+    "step": "root_cause_attempt_2",
+    "strictness": 1.4,
+    "agent": "root_cause",
+    "status": "EXPLAINED",
+    "confirmed_drivers": [
+      {
+        "feature": "BusinessTravel_freq",
+        "label": "Business travel frequency",
+        "value": 2.0,
+        "cohort_mean": 1.1,
+        "percentile": 80.7,
+        "severity_percentile": 19.3,
+        "bad_when": "high",
+        "has_lever": false,
+        "logit_contribution": 1.1822,
+        "statement": "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit."
+      },
+      {
+        "feature": "JobLevel",
+        "label": "Job level",
+        "value": 1.0,
+        "cohort_mean": 1.6,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "bad_when": "low",
+        "has_lever": false,
+        "logit_contribution": 0.7268,
+        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit."
+      }
+    ],
+    "rejected_drivers": [
+      {
+        "feature": "JobInvolvement",
+        "label": "Job involvement",
+        "value": 2.0,
+        "cohort_mean": 2.66,
+        "logit_contribution": 0.384,
+        "raises_risk": true,
+        "reason_rejected": "contribution_below_floor"
+      },
+      {
+        "feature": "JobSatisfaction",
+        "label": "Job satisfaction",
+        "value": 2.0,
+        "cohort_mean": 2.76,
+        "logit_contribution": 0.3565,
+        "raises_risk": true,
+        "reason_rejected": "contribution_below_floor"
+      }
+    ],
+    "explanation": "Primary drivers: Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit.; Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit.",
+    "actionable_features": [],
+    "contextual_features": [
+      "BusinessTravel_freq",
+      "JobLevel"
+    ]
+  },
+  {
+    "step": "intervention_attempt_2",
+    "agent": "intervention",
+    "status": "NO_ACTION_PROPOSED",
+    "reason": "No confirmed driver has an available lever. Escalating for human review rather than proposing an unsupported intervention.",
+    "options_considered": [],
+    "recommendation": null
+  },
+  {
+    "step": "critic_attempt_2",
+    "agent": "critic",
+    "verdict": "REVISE",
+    "problems": [
+      "high_risk_no_action: risk is high but no intervention was proposed; this must be escalated to a human, not closed."
+    ],
+    "checks_run": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5"
+    ]
+  },
+  {
+    "step": "root_cause_attempt_3",
+    "strictness": 1.8,
+    "agent": "root_cause",
+    "status": "EXPLAINED",
+    "confirmed_drivers": [
+      {
+        "feature": "BusinessTravel_freq",
+        "label": "Business travel frequency",
+        "value": 2.0,
+        "cohort_mean": 1.1,
+        "percentile": 80.7,
+        "severity_percentile": 19.3,
+        "bad_when": "high",
+        "has_lever": false,
+        "logit_contribution": 1.1822,
+        "statement": "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit."
+      },
+      {
+        "feature": "JobLevel",
+        "label": "Job level",
+        "value": 1.0,
+        "cohort_mean": 1.6,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "bad_when": "low",
+        "has_lever": false,
+        "logit_contribution": 0.7268,
+        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit."
+      }
+    ],
+    "rejected_drivers": [
+      {
+        "feature": "JobInvolvement",
+        "label": "Job involvement",
+        "value": 2.0,
+        "cohort_mean": 2.66,
+        "logit_contribution": 0.384,
+        "raises_risk": true,
+        "reason_rejected": "contribution_below_floor"
+      },
+      {
+        "feature": "JobSatisfaction",
+        "label": "Job satisfaction",
+        "value": 2.0,
+        "cohort_mean": 2.76,
+        "logit_contribution": 0.3565,
+        "raises_risk": true,
+        "reason_rejected": "contribution_below_floor"
+      }
+    ],
+    "explanation": "Primary drivers: Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit.; Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit.",
+    "actionable_features": [],
+    "contextual_features": [
+      "BusinessTravel_freq",
+      "JobLevel"
+    ]
+  },
+  {
+    "step": "intervention_attempt_3",
+    "agent": "intervention",
+    "status": "NO_ACTION_PROPOSED",
+    "reason": "No confirmed driver has an available lever. Escalating for human review rather than proposing an unsupported intervention.",
+    "options_considered": [],
+    "recommendation": null
+  },
+  {
+    "step": "critic_attempt_3",
+    "agent": "critic",
+    "verdict": "REVISE",
+    "problems": [
+      "high_risk_no_action: risk is high but no intervention was proposed; this must be escalated to a human, not closed."
+    ],
+    "checks_run": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5"
+    ]
+  },
+  {
+    "step": "human_gate",
+    "agent": "human_gate",
+    "status": "ESCALATED",
+    "employee_id": "EMP1234",
+    "reason": "Critic did not clear the plan after the allowed revisions.",
+    "unresolved_objections": [
+      "high_risk_no_action: risk is high but no intervention was proposed; this must be escalated to a human, not closed."
+    ],
+    "proposed_recommendation": null,
+    "requires_human_decision": true
+  },
+  {
+    "step": "cohort_memory",
+    "driver_context": [
+      {
+        "feature": "JobLevel",
+        "cohort_share": 0.6257,
+        "kind": "environmental",
+        "note": "Job level is a confirmed driver for 63% of the cohort reviewed so far, so it describes the environment more than this individual."
+      }
+    ],
+    "precedent": {},
+    "note": "Annotation only \u2014 does not affect status."
+  },
+  {
+    "step": "tool_calls",
+    "calls": [
+      {
+        "tool": "predict_risk",
+        "args": {
+          "employee_id": "EMP1234"
+        },
+        "result": {
+          "attrition_probability": 0.6457
+        }
+      },
+      {
+        "tool": "get_risk_drivers",
+        "args": {
+          "employee_id": "EMP1234",
+          "top_n": 4
+        },
+        "result": [
+          {
+            "feature": "BusinessTravel_freq",
+            "label": "Business travel frequency",
+            "value": 2.0,
+            "cohort_mean": 1.1,
+            "logit_contribution": 1.1822,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobLevel",
+            "label": "Job level",
+            "value": 1.0,
+            "cohort_mean": 1.6,
+            "logit_contribution": 0.7268,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobInvolvement",
+            "label": "Job involvement",
+            "value": 2.0,
+            "cohort_mean": 2.66,
+            "logit_contribution": 0.384,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobSatisfaction",
+            "label": "Job satisfaction",
+            "value": 2.0,
+            "cohort_mean": 2.76,
+            "logit_contribution": 0.3565,
+            "raises_risk": true
+          }
+        ]
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "BusinessTravel_freq",
+          "value": 2.0
+        },
+        "result": {
+          "feature": "BusinessTravel_freq",
+          "value": 2.0,
+          "percentile": 80.7,
+          "bad_when": "high",
+          "severity_percentile": 19.3,
+          "cohort_median": 1.0
+        }
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "JobLevel",
+          "value": 1.0
+        },
+        "result": {
+          "feature": "JobLevel",
+          "value": 1.0,
+          "percentile": 0.0,
+          "bad_when": "low",
+          "severity_percentile": 0.0,
+          "cohort_median": 1.0
+        }
+      },
+      {
+        "tool": "get_risk_drivers",
+        "args": {
+          "employee_id": "EMP1234",
+          "top_n": 4
+        },
+        "result": [
+          {
+            "feature": "BusinessTravel_freq",
+            "label": "Business travel frequency",
+            "value": 2.0,
+            "cohort_mean": 1.1,
+            "logit_contribution": 1.1822,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobLevel",
+            "label": "Job level",
+            "value": 1.0,
+            "cohort_mean": 1.6,
+            "logit_contribution": 0.7268,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobInvolvement",
+            "label": "Job involvement",
+            "value": 2.0,
+            "cohort_mean": 2.66,
+            "logit_contribution": 0.384,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobSatisfaction",
+            "label": "Job satisfaction",
+            "value": 2.0,
+            "cohort_mean": 2.76,
+            "logit_contribution": 0.3565,
+            "raises_risk": true
+          }
+        ]
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "BusinessTravel_freq",
+          "value": 2.0
+        },
+        "result": {
+          "feature": "BusinessTravel_freq",
+          "value": 2.0,
+          "percentile": 80.7,
+          "bad_when": "high",
+          "severity_percentile": 19.3,
+          "cohort_median": 1.0
+        }
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "JobLevel",
+          "value": 1.0
+        },
+        "result": {
+          "feature": "JobLevel",
+          "value": 1.0,
+          "percentile": 0.0,
+          "bad_when": "low",
+          "severity_percentile": 0.0,
+          "cohort_median": 1.0
+        }
+      },
+      {
+        "tool": "get_risk_drivers",
+        "args": {
+          "employee_id": "EMP1234",
+          "top_n": 4
+        },
+        "result": [
+          {
+            "feature": "BusinessTravel_freq",
+            "label": "Business travel frequency",
+            "value": 2.0,
+            "cohort_mean": 1.1,
+            "logit_contribution": 1.1822,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobLevel",
+            "label": "Job level",
+            "value": 1.0,
+            "cohort_mean": 1.6,
+            "logit_contribution": 0.7268,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobInvolvement",
+            "label": "Job involvement",
+            "value": 2.0,
+            "cohort_mean": 2.66,
+            "logit_contribution": 0.384,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobSatisfaction",
+            "label": "Job satisfaction",
+            "value": 2.0,
+            "cohort_mean": 2.76,
+            "logit_contribution": 0.3565,
+            "raises_risk": true
+          }
+        ]
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "BusinessTravel_freq",
+          "value": 2.0
+        },
+        "result": {
+          "feature": "BusinessTravel_freq",
+          "value": 2.0,
+          "percentile": 80.7,
+          "bad_when": "high",
+          "severity_percentile": 19.3,
+          "cohort_median": 1.0
+        }
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "JobLevel",
+          "value": 1.0
+        },
+        "result": {
+          "feature": "JobLevel",
+          "value": 1.0,
+          "percentile": 0.0,
+          "bad_when": "low",
+          "severity_percentile": 0.0,
+          "cohort_median": 1.0
+        }
+      }
+    ]
+  }
+]

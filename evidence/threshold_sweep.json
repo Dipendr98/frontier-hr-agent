@@ -1,0 +1,53 @@
+{
+  "experiment": "evidence threshold (MIN_CONTRIBUTION) sweep",
+  "eval_cases": 86,
+  "results": [
+    {
+      "min_contribution": 0.1,
+      "reviewer_case_quality_pct": 0.9302,
+      "catch_rate_with_verified_evidence": 0.8462,
+      "wasted_intervention_rate": 0.3667,
+      "interventions_proposed": 44,
+      "escalated": 0
+    },
+    {
+      "min_contribution": 0.25,
+      "reviewer_case_quality_pct": 0.9302,
+      "catch_rate_with_verified_evidence": 0.8462,
+      "wasted_intervention_rate": 0.3667,
+      "interventions_proposed": 44,
+      "escalated": 0
+    },
+    {
+      "min_contribution": 0.4,
+      "reviewer_case_quality_pct": 0.9302,
+      "catch_rate_with_verified_evidence": 0.8462,
+      "wasted_intervention_rate": 0.3333,
+      "interventions_proposed": 42,
+      "escalated": 0
+    },
+    {
+      "min_contribution": 0.6,
+      "reviewer_case_quality_pct": 0.8837,
+      "catch_rate_with_verified_evidence": 0.7308,
+      "wasted_intervention_rate": 0.2833,
+      "interventions_proposed": 34,
+      "escalated": 3
+    },
+    {
+      "min_contribution": 0.8,
+      "reviewer_case_quality_pct": 0.786,
+      "catch_rate_with_verified_evidence": 0.6923,
+      "wasted_intervention_rate": 0.2833,
+      "interventions_proposed": 34,
+      "escalated": 3
+    }
+  ],
+  "chosen": 0.4,
+  "best_on_primary_metric": [
+    0.1,
+    0.25,
+    0.4
+  ],
+  "reason": "MIN_CONTRIBUTION=0.4 dominates on this run: it ties the best case-quality score (93.0%, shared with 0.1, 0.25) while wasting fewer interventions (33.3% vs 36.7%). Note that this used to be a real trade-off \u2014 before the Iteration 13 direction fix, a lower threshold bought case quality at the cost of the counter-metric. Confirming more genuine drivers removed the need to loosen the floor to find any."
+}

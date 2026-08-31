@@ -1,0 +1,296 @@
+[
+  {
+    "step": "config",
+    "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+    "memory": "enabled"
+  },
+  {
+    "step": "data_quality",
+    "agent": "data_quality",
+    "verdict": "PASS",
+    "issues": [],
+    "fields_checked": 13
+  },
+  {
+    "step": "risk_analysis",
+    "agent": "risk_analysis",
+    "employee_id": "EMP4",
+    "attrition_probability": 0.7904,
+    "risk_level": "High"
+  },
+  {
+    "step": "root_cause_attempt_1",
+    "strictness": 1.0,
+    "agent": "root_cause",
+    "status": "EXPLAINED",
+    "confirmed_drivers": [
+      {
+        "feature": "OverTime_flag",
+        "label": "Working overtime",
+        "value": 1.0,
+        "cohort_mean": 0.3,
+        "percentile": 69.6,
+        "severity_percentile": 30.4,
+        "bad_when": "high",
+        "has_lever": true,
+        "logit_contribution": 1.209,
+        "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit."
+      },
+      {
+        "feature": "JobLevel",
+        "label": "Job level",
+        "value": 1.0,
+        "cohort_mean": 1.6,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "bad_when": "low",
+        "has_lever": false,
+        "logit_contribution": 0.7268,
+        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit."
+      },
+      {
+        "feature": "StockOptionLevel",
+        "label": "Stock option level",
+        "value": 0.0,
+        "cohort_mean": 0.7,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "bad_when": "low",
+        "has_lever": true,
+        "logit_contribution": 0.4008,
+        "statement": "Stock option level is 0 vs cohort mean 0.7 (0th percentile, the worst in the cohort), contributing +0.40 to the risk logit."
+      }
+    ],
+    "rejected_drivers": [
+      {
+        "feature": "JobInvolvement",
+        "label": "Job involvement",
+        "value": 2.0,
+        "cohort_mean": 2.66,
+        "logit_contribution": 0.384,
+        "raises_risk": true,
+        "reason_rejected": "contribution_below_floor"
+      }
+    ],
+    "explanation": "Primary drivers: Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit.; Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit.; Stock option level is 0 vs cohort mean 0.7 (0th percentile, the worst in the cohort), contributing +0.40 to the risk logit.",
+    "actionable_features": [
+      "OverTime_flag",
+      "StockOptionLevel"
+    ],
+    "contextual_features": [
+      "JobLevel"
+    ]
+  },
+  {
+    "step": "intervention_attempt_1",
+    "agent": "intervention",
+    "status": "PROPOSED",
+    "options_considered": [
+      {
+        "key": "workload_review",
+        "label": "Review workload and reduce overtime",
+        "simulated_delta_pp": -46.82,
+        "targets_drivers": [
+          "OverTime_flag"
+        ]
+      },
+      {
+        "key": "compensation_review",
+        "label": "Review compensation and equity package",
+        "simulated_delta_pp": -10.96,
+        "targets_drivers": [
+          "StockOptionLevel"
+        ]
+      }
+    ],
+    "recommendation": {
+      "key": "workload_review",
+      "label": "Review workload and reduce overtime",
+      "targets_drivers": [
+        "OverTime_flag"
+      ],
+      "simulated_delta_pp": -46.82,
+      "caveat": "Simulated model what-if, not a causal effect estimate."
+    },
+    "rationale": "Review workload and reduce overtime targets OverTime_flag and shows the largest simulated risk reduction (-46.8 pp) among available options."
+  },
+  {
+    "step": "critic_attempt_1",
+    "agent": "critic",
+    "verdict": "APPROVE",
+    "problems": [],
+    "checks_run": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5"
+    ]
+  },
+  {
+    "step": "human_gate",
+    "agent": "human_gate",
+    "status": "APPROVED_FOR_REVIEW",
+    "employee_id": "EMP4",
+    "risk_level": "High",
+    "proposed_recommendation": "Review workload and reduce overtime",
+    "evidence": [
+      "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit.",
+      "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit.",
+      "Stock option level is 0 vs cohort mean 0.7 (0th percentile, the worst in the cohort), contributing +0.40 to the risk logit."
+    ],
+    "simulated_delta_pp": -46.82,
+    "caveat": "Simulated model what-if, not a causal effect estimate.",
+    "requires_human_decision": true,
+    "note": "No action is executed by this system. A human reviewer decides."
+  },
+  {
+    "step": "cohort_memory",
+    "driver_context": [
+      {
+        "feature": "JobLevel",
+        "cohort_share": 0.6257,
+        "kind": "environmental",
+        "note": "Job level is a confirmed driver for 63% of the cohort reviewed so far, so it describes the environment more than this individual."
+      },
+      {
+        "feature": "StockOptionLevel",
+        "cohort_share": 0.4094,
+        "kind": "environmental",
+        "note": "Stock option level is a confirmed driver for 41% of the cohort reviewed so far, so it describes the environment more than this individual."
+      }
+    ],
+    "precedent": {},
+    "note": "Annotation only \u2014 does not affect status."
+  },
+  {
+    "step": "tool_calls",
+    "calls": [
+      {
+        "tool": "predict_risk",
+        "args": {
+          "employee_id": "EMP4"
+        },
+        "result": {
+          "attrition_probability": 0.7904
+        }
+      },
+      {
+        "tool": "get_risk_drivers",
+        "args": {
+          "employee_id": "EMP4",
+          "top_n": 4
+        },
+        "result": [
+          {
+            "feature": "OverTime_flag",
+            "label": "Working overtime",
+            "value": 1.0,
+            "cohort_mean": 0.3,
+            "logit_contribution": 1.209,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobLevel",
+            "label": "Job level",
+            "value": 1.0,
+            "cohort_mean": 1.6,
+            "logit_contribution": 0.7268,
+            "raises_risk": true
+          },
+          {
+            "feature": "StockOptionLevel",
+            "label": "Stock option level",
+            "value": 0.0,
+            "cohort_mean": 0.7,
+            "logit_contribution": 0.4008,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobInvolvement",
+            "label": "Job involvement",
+            "value": 2.0,
+            "cohort_mean": 2.66,
+            "logit_contribution": 0.384,
+            "raises_risk": true
+          }
+        ]
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "OverTime_flag",
+          "value": 1.0
+        },
+        "result": {
+          "feature": "OverTime_flag",
+          "value": 1.0,
+          "percentile": 69.6,
+          "bad_when": "high",
+          "severity_percentile": 30.4,
+          "cohort_median": 0.0
+        }
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "JobLevel",
+          "value": 1.0
+        },
+        "result": {
+          "feature": "JobLevel",
+          "value": 1.0,
+          "percentile": 0.0,
+          "bad_when": "low",
+          "severity_percentile": 0.0,
+          "cohort_median": 1.0
+        }
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "StockOptionLevel",
+          "value": 0.0
+        },
+        "result": {
+          "feature": "StockOptionLevel",
+          "value": 0.0,
+          "percentile": 0.0,
+          "bad_when": "low",
+          "severity_percentile": 0.0,
+          "cohort_median": 0.5
+        }
+      },
+      {
+        "tool": "simulate_intervention",
+        "args": {
+          "employee_id": "EMP4",
+          "intervention": "workload_review"
+        },
+        "result": {
+          "intervention": "workload_review",
+          "label": "Review workload and reduce overtime",
+          "risk_before": 0.7904,
+          "risk_after_simulated": 0.3222,
+          "delta_pp": -46.82,
+          "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+        }
+      },
+      {
+        "tool": "simulate_intervention",
+        "args": {
+          "employee_id": "EMP4",
+          "intervention": "compensation_review"
+        },
+        "result": {
+          "intervention": "compensation_review",
+          "label": "Review compensation and equity package",
+          "risk_before": 0.7904,
+          "risk_after_simulated": 0.6808,
+          "delta_pp": -10.96,
+          "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+        }
+      }
+    ]
+  }
+]

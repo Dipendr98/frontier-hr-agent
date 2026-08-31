@@ -1,0 +1,28 @@
+# Exact pins. The model artifact in baseline/ is written by these versions;
+# loading it under a different scikit-learn raises InconsistentVersionWarning
+# and, across major versions, can change predictions. run_all.sh creates a
+# virtual environment so these pins are what actually get used.
+scikit-learn==1.9.0
+pandas==3.0.2
+numpy==2.4.4
+joblib==1.5.3
+pytest==8.4.2
+
+# Dashboard. 1.62 is the floor, not a preference: 1.38 cannot resolve against
+# pandas 3.0.2, so the pin this file used to carry made a clean `pip install -r`
+# fail outright with ResolutionImpossible. The local environment had been
+# upgraded by hand and nobody noticed the file still said 1.38 — which is the
+# whole argument for testing the install from an empty directory rather than
+# from the machine that built it.
+streamlit==1.62.0
+
+# Reads .env in advanced/__init__.py so the CLI agents, pytest and the
+# dashboard all see the same provider config. Optional at runtime — the
+# no-key path imports fine without it — but pinned here because app.py and
+# the LLM-dependent tests are unusable without it, and it was missing from
+# this file until a clean-environment install failed on `import dotenv`.
+python-dotenv==1.2.3
+
+# No HTTP client dependency on purpose: advanced/llm.py speaks to every
+# provider over urllib from the standard library. One less pin to drift, and
+# one less thing between a judge and a working install.

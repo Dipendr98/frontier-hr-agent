@@ -1,0 +1,206 @@
+[
+  {
+    "step": "config",
+    "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+    "memory": "enabled"
+  },
+  {
+    "step": "data_quality",
+    "agent": "data_quality",
+    "verdict": "PASS",
+    "issues": [],
+    "fields_checked": 13
+  },
+  {
+    "step": "risk_analysis",
+    "agent": "risk_analysis",
+    "employee_id": "EMP11",
+    "attrition_probability": 0.3574,
+    "risk_level": "Medium"
+  },
+  {
+    "step": "root_cause_attempt_1",
+    "strictness": 1.0,
+    "agent": "root_cause",
+    "status": "EXPLAINED",
+    "confirmed_drivers": [
+      {
+        "feature": "DistanceFromHome",
+        "label": "Commute distance",
+        "value": 24.0,
+        "cohort_mean": 9.1,
+        "percentile": 91.2,
+        "severity_percentile": 8.8,
+        "bad_when": "high",
+        "has_lever": false,
+        "logit_contribution": 0.8396,
+        "statement": "Commute distance is 24 vs cohort mean 9.1 (91st percentile, worst 9% of the cohort), contributing +0.84 to the risk logit."
+      },
+      {
+        "feature": "JobLevel",
+        "label": "Job level",
+        "value": 1.0,
+        "cohort_mean": 1.6,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "bad_when": "low",
+        "has_lever": false,
+        "logit_contribution": 0.7268,
+        "statement": "Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit."
+      }
+    ],
+    "rejected_drivers": [
+      {
+        "feature": "YearsWithCurrManager",
+        "label": "Years with current manager",
+        "value": 0.0,
+        "cohort_mean": 0.68,
+        "logit_contribution": 0.3221,
+        "raises_risk": true,
+        "reason_rejected": "contribution_below_floor"
+      },
+      {
+        "feature": "RelationshipSatisfaction",
+        "label": "Relationship satisfaction",
+        "value": 2.0,
+        "cohort_mean": 2.77,
+        "logit_contribution": 0.2588,
+        "raises_risk": true,
+        "reason_rejected": "contribution_below_floor"
+      }
+    ],
+    "explanation": "Primary drivers: Commute distance is 24 vs cohort mean 9.1 (91st percentile, worst 9% of the cohort), contributing +0.84 to the risk logit.; Job level is 1 vs cohort mean 1.6 (0th percentile, the worst in the cohort), contributing +0.73 to the risk logit.",
+    "actionable_features": [],
+    "contextual_features": [
+      "DistanceFromHome",
+      "JobLevel"
+    ]
+  },
+  {
+    "step": "intervention_attempt_1",
+    "agent": "intervention",
+    "status": "NO_ACTION_PROPOSED",
+    "reason": "No confirmed driver has an available lever. Escalating for human review rather than proposing an unsupported intervention.",
+    "options_considered": [],
+    "recommendation": null
+  },
+  {
+    "step": "critic_attempt_1",
+    "agent": "critic",
+    "verdict": "APPROVE",
+    "problems": [],
+    "checks_run": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5"
+    ]
+  },
+  {
+    "step": "human_gate",
+    "agent": "human_gate",
+    "status": "NO_ACTION",
+    "employee_id": "EMP11",
+    "reason": "No confirmed driver has an available lever. Escalating for human review rather than proposing an unsupported intervention.",
+    "requires_human_decision": false
+  },
+  {
+    "step": "cohort_memory",
+    "driver_context": [
+      {
+        "feature": "JobLevel",
+        "cohort_share": 0.6257,
+        "kind": "environmental",
+        "note": "Job level is a confirmed driver for 63% of the cohort reviewed so far, so it describes the environment more than this individual."
+      }
+    ],
+    "precedent": {},
+    "note": "Annotation only \u2014 does not affect status."
+  },
+  {
+    "step": "tool_calls",
+    "calls": [
+      {
+        "tool": "predict_risk",
+        "args": {
+          "employee_id": "EMP11"
+        },
+        "result": {
+          "attrition_probability": 0.3574
+        }
+      },
+      {
+        "tool": "get_risk_drivers",
+        "args": {
+          "employee_id": "EMP11",
+          "top_n": 4
+        },
+        "result": [
+          {
+            "feature": "DistanceFromHome",
+            "label": "Commute distance",
+            "value": 24.0,
+            "cohort_mean": 9.1,
+            "logit_contribution": 0.8396,
+            "raises_risk": true
+          },
+          {
+            "feature": "JobLevel",
+            "label": "Job level",
+            "value": 1.0,
+            "cohort_mean": 1.6,
+            "logit_contribution": 0.7268,
+            "raises_risk": true
+          },
+          {
+            "feature": "YearsWithCurrManager",
+            "label": "Years with current manager",
+            "value": 0.0,
+            "cohort_mean": 0.68,
+            "logit_contribution": 0.3221,
+            "raises_risk": true
+          },
+          {
+            "feature": "RelationshipSatisfaction",
+            "label": "Relationship satisfaction",
+            "value": 2.0,
+            "cohort_mean": 2.77,
+            "logit_contribution": 0.2588,
+            "raises_risk": true
+          }
+        ]
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "DistanceFromHome",
+          "value": 24.0
+        },
+        "result": {
+          "feature": "DistanceFromHome",
+          "value": 24.0,
+          "percentile": 91.2,
+          "bad_when": "high",
+          "severity_percentile": 8.8,
+          "cohort_median": 7.0
+        }
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "JobLevel",
+          "value": 1.0
+        },
+        "result": {
+          "feature": "JobLevel",
+          "value": 1.0,
+          "percentile": 0.0,
+          "bad_when": "low",
+          "severity_percentile": 0.0,
+          "cohort_median": 1.0
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "cv_auc_deployed_featureset": 0.8095,
+  "cv_auc_deployed_std": 0.0468,
+  "cv_auc_with_protected_attributes": 0.8377,
+  "cv_auc_with_protected_std": 0.0321,
+  "auc_forgone": 0.0281,
+  "protected_attributes_excluded": [
+    "Gender",
+    "Age",
+    "MaritalStatus"
+  ],
+  "decision": "Excluded. A system that routes retention interventions using protected class is not deployable regardless of accuracy, and the forgone AUC is within the cross-validation standard deviation, so the exclusion is not even a clearly measurable loss."
+}

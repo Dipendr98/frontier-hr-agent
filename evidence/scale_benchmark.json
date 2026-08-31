@@ -1,0 +1,51 @@
+{
+  "base_rows": 342,
+  "seed": 1,
+  "results": [
+    {
+      "n": 342,
+      "seconds": 2.3,
+      "ms_per_case": 6.72,
+      "status_counts": {
+        "APPROVED_FOR_REVIEW": 176,
+        "NO_ACTION": 166
+      }
+    },
+    {
+      "n": 5000,
+      "seconds": 27.2,
+      "ms_per_case": 5.44,
+      "status_counts": {
+        "ESCALATED": 11,
+        "APPROVED_FOR_REVIEW": 2525,
+        "NO_ACTION": 2464
+      }
+    },
+    {
+      "n": 10000,
+      "seconds": 55.2,
+      "ms_per_case": 5.52,
+      "status_counts": {
+        "ESCALATED": 20,
+        "APPROVED_FOR_REVIEW": 5040,
+        "NO_ACTION": 4940
+      }
+    },
+    {
+      "n": 20000,
+      "seconds": 113.1,
+      "ms_per_case": 5.65,
+      "status_counts": {
+        "ESCALATED": 47,
+        "APPROVED_FOR_REVIEW": 10100,
+        "NO_ACTION": 9853
+      }
+    }
+  ],
+  "verdict": {
+    "smallest": 5000,
+    "largest": 20000,
+    "ms_per_case_ratio": 1.04,
+    "linear": true
+  }
+}

@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Provider credentials never enter the repository. `.env.example` is the
+# committed template; `.env` is yours and stays local.
+.env
+.env.*
+!.env.example
+
+# Streamlit may write local secrets here; nothing in this project needs it,
+# but an accidental commit would be a credential leak.
+.streamlit/secrets.toml
+
+.DS_Store

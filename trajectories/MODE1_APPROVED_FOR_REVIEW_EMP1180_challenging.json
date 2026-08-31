@@ -1,0 +1,288 @@
+[
+  {
+    "step": "config",
+    "llm": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+    "memory": "enabled"
+  },
+  {
+    "step": "data_quality",
+    "agent": "data_quality",
+    "verdict": "PASS",
+    "issues": [],
+    "fields_checked": 13
+  },
+  {
+    "step": "risk_analysis",
+    "agent": "risk_analysis",
+    "employee_id": "EMP1180",
+    "attrition_probability": 0.8954,
+    "risk_level": "High"
+  },
+  {
+    "step": "root_cause_attempt_1",
+    "strictness": 1.0,
+    "agent": "root_cause",
+    "status": "EXPLAINED",
+    "confirmed_drivers": [
+      {
+        "feature": "OverTime_flag",
+        "label": "Working overtime",
+        "value": 1.0,
+        "cohort_mean": 0.3,
+        "percentile": 69.6,
+        "severity_percentile": 30.4,
+        "bad_when": "high",
+        "has_lever": true,
+        "logit_contribution": 1.209,
+        "statement": "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit."
+      },
+      {
+        "feature": "BusinessTravel_freq",
+        "label": "Business travel frequency",
+        "value": 2.0,
+        "cohort_mean": 1.1,
+        "percentile": 80.7,
+        "severity_percentile": 19.3,
+        "bad_when": "high",
+        "has_lever": false,
+        "logit_contribution": 1.1822,
+        "statement": "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit."
+      },
+      {
+        "feature": "DistanceFromHome",
+        "label": "Commute distance",
+        "value": 26.0,
+        "cohort_mean": 9.1,
+        "percentile": 96.5,
+        "severity_percentile": 3.5,
+        "bad_when": "high",
+        "has_lever": false,
+        "logit_contribution": 0.9528,
+        "statement": "Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort), contributing +0.95 to the risk logit."
+      },
+      {
+        "feature": "WorkLifeBalance",
+        "label": "Work-life balance",
+        "value": 1.0,
+        "cohort_mean": 2.75,
+        "percentile": 0.0,
+        "severity_percentile": 0.0,
+        "bad_when": "low",
+        "has_lever": true,
+        "logit_contribution": 0.5309,
+        "statement": "Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort), contributing +0.53 to the risk logit."
+      }
+    ],
+    "rejected_drivers": [],
+    "explanation": "Primary drivers: Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit.; Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit.; Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort), contributing +0.95 to the risk logit.; Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort), contributing +0.53 to the risk logit.",
+    "actionable_features": [
+      "OverTime_flag",
+      "WorkLifeBalance"
+    ],
+    "contextual_features": [
+      "BusinessTravel_freq",
+      "DistanceFromHome"
+    ]
+  },
+  {
+    "step": "intervention_attempt_1",
+    "agent": "intervention",
+    "status": "PROPOSED",
+    "options_considered": [
+      {
+        "key": "workload_review",
+        "label": "Review workload and reduce overtime",
+        "simulated_delta_pp": -37.64,
+        "targets_drivers": [
+          "OverTime_flag",
+          "WorkLifeBalance"
+        ]
+      }
+    ],
+    "recommendation": {
+      "key": "workload_review",
+      "label": "Review workload and reduce overtime",
+      "targets_drivers": [
+        "OverTime_flag",
+        "WorkLifeBalance"
+      ],
+      "simulated_delta_pp": -37.64,
+      "caveat": "Simulated model what-if, not a causal effect estimate."
+    },
+    "rationale": "Review workload and reduce overtime targets OverTime_flag, WorkLifeBalance and shows the largest simulated risk reduction (-37.6 pp) among available options."
+  },
+  {
+    "step": "critic_attempt_1",
+    "agent": "critic",
+    "verdict": "APPROVE",
+    "problems": [],
+    "checks_run": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5"
+    ]
+  },
+  {
+    "step": "human_gate",
+    "agent": "human_gate",
+    "status": "APPROVED_FOR_REVIEW",
+    "employee_id": "EMP1180",
+    "risk_level": "High",
+    "proposed_recommendation": "Review workload and reduce overtime",
+    "evidence": [
+      "Working overtime is 1 vs cohort mean 0.3 (70th percentile, worst 30% of the cohort), contributing +1.21 to the risk logit.",
+      "Business travel frequency is 2 vs cohort mean 1.1 (81st percentile, worst 19% of the cohort), contributing +1.18 to the risk logit.",
+      "Commute distance is 26 vs cohort mean 9.1 (96th percentile, worst 4% of the cohort), contributing +0.95 to the risk logit.",
+      "Work-life balance is 1 vs cohort mean 2.75 (0th percentile, the worst in the cohort), contributing +0.53 to the risk logit."
+    ],
+    "simulated_delta_pp": -37.64,
+    "caveat": "Simulated model what-if, not a causal effect estimate.",
+    "requires_human_decision": true,
+    "note": "No action is executed by this system. A human reviewer decides."
+  },
+  {
+    "step": "cohort_memory",
+    "driver_context": [
+      {
+        "feature": "WorkLifeBalance",
+        "cohort_share": 0.0497,
+        "kind": "distinguishing",
+        "note": "Work-life balance is confirmed for only 5% of the cohort reviewed so far \u2014 this is specific to this employee."
+      }
+    ],
+    "precedent": {},
+    "note": "Annotation only \u2014 does not affect status."
+  },
+  {
+    "step": "tool_calls",
+    "calls": [
+      {
+        "tool": "predict_risk",
+        "args": {
+          "employee_id": "EMP1180"
+        },
+        "result": {
+          "attrition_probability": 0.8954
+        }
+      },
+      {
+        "tool": "get_risk_drivers",
+        "args": {
+          "employee_id": "EMP1180",
+          "top_n": 4
+        },
+        "result": [
+          {
+            "feature": "OverTime_flag",
+            "label": "Working overtime",
+            "value": 1.0,
+            "cohort_mean": 0.3,
+            "logit_contribution": 1.209,
+            "raises_risk": true
+          },
+          {
+            "feature": "BusinessTravel_freq",
+            "label": "Business travel frequency",
+            "value": 2.0,
+            "cohort_mean": 1.1,
+            "logit_contribution": 1.1822,
+            "raises_risk": true
+          },
+          {
+            "feature": "DistanceFromHome",
+            "label": "Commute distance",
+            "value": 26.0,
+            "cohort_mean": 9.1,
+            "logit_contribution": 0.9528,
+            "raises_risk": true
+          },
+          {
+            "feature": "WorkLifeBalance",
+            "label": "Work-life balance",
+            "value": 1.0,
+            "cohort_mean": 2.75,
+            "logit_contribution": 0.5309,
+            "raises_risk": true
+          }
+        ]
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "OverTime_flag",
+          "value": 1.0
+        },
+        "result": {
+          "feature": "OverTime_flag",
+          "value": 1.0,
+          "percentile": 69.6,
+          "bad_when": "high",
+          "severity_percentile": 30.4,
+          "cohort_median": 0.0
+        }
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "BusinessTravel_freq",
+          "value": 2.0
+        },
+        "result": {
+          "feature": "BusinessTravel_freq",
+          "value": 2.0,
+          "percentile": 80.7,
+          "bad_when": "high",
+          "severity_percentile": 19.3,
+          "cohort_median": 1.0
+        }
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "DistanceFromHome",
+          "value": 26.0
+        },
+        "result": {
+          "feature": "DistanceFromHome",
+          "value": 26.0,
+          "percentile": 96.5,
+          "bad_when": "high",
+          "severity_percentile": 3.5,
+          "cohort_median": 7.0
+        }
+      },
+      {
+        "tool": "get_cohort_percentile",
+        "args": {
+          "feature": "WorkLifeBalance",
+          "value": 1.0
+        },
+        "result": {
+          "feature": "WorkLifeBalance",
+          "value": 1.0,
+          "percentile": 0.0,
+          "bad_when": "low",
+          "severity_percentile": 0.0,
+          "cohort_median": 3.0
+        }
+      },
+      {
+        "tool": "simulate_intervention",
+        "args": {
+          "employee_id": "EMP1180",
+          "intervention": "workload_review"
+        },
+        "result": {
+          "intervention": "workload_review",
+          "label": "Review workload and reduce overtime",
+          "risk_before": 0.8954,
+          "risk_after_simulated": 0.519,
+          "delta_pp": -37.64,
+          "caveat": "SIMULATED model what-if on correlational features; NOT a causal effect."
+        }
+      }
+    ]
+  }
+]

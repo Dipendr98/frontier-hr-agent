@@ -1,0 +1,72 @@
+{
+  "eval_cases": 86,
+  "split": "frozen holdout, test_size=0.25, seed=42, stratified",
+  "primary_metric": "reviewer_case_quality_pct (rubric 0-5, independent of the Critic)",
+  "counter_metric": "wasted_intervention_rate",
+  "systems": {
+    "baseline": {
+      "n_cases": 86,
+      "n_leavers": 26,
+      "n_stayers": 60,
+      "reviewer_case_quality_mean": 2.14,
+      "reviewer_case_quality_pct": 0.4279,
+      "d1_correct_triage": 0.6977,
+      "d2_evidence_present": 0.0,
+      "d3_evidence_verifiable": 0.0,
+      "d4_action_has_mechanism": 0.4419,
+      "d5_proportionate": 1.0,
+      "catch_rate_with_verified_evidence": 0.0,
+      "raw_flag_rate_on_leavers": 0.8462,
+      "unverifiable_evidence_claims": 0,
+      "wasted_intervention_rate": 0.3667,
+      "total_interventions_proposed": 44,
+      "wall_clock_seconds": 0.05,
+      "avg_tool_calls": 0.0,
+      "escalated_to_human": 0
+    },
+    "baseline_plus": {
+      "n_cases": 86,
+      "n_leavers": 26,
+      "n_stayers": 60,
+      "reviewer_case_quality_mean": 3.163,
+      "reviewer_case_quality_pct": 0.6326,
+      "d1_correct_triage": 0.6977,
+      "d2_evidence_present": 0.5116,
+      "d3_evidence_verifiable": 0.5116,
+      "d4_action_has_mechanism": 0.4419,
+      "d5_proportionate": 1.0,
+      "catch_rate_with_verified_evidence": 0.8462,
+      "raw_flag_rate_on_leavers": 0.8462,
+      "unverifiable_evidence_claims": 0,
+      "wasted_intervention_rate": 0.3667,
+      "total_interventions_proposed": 44,
+      "wall_clock_seconds": 0.05,
+      "avg_tool_calls": 0.0,
+      "escalated_to_human": 0
+    },
+    "agent": {
+      "n_cases": 86,
+      "n_leavers": 26,
+      "n_stayers": 60,
+      "reviewer_case_quality_mean": 4.651,
+      "reviewer_case_quality_pct": 0.9302,
+      "d1_correct_triage": 0.7209,
+      "d2_evidence_present": 0.9884,
+      "d3_evidence_verifiable": 0.9884,
+      "d4_action_has_mechanism": 0.9535,
+      "d5_proportionate": 1.0,
+      "catch_rate_with_verified_evidence": 0.8462,
+      "raw_flag_rate_on_leavers": 0.8462,
+      "unverifiable_evidence_claims": 0,
+      "wasted_intervention_rate": 0.3333,
+      "total_interventions_proposed": 42,
+      "wall_clock_seconds": 0.23,
+      "avg_tool_calls": 5.8,
+      "escalated_to_human": 0
+    }
+  },
+  "headline_delta_vs_strongest_baseline": {
+    "reviewer_case_quality_pct": 0.2976,
+    "wasted_intervention_rate": -0.0334
+  }
+}

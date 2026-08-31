@@ -1,0 +1,145 @@
+{
+  "n_cases_attempted": 20,
+  "n_cases_scored": 20,
+  "scored_employee_ids": [
+    "EMP1044",
+    "EMP1060",
+    "EMP1156",
+    "EMP1206",
+    "EMP1379",
+    "EMP1495",
+    "EMP1714",
+    "EMP1734",
+    "EMP1766",
+    "EMP1801",
+    "EMP1935",
+    "EMP2012",
+    "EMP407",
+    "EMP424",
+    "EMP468",
+    "EMP680",
+    "EMP784",
+    "EMP816",
+    "EMP911",
+    "EMP95"
+  ],
+  "sample": "frozen holdout, .sample(n=20, random_state=42)",
+  "provider": "provider=openai_compatible base_url=https://integrate.api.nvidia.com/v1 model=nvidia/nemotron-3-super-120b-a12b",
+  "pairing": "Scored only on cases BOTH modes completed. A provider that rate-limits one mode more than the other would otherwise show up as a quality difference.",
+  "note": "Mode 2 runs are additionally checked by claim_verifier PASSIVELY \u2014 observed, never corrected \u2014 to measure the unsupervised claim error rate without changing behaviour.",
+  "variance_warning": "The model is non-deterministic and n is small, so the composite case-quality score moves by several points between runs. The claim error rate and the unverifiable-claim count are the stable signals; treat a few points of case quality as noise, not as a result.",
+  "systems": {
+    "mode2_raw": {
+      "n_cases": 20,
+      "n_leavers": 6,
+      "n_stayers": 14,
+      "reviewer_case_quality_mean": 3.95,
+      "reviewer_case_quality_pct": 0.79,
+      "d1_correct_triage": 0.7,
+      "d2_evidence_present": 1.0,
+      "d3_evidence_verifiable": 0.4,
+      "d4_action_has_mechanism": 0.9,
+      "d5_proportionate": 0.95,
+      "catch_rate_with_verified_evidence": 0.8333,
+      "raw_flag_rate_on_leavers": 0.8333,
+      "unverifiable_evidence_claims": 12,
+      "wasted_intervention_rate": 0.3571,
+      "total_interventions_proposed": 10,
+      "run_errors": 0,
+      "failed_employee_ids": [],
+      "wall_clock_seconds": 277.7,
+      "llm_calls": 152,
+      "total_tokens": 393977,
+      "estimated_cost_usd": 0.0,
+      "verify_retries": 0,
+      "failed_checks": {
+        "unverified_driver": 7,
+        "risk_level_mismatch": 1,
+        "no_mechanism": 1,
+        "action_without_evidence": 1
+      },
+      "passive_rejects": 5,
+      "n_scored": 20,
+      "avg_tool_calls": 6.8,
+      "escalated": 0,
+      "raw_claim_error_rate": 0.25,
+      "raw_claim_errors": 5
+    },
+    "mode3_verified": {
+      "n_cases": 20,
+      "n_leavers": 6,
+      "n_stayers": 14,
+      "reviewer_case_quality_mean": 4.0,
+      "reviewer_case_quality_pct": 0.8,
+      "d1_correct_triage": 0.7,
+      "d2_evidence_present": 1.0,
+      "d3_evidence_verifiable": 0.4,
+      "d4_action_has_mechanism": 0.95,
+      "d5_proportionate": 0.95,
+      "catch_rate_with_verified_evidence": 0.6667,
+      "raw_flag_rate_on_leavers": 0.8333,
+      "unverifiable_evidence_claims": 12,
+      "wasted_intervention_rate": 0.3571,
+      "total_interventions_proposed": 10,
+      "run_errors": 0,
+      "failed_employee_ids": [],
+      "wall_clock_seconds": 473.4,
+      "llm_calls": 160,
+      "total_tokens": 431079,
+      "estimated_cost_usd": 0.0,
+      "verify_retries": 4,
+      "failed_checks": {
+        "risk_level_mismatch": 2,
+        "unverified_driver": 7
+      },
+      "passive_rejects": 0,
+      "n_scored": 20,
+      "avg_tool_calls": 7.25,
+      "escalated": 0,
+      "variant_verified_evidence_only": {
+        "note": "Mode 3 scored on the recomputed statements alone, with the model's prose excluded. Reported alongside the headline so the choice of artifact is visible rather than decisive.",
+        "reviewer_case_quality_pct": 0.74,
+        "d2_evidence_present": 0.55,
+        "d3_evidence_verifiable": 0.55,
+        "unverifiable_evidence_claims": 0
+      }
+    }
+  },
+  "mode2_raw_claim_failures": [
+    {
+      "employee_id": "EMP424",
+      "problems": [
+        "unverified_driver: Job involvement contributes only +0.38 to the logit, below the 0.4 floor required to call it a driver.",
+        "unverified_driver: Years with current manager contributes only +0.32 to the logit, below the 0.4 floor required to call it a driver.",
+        "unverified_driver: Training sessions attended contributes only +0.24 to the logit, below the 0.4 floor required to call it a driver."
+      ]
+    },
+    {
+      "employee_id": "EMP816",
+      "problems": [
+        "risk_level_mismatch: you stated nothing but predict_risk gives 89.4%, which is High.",
+        "no_mechanism: 'workload_review' has no lever on any verified driver []. It cannot move what you cited.",
+        "action_without_evidence: you recommended an intervention but no driver you cited survived verification."
+      ]
+    },
+    {
+      "employee_id": "EMP95",
+      "problems": [
+        "unverified_driver: Job satisfaction contributes only +0.36 to the logit, below the 0.4 floor required to call it a driver.",
+        "unverified_driver: Years with current manager contributes only +0.32 to the logit, below the 0.4 floor required to call it a driver."
+      ]
+    },
+    {
+      "employee_id": "EMP1714",
+      "problems": [
+        "unverified_driver: Years with current manager contributes only +0.32 to the logit, below the 0.4 floor required to call it a driver."
+      ]
+    },
+    {
+      "employee_id": "EMP1060",
+      "problems": [
+        "unverified_driver: Training sessions attended contributes only +0.11 to the logit, below the 0.4 floor required to call it a driver."
+      ]
+    }
+  ]
+}

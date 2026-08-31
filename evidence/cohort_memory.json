@@ -1,0 +1,5142 @@
+{
+  "schema": 1,
+  "cases": {
+    "EMP4": {
+      "employee_id": "EMP4",
+      "risk_level": "High",
+      "attrition_probability": 0.7904,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP7": {
+      "employee_id": "EMP7",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3519,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "NumCompaniesWorked"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP10": {
+      "employee_id": "EMP10",
+      "risk_level": "High",
+      "attrition_probability": 0.6366,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP11": {
+      "employee_id": "EMP11",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3574,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP18": {
+      "employee_id": "EMP18",
+      "risk_level": "Low",
+      "attrition_probability": 0.1987,
+      "confirmed_drivers": [
+        "JobLevel",
+        "DistanceFromHome",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP22": {
+      "employee_id": "EMP22",
+      "risk_level": "Low",
+      "attrition_probability": 0.1241,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP30": {
+      "employee_id": "EMP30",
+      "risk_level": "Low",
+      "attrition_probability": 0.1745,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP38": {
+      "employee_id": "EMP38",
+      "risk_level": "Low",
+      "attrition_probability": 0.0112,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP39": {
+      "employee_id": "EMP39",
+      "risk_level": "Low",
+      "attrition_probability": 0.1543,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP42": {
+      "employee_id": "EMP42",
+      "risk_level": "Low",
+      "attrition_probability": 0.013,
+      "confirmed_drivers": [],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP45": {
+      "employee_id": "EMP45",
+      "risk_level": "High",
+      "attrition_probability": 0.7975,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP49": {
+      "employee_id": "EMP49",
+      "risk_level": "Low",
+      "attrition_probability": 0.0815,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP51": {
+      "employee_id": "EMP51",
+      "risk_level": "High",
+      "attrition_probability": 0.9141,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP53": {
+      "employee_id": "EMP53",
+      "risk_level": "Low",
+      "attrition_probability": 0.116,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP54": {
+      "employee_id": "EMP54",
+      "risk_level": "Low",
+      "attrition_probability": 0.1129,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP55": {
+      "employee_id": "EMP55",
+      "risk_level": "High",
+      "attrition_probability": 0.9328,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobInvolvement",
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobInvolvement"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP61": {
+      "employee_id": "EMP61",
+      "risk_level": "High",
+      "attrition_probability": 0.8914,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "DistanceFromHome",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP63": {
+      "employee_id": "EMP63",
+      "risk_level": "Low",
+      "attrition_probability": 0.0424,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP64": {
+      "employee_id": "EMP64",
+      "risk_level": "High",
+      "attrition_probability": 0.6092,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "NumCompaniesWorked",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP65": {
+      "employee_id": "EMP65",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5613,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP72": {
+      "employee_id": "EMP72",
+      "risk_level": "High",
+      "attrition_probability": 0.7454,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP75": {
+      "employee_id": "EMP75",
+      "risk_level": "High",
+      "attrition_probability": 0.8151,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP86": {
+      "employee_id": "EMP86",
+      "risk_level": "Low",
+      "attrition_probability": 0.1212,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP90": {
+      "employee_id": "EMP90",
+      "risk_level": "High",
+      "attrition_probability": 0.8521,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP95": {
+      "employee_id": "EMP95",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3852,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": "compensation_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP97": {
+      "employee_id": "EMP97",
+      "risk_level": "Low",
+      "attrition_probability": 0.3022,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP101": {
+      "employee_id": "EMP101",
+      "risk_level": "Low",
+      "attrition_probability": 0.2881,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP106": {
+      "employee_id": "EMP106",
+      "risk_level": "Low",
+      "attrition_probability": 0.0256,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP113": {
+      "employee_id": "EMP113",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3595,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP134": {
+      "employee_id": "EMP134",
+      "risk_level": "Low",
+      "attrition_probability": 0.2604,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP137": {
+      "employee_id": "EMP137",
+      "risk_level": "High",
+      "attrition_probability": 0.8606,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP139": {
+      "employee_id": "EMP139",
+      "risk_level": "Low",
+      "attrition_probability": 0.0132,
+      "confirmed_drivers": [],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP143": {
+      "employee_id": "EMP143",
+      "risk_level": "Low",
+      "attrition_probability": 0.0582,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP144": {
+      "employee_id": "EMP144",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3865,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP151": {
+      "employee_id": "EMP151",
+      "risk_level": "Low",
+      "attrition_probability": 0.2306,
+      "confirmed_drivers": [],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP155": {
+      "employee_id": "EMP155",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5624,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP167": {
+      "employee_id": "EMP167",
+      "risk_level": "High",
+      "attrition_probability": 0.78,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP169": {
+      "employee_id": "EMP169",
+      "risk_level": "Low",
+      "attrition_probability": 0.0734,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP174": {
+      "employee_id": "EMP174",
+      "risk_level": "Low",
+      "attrition_probability": 0.0686,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP175": {
+      "employee_id": "EMP175",
+      "risk_level": "High",
+      "attrition_probability": 0.7546,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobInvolvement",
+        "DistanceFromHome",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobInvolvement",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP183": {
+      "employee_id": "EMP183",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4689,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP201": {
+      "employee_id": "EMP201",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4312,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP211": {
+      "employee_id": "EMP211",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3588,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP214": {
+      "employee_id": "EMP214",
+      "risk_level": "High",
+      "attrition_probability": 0.9546,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP217": {
+      "employee_id": "EMP217",
+      "risk_level": "Low",
+      "attrition_probability": 0.0871,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP218": {
+      "employee_id": "EMP218",
+      "risk_level": "Low",
+      "attrition_probability": 0.0576,
+      "confirmed_drivers": [
+        "JobLevel",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "WorkLifeBalance"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP224": {
+      "employee_id": "EMP224",
+      "risk_level": "Low",
+      "attrition_probability": 0.2789,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP235": {
+      "employee_id": "EMP235",
+      "risk_level": "High",
+      "attrition_probability": 0.9156,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobInvolvement",
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "JobInvolvement",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP241": {
+      "employee_id": "EMP241",
+      "risk_level": "High",
+      "attrition_probability": 0.6692,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP243": {
+      "employee_id": "EMP243",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4881,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP245": {
+      "employee_id": "EMP245",
+      "risk_level": "Low",
+      "attrition_probability": 0.1644,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP261": {
+      "employee_id": "EMP261",
+      "risk_level": "High",
+      "attrition_probability": 0.9254,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "DistanceFromHome",
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP271": {
+      "employee_id": "EMP271",
+      "risk_level": "Low",
+      "attrition_probability": 0.118,
+      "confirmed_drivers": [
+        "NumCompaniesWorked",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP274": {
+      "employee_id": "EMP274",
+      "risk_level": "High",
+      "attrition_probability": 0.6258,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP282": {
+      "employee_id": "EMP282",
+      "risk_level": "High",
+      "attrition_probability": 0.97,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "DistanceFromHome",
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP298": {
+      "employee_id": "EMP298",
+      "risk_level": "Low",
+      "attrition_probability": 0.0805,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP309": {
+      "employee_id": "EMP309",
+      "risk_level": "Low",
+      "attrition_probability": 0.2587,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP316": {
+      "employee_id": "EMP316",
+      "risk_level": "Low",
+      "attrition_probability": 0.3074,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP321": {
+      "employee_id": "EMP321",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3639,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP334": {
+      "employee_id": "EMP334",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4169,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP337": {
+      "employee_id": "EMP337",
+      "risk_level": "Low",
+      "attrition_probability": 0.1587,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction",
+        "NumCompaniesWorked"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP338": {
+      "employee_id": "EMP338",
+      "risk_level": "Low",
+      "attrition_probability": 0.1364,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP342": {
+      "employee_id": "EMP342",
+      "risk_level": "Low",
+      "attrition_probability": 0.2463,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP353": {
+      "employee_id": "EMP353",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3517,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": "compensation_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP364": {
+      "employee_id": "EMP364",
+      "risk_level": "High",
+      "attrition_probability": 0.6412,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "WorkLifeBalance",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "WorkLifeBalance",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP366": {
+      "employee_id": "EMP366",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3629,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP392": {
+      "employee_id": "EMP392",
+      "risk_level": "High",
+      "attrition_probability": 0.9453,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP393": {
+      "employee_id": "EMP393",
+      "risk_level": "Low",
+      "attrition_probability": 0.0667,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "NumCompaniesWorked"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP399": {
+      "employee_id": "EMP399",
+      "risk_level": "Low",
+      "attrition_probability": 0.2402,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP405": {
+      "employee_id": "EMP405",
+      "risk_level": "Low",
+      "attrition_probability": 0.2858,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP407": {
+      "employee_id": "EMP407",
+      "risk_level": "Low",
+      "attrition_probability": 0.2573,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP411": {
+      "employee_id": "EMP411",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5312,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP424": {
+      "employee_id": "EMP424",
+      "risk_level": "High",
+      "attrition_probability": 0.6394,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP426": {
+      "employee_id": "EMP426",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4324,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP445": {
+      "employee_id": "EMP445",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5259,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP451": {
+      "employee_id": "EMP451",
+      "risk_level": "Low",
+      "attrition_probability": 0.253,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP467": {
+      "employee_id": "EMP467",
+      "risk_level": "High",
+      "attrition_probability": 0.65,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP468": {
+      "employee_id": "EMP468",
+      "risk_level": "Low",
+      "attrition_probability": 0.1043,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP473": {
+      "employee_id": "EMP473",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4574,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "EnvironmentSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP475": {
+      "employee_id": "EMP475",
+      "risk_level": "Low",
+      "attrition_probability": 0.1121,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP477": {
+      "employee_id": "EMP477",
+      "risk_level": "Low",
+      "attrition_probability": 0.3085,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP479": {
+      "employee_id": "EMP479",
+      "risk_level": "Low",
+      "attrition_probability": 0.0098,
+      "confirmed_drivers": [
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP485": {
+      "employee_id": "EMP485",
+      "risk_level": "High",
+      "attrition_probability": 0.6629,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP487": {
+      "employee_id": "EMP487",
+      "risk_level": "Low",
+      "attrition_probability": 0.0307,
+      "confirmed_drivers": [
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP493": {
+      "employee_id": "EMP493",
+      "risk_level": "High",
+      "attrition_probability": 0.6413,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP494": {
+      "employee_id": "EMP494",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3514,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": "compensation_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP496": {
+      "employee_id": "EMP496",
+      "risk_level": "Medium",
+      "attrition_probability": 0.376,
+      "confirmed_drivers": [
+        "NumCompaniesWorked",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": "compensation_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP501": {
+      "employee_id": "EMP501",
+      "risk_level": "Low",
+      "attrition_probability": 0.0664,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP508": {
+      "employee_id": "EMP508",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3735,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP511": {
+      "employee_id": "EMP511",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3987,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP514": {
+      "employee_id": "EMP514",
+      "risk_level": "High",
+      "attrition_probability": 0.8898,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel",
+        "NumCompaniesWorked"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP518": {
+      "employee_id": "EMP518",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5315,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP521": {
+      "employee_id": "EMP521",
+      "risk_level": "Low",
+      "attrition_probability": 0.2807,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP538": {
+      "employee_id": "EMP538",
+      "risk_level": "Medium",
+      "attrition_probability": 0.432,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP544": {
+      "employee_id": "EMP544",
+      "risk_level": "Low",
+      "attrition_probability": 0.1422,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP555": {
+      "employee_id": "EMP555",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5894,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobInvolvement",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "JobInvolvement"
+      ],
+      "intervention_key": "ownership_assignment",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP556": {
+      "employee_id": "EMP556",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5848,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP565": {
+      "employee_id": "EMP565",
+      "risk_level": "High",
+      "attrition_probability": 0.7805,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": "compensation_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP566": {
+      "employee_id": "EMP566",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4937,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP568": {
+      "employee_id": "EMP568",
+      "risk_level": "Low",
+      "attrition_probability": 0.1328,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP578": {
+      "employee_id": "EMP578",
+      "risk_level": "Low",
+      "attrition_probability": 0.1791,
+      "confirmed_drivers": [
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP587": {
+      "employee_id": "EMP587",
+      "risk_level": "High",
+      "attrition_probability": 0.749,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "DistanceFromHome",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP591": {
+      "employee_id": "EMP591",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5549,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP593": {
+      "employee_id": "EMP593",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5842,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": "compensation_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP614": {
+      "employee_id": "EMP614",
+      "risk_level": "High",
+      "attrition_probability": 0.9503,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP615": {
+      "employee_id": "EMP615",
+      "risk_level": "Low",
+      "attrition_probability": 0.1244,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "JobInvolvement",
+        "JobSatisfaction"
+      ],
+      "actionable_features": [
+        "JobInvolvement",
+        "JobSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP618": {
+      "employee_id": "EMP618",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5162,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP622": {
+      "employee_id": "EMP622",
+      "risk_level": "High",
+      "attrition_probability": 0.9728,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobInvolvement",
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobInvolvement"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP624": {
+      "employee_id": "EMP624",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3513,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP632": {
+      "employee_id": "EMP632",
+      "risk_level": "Low",
+      "attrition_probability": 0.2194,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP634": {
+      "employee_id": "EMP634",
+      "risk_level": "Low",
+      "attrition_probability": 0.0842,
+      "confirmed_drivers": [],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP643": {
+      "employee_id": "EMP643",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3572,
+      "confirmed_drivers": [
+        "JobLevel",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP648": {
+      "employee_id": "EMP648",
+      "risk_level": "High",
+      "attrition_probability": 0.9038,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobSatisfaction",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP657": {
+      "employee_id": "EMP657",
+      "risk_level": "Low",
+      "attrition_probability": 0.2741,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP661": {
+      "employee_id": "EMP661",
+      "risk_level": "Low",
+      "attrition_probability": 0.1227,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP662": {
+      "employee_id": "EMP662",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4752,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP665": {
+      "employee_id": "EMP665",
+      "risk_level": "Low",
+      "attrition_probability": 0.2917,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP671": {
+      "employee_id": "EMP671",
+      "risk_level": "Low",
+      "attrition_probability": 0.0044,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP675": {
+      "employee_id": "EMP675",
+      "risk_level": "Low",
+      "attrition_probability": 0.2847,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP680": {
+      "employee_id": "EMP680",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4649,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP684": {
+      "employee_id": "EMP684",
+      "risk_level": "High",
+      "attrition_probability": 0.7488,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "DistanceFromHome",
+        "JobSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP701": {
+      "employee_id": "EMP701",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3675,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP704": {
+      "employee_id": "EMP704",
+      "risk_level": "Low",
+      "attrition_probability": 0.0506,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP712": {
+      "employee_id": "EMP712",
+      "risk_level": "Low",
+      "attrition_probability": 0.0536,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP715": {
+      "employee_id": "EMP715",
+      "risk_level": "Low",
+      "attrition_probability": 0.1975,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP720": {
+      "employee_id": "EMP720",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5661,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction",
+        "NumCompaniesWorked",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP732": {
+      "employee_id": "EMP732",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5558,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP738": {
+      "employee_id": "EMP738",
+      "risk_level": "Low",
+      "attrition_probability": 0.1026,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP743": {
+      "employee_id": "EMP743",
+      "risk_level": "Low",
+      "attrition_probability": 0.0901,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP749": {
+      "employee_id": "EMP749",
+      "risk_level": "Low",
+      "attrition_probability": 0.2643,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP752": {
+      "employee_id": "EMP752",
+      "risk_level": "High",
+      "attrition_probability": 0.8354,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP754": {
+      "employee_id": "EMP754",
+      "risk_level": "Low",
+      "attrition_probability": 0.0922,
+      "confirmed_drivers": [
+        "BusinessTravel_freq"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP766": {
+      "employee_id": "EMP766",
+      "risk_level": "Low",
+      "attrition_probability": 0.0454,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP769": {
+      "employee_id": "EMP769",
+      "risk_level": "Low",
+      "attrition_probability": 0.0115,
+      "confirmed_drivers": [
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP771": {
+      "employee_id": "EMP771",
+      "risk_level": "Low",
+      "attrition_probability": 0.0354,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP773": {
+      "employee_id": "EMP773",
+      "risk_level": "High",
+      "attrition_probability": 0.6675,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP775": {
+      "employee_id": "EMP775",
+      "risk_level": "Low",
+      "attrition_probability": 0.3111,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP784": {
+      "employee_id": "EMP784",
+      "risk_level": "Low",
+      "attrition_probability": 0.2279,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP792": {
+      "employee_id": "EMP792",
+      "risk_level": "High",
+      "attrition_probability": 0.9265,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "JobInvolvement",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobInvolvement"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP806": {
+      "employee_id": "EMP806",
+      "risk_level": "Low",
+      "attrition_probability": 0.0862,
+      "confirmed_drivers": [
+        "JobInvolvement",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "JobInvolvement"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP811": {
+      "employee_id": "EMP811",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5591,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP812": {
+      "employee_id": "EMP812",
+      "risk_level": "Low",
+      "attrition_probability": 0.0567,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP816": {
+      "employee_id": "EMP816",
+      "risk_level": "High",
+      "attrition_probability": 0.8939,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP826": {
+      "employee_id": "EMP826",
+      "risk_level": "Low",
+      "attrition_probability": 0.0597,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP828": {
+      "employee_id": "EMP828",
+      "risk_level": "Low",
+      "attrition_probability": 0.226,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP832": {
+      "employee_id": "EMP832",
+      "risk_level": "High",
+      "attrition_probability": 0.7925,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP833": {
+      "employee_id": "EMP833",
+      "risk_level": "Medium",
+      "attrition_probability": 0.599,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP834": {
+      "employee_id": "EMP834",
+      "risk_level": "Medium",
+      "attrition_probability": 0.447,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP850": {
+      "employee_id": "EMP850",
+      "risk_level": "Low",
+      "attrition_probability": 0.0051,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP868": {
+      "employee_id": "EMP868",
+      "risk_level": "Low",
+      "attrition_probability": 0.0651,
+      "confirmed_drivers": [],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP872": {
+      "employee_id": "EMP872",
+      "risk_level": "Low",
+      "attrition_probability": 0.0421,
+      "confirmed_drivers": [
+        "RelationshipSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP875": {
+      "employee_id": "EMP875",
+      "risk_level": "High",
+      "attrition_probability": 0.7925,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP893": {
+      "employee_id": "EMP893",
+      "risk_level": "Low",
+      "attrition_probability": 0.2936,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP897": {
+      "employee_id": "EMP897",
+      "risk_level": "Low",
+      "attrition_probability": 0.0088,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP911": {
+      "employee_id": "EMP911",
+      "risk_level": "High",
+      "attrition_probability": 0.9541,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP918": {
+      "employee_id": "EMP918",
+      "risk_level": "High",
+      "attrition_probability": 0.8122,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel",
+        "NumCompaniesWorked"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP920": {
+      "employee_id": "EMP920",
+      "risk_level": "Low",
+      "attrition_probability": 0.321,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP922": {
+      "employee_id": "EMP922",
+      "risk_level": "Low",
+      "attrition_probability": 0.1925,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP923": {
+      "employee_id": "EMP923",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4215,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP930": {
+      "employee_id": "EMP930",
+      "risk_level": "Low",
+      "attrition_probability": 0.1941,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP932": {
+      "employee_id": "EMP932",
+      "risk_level": "High",
+      "attrition_probability": 0.7573,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP933": {
+      "employee_id": "EMP933",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4424,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP934": {
+      "employee_id": "EMP934",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4147,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP945": {
+      "employee_id": "EMP945",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3701,
+      "confirmed_drivers": [
+        "JobLevel",
+        "DistanceFromHome",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP952": {
+      "employee_id": "EMP952",
+      "risk_level": "High",
+      "attrition_probability": 0.7539,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP954": {
+      "employee_id": "EMP954",
+      "risk_level": "Medium",
+      "attrition_probability": 0.396,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP959": {
+      "employee_id": "EMP959",
+      "risk_level": "High",
+      "attrition_probability": 0.9024,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP960": {
+      "employee_id": "EMP960",
+      "risk_level": "High",
+      "attrition_probability": 0.8435,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP964": {
+      "employee_id": "EMP964",
+      "risk_level": "High",
+      "attrition_probability": 0.8775,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP977": {
+      "employee_id": "EMP977",
+      "risk_level": "Low",
+      "attrition_probability": 0.2758,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP986": {
+      "employee_id": "EMP986",
+      "risk_level": "Low",
+      "attrition_probability": 0.1019,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "DistanceFromHome",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP994": {
+      "employee_id": "EMP994",
+      "risk_level": "High",
+      "attrition_probability": 0.8948,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1001": {
+      "employee_id": "EMP1001",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4326,
+      "confirmed_drivers": [
+        "JobLevel",
+        "NumCompaniesWorked"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1006": {
+      "employee_id": "EMP1006",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5453,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1012": {
+      "employee_id": "EMP1012",
+      "risk_level": "Low",
+      "attrition_probability": 0.0884,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1016": {
+      "employee_id": "EMP1016",
+      "risk_level": "High",
+      "attrition_probability": 0.9479,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1022": {
+      "employee_id": "EMP1022",
+      "risk_level": "Low",
+      "attrition_probability": 0.2705,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1025": {
+      "employee_id": "EMP1025",
+      "risk_level": "Low",
+      "attrition_probability": 0.0592,
+      "confirmed_drivers": [
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1029": {
+      "employee_id": "EMP1029",
+      "risk_level": "Low",
+      "attrition_probability": 0.0027,
+      "confirmed_drivers": [
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1030": {
+      "employee_id": "EMP1030",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5925,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1033": {
+      "employee_id": "EMP1033",
+      "risk_level": "High",
+      "attrition_probability": 0.9446,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobInvolvement",
+        "RelationshipSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobInvolvement",
+        "RelationshipSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1036": {
+      "employee_id": "EMP1036",
+      "risk_level": "High",
+      "attrition_probability": 0.6077,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1037": {
+      "employee_id": "EMP1037",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3891,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "JobInvolvement",
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "JobInvolvement",
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1044": {
+      "employee_id": "EMP1044",
+      "risk_level": "Low",
+      "attrition_probability": 0.097,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1052": {
+      "employee_id": "EMP1052",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5497,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1055": {
+      "employee_id": "EMP1055",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5844,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1056": {
+      "employee_id": "EMP1056",
+      "risk_level": "Low",
+      "attrition_probability": 0.3292,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1060": {
+      "employee_id": "EMP1060",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4451,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1069": {
+      "employee_id": "EMP1069",
+      "risk_level": "Low",
+      "attrition_probability": 0.0002,
+      "confirmed_drivers": [
+        "NumCompaniesWorked"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1076": {
+      "employee_id": "EMP1076",
+      "risk_level": "Low",
+      "attrition_probability": 0.07,
+      "confirmed_drivers": [
+        "DistanceFromHome"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1077": {
+      "employee_id": "EMP1077",
+      "risk_level": "High",
+      "attrition_probability": 0.6793,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1079": {
+      "employee_id": "EMP1079",
+      "risk_level": "High",
+      "attrition_probability": 0.8178,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1105": {
+      "employee_id": "EMP1105",
+      "risk_level": "Low",
+      "attrition_probability": 0.0786,
+      "confirmed_drivers": [
+        "OverTime_flag"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1107": {
+      "employee_id": "EMP1107",
+      "risk_level": "High",
+      "attrition_probability": 0.793,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1108": {
+      "employee_id": "EMP1108",
+      "risk_level": "High",
+      "attrition_probability": 0.987,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1111": {
+      "employee_id": "EMP1111",
+      "risk_level": "High",
+      "attrition_probability": 0.8983,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1113": {
+      "employee_id": "EMP1113",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4557,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1115": {
+      "employee_id": "EMP1115",
+      "risk_level": "Low",
+      "attrition_probability": 0.0172,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1125": {
+      "employee_id": "EMP1125",
+      "risk_level": "Low",
+      "attrition_probability": 0.0442,
+      "confirmed_drivers": [
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1131": {
+      "employee_id": "EMP1131",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3729,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1135": {
+      "employee_id": "EMP1135",
+      "risk_level": "Low",
+      "attrition_probability": 0.3118,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel",
+        "DistanceFromHome",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1148": {
+      "employee_id": "EMP1148",
+      "risk_level": "High",
+      "attrition_probability": 0.8139,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "JobInvolvement",
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "JobInvolvement",
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1156": {
+      "employee_id": "EMP1156",
+      "risk_level": "Low",
+      "attrition_probability": 0.1127,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1158": {
+      "employee_id": "EMP1158",
+      "risk_level": "High",
+      "attrition_probability": 0.8189,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1160": {
+      "employee_id": "EMP1160",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3934,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1175": {
+      "employee_id": "EMP1175",
+      "risk_level": "High",
+      "attrition_probability": 0.6456,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1180": {
+      "employee_id": "EMP1180",
+      "risk_level": "High",
+      "attrition_probability": 0.8954,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "DistanceFromHome",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1185": {
+      "employee_id": "EMP1185",
+      "risk_level": "Low",
+      "attrition_probability": 0.1897,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1190": {
+      "employee_id": "EMP1190",
+      "risk_level": "Low",
+      "attrition_probability": 0.0391,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1193": {
+      "employee_id": "EMP1193",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5306,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1198": {
+      "employee_id": "EMP1198",
+      "risk_level": "High",
+      "attrition_probability": 0.7345,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1203": {
+      "employee_id": "EMP1203",
+      "risk_level": "High",
+      "attrition_probability": 0.8373,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1206": {
+      "employee_id": "EMP1206",
+      "risk_level": "Low",
+      "attrition_probability": 0.2145,
+      "confirmed_drivers": [
+        "JobInvolvement",
+        "JobLevel",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobInvolvement",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1210": {
+      "employee_id": "EMP1210",
+      "risk_level": "High",
+      "attrition_probability": 0.8477,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1212": {
+      "employee_id": "EMP1212",
+      "risk_level": "Low",
+      "attrition_probability": 0.1859,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1215": {
+      "employee_id": "EMP1215",
+      "risk_level": "Low",
+      "attrition_probability": 0.0124,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1219": {
+      "employee_id": "EMP1219",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5769,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "WorkLifeBalance",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1226": {
+      "employee_id": "EMP1226",
+      "risk_level": "Low",
+      "attrition_probability": 0.0995,
+      "confirmed_drivers": [
+        "JobLevel",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1234": {
+      "employee_id": "EMP1234",
+      "risk_level": "High",
+      "attrition_probability": 0.6457,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "ESCALATED"
+    },
+    "EMP1242": {
+      "employee_id": "EMP1242",
+      "risk_level": "High",
+      "attrition_probability": 0.9513,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1248": {
+      "employee_id": "EMP1248",
+      "risk_level": "High",
+      "attrition_probability": 0.906,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1256": {
+      "employee_id": "EMP1256",
+      "risk_level": "Low",
+      "attrition_probability": 0.0104,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1258": {
+      "employee_id": "EMP1258",
+      "risk_level": "Low",
+      "attrition_probability": 0.1996,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1263": {
+      "employee_id": "EMP1263",
+      "risk_level": "Low",
+      "attrition_probability": 0.0017,
+      "confirmed_drivers": [
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1265": {
+      "employee_id": "EMP1265",
+      "risk_level": "Low",
+      "attrition_probability": 0.2625,
+      "confirmed_drivers": [
+        "JobLevel",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1269": {
+      "employee_id": "EMP1269",
+      "risk_level": "High",
+      "attrition_probability": 0.7044,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "DistanceFromHome",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1270": {
+      "employee_id": "EMP1270",
+      "risk_level": "Low",
+      "attrition_probability": 0.0469,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1273": {
+      "employee_id": "EMP1273",
+      "risk_level": "High",
+      "attrition_probability": 0.9711,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobInvolvement",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobInvolvement"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1279": {
+      "employee_id": "EMP1279",
+      "risk_level": "High",
+      "attrition_probability": 0.9157,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1292": {
+      "employee_id": "EMP1292",
+      "risk_level": "High",
+      "attrition_probability": 0.6021,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1296": {
+      "employee_id": "EMP1296",
+      "risk_level": "High",
+      "attrition_probability": 0.6239,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1303": {
+      "employee_id": "EMP1303",
+      "risk_level": "Low",
+      "attrition_probability": 0.143,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1306": {
+      "employee_id": "EMP1306",
+      "risk_level": "Low",
+      "attrition_probability": 0.1116,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "DistanceFromHome",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1308": {
+      "employee_id": "EMP1308",
+      "risk_level": "Low",
+      "attrition_probability": 0.2633,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1364": {
+      "employee_id": "EMP1364",
+      "risk_level": "Low",
+      "attrition_probability": 0.1785,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1368": {
+      "employee_id": "EMP1368",
+      "risk_level": "Low",
+      "attrition_probability": 0.0154,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1379": {
+      "employee_id": "EMP1379",
+      "risk_level": "High",
+      "attrition_probability": 0.6191,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": "compensation_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1412": {
+      "employee_id": "EMP1412",
+      "risk_level": "Low",
+      "attrition_probability": 0.0837,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1427": {
+      "employee_id": "EMP1427",
+      "risk_level": "High",
+      "attrition_probability": 0.9127,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobInvolvement",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "JobInvolvement",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1433": {
+      "employee_id": "EMP1433",
+      "risk_level": "High",
+      "attrition_probability": 0.7799,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1458": {
+      "employee_id": "EMP1458",
+      "risk_level": "High",
+      "attrition_probability": 0.9136,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1464": {
+      "employee_id": "EMP1464",
+      "risk_level": "High",
+      "attrition_probability": 0.8561,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1466": {
+      "employee_id": "EMP1466",
+      "risk_level": "Low",
+      "attrition_probability": 0.059,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1467": {
+      "employee_id": "EMP1467",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4248,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1479": {
+      "employee_id": "EMP1479",
+      "risk_level": "Low",
+      "attrition_probability": 0.0379,
+      "confirmed_drivers": [],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1481": {
+      "employee_id": "EMP1481",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5715,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1482": {
+      "employee_id": "EMP1482",
+      "risk_level": "Low",
+      "attrition_probability": 0.0735,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1492": {
+      "employee_id": "EMP1492",
+      "risk_level": "Low",
+      "attrition_probability": 0.208,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1494": {
+      "employee_id": "EMP1494",
+      "risk_level": "High",
+      "attrition_probability": 0.9889,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1495": {
+      "employee_id": "EMP1495",
+      "risk_level": "Low",
+      "attrition_probability": 0.0819,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1496": {
+      "employee_id": "EMP1496",
+      "risk_level": "High",
+      "attrition_probability": 0.6045,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1504": {
+      "employee_id": "EMP1504",
+      "risk_level": "High",
+      "attrition_probability": 0.9336,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1506": {
+      "employee_id": "EMP1506",
+      "risk_level": "High",
+      "attrition_probability": 0.627,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1515": {
+      "employee_id": "EMP1515",
+      "risk_level": "Medium",
+      "attrition_probability": 0.393,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1525": {
+      "employee_id": "EMP1525",
+      "risk_level": "Low",
+      "attrition_probability": 0.0406,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1542": {
+      "employee_id": "EMP1542",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4878,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1551": {
+      "employee_id": "EMP1551",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5203,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "JobSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1552": {
+      "employee_id": "EMP1552",
+      "risk_level": "Low",
+      "attrition_probability": 0.0372,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1558": {
+      "employee_id": "EMP1558",
+      "risk_level": "Low",
+      "attrition_probability": 0.2725,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1560": {
+      "employee_id": "EMP1560",
+      "risk_level": "Low",
+      "attrition_probability": 0.2236,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "WorkLifeBalance"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1569": {
+      "employee_id": "EMP1569",
+      "risk_level": "High",
+      "attrition_probability": 0.8903,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1577": {
+      "employee_id": "EMP1577",
+      "risk_level": "High",
+      "attrition_probability": 0.6092,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "WorkLifeBalance",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "WorkLifeBalance",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1580": {
+      "employee_id": "EMP1580",
+      "risk_level": "Low",
+      "attrition_probability": 0.1188,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "NumCompaniesWorked"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1581": {
+      "employee_id": "EMP1581",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5404,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1585": {
+      "employee_id": "EMP1585",
+      "risk_level": "Low",
+      "attrition_probability": 0.2814,
+      "confirmed_drivers": [
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1591": {
+      "employee_id": "EMP1591",
+      "risk_level": "Low",
+      "attrition_probability": 0.0197,
+      "confirmed_drivers": [
+        "OverTime_flag"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1592": {
+      "employee_id": "EMP1592",
+      "risk_level": "Low",
+      "attrition_probability": 0.03,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1595": {
+      "employee_id": "EMP1595",
+      "risk_level": "Low",
+      "attrition_probability": 0.0022,
+      "confirmed_drivers": [
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1601": {
+      "employee_id": "EMP1601",
+      "risk_level": "Low",
+      "attrition_probability": 0.1192,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1604": {
+      "employee_id": "EMP1604",
+      "risk_level": "High",
+      "attrition_probability": 0.6639,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1623": {
+      "employee_id": "EMP1623",
+      "risk_level": "Low",
+      "attrition_probability": 0.1021,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1624": {
+      "employee_id": "EMP1624",
+      "risk_level": "High",
+      "attrition_probability": 0.8857,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1644": {
+      "employee_id": "EMP1644",
+      "risk_level": "Low",
+      "attrition_probability": 0.0158,
+      "confirmed_drivers": [
+        "BusinessTravel_freq"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1645": {
+      "employee_id": "EMP1645",
+      "risk_level": "High",
+      "attrition_probability": 0.6452,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobInvolvement"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobInvolvement"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1657": {
+      "employee_id": "EMP1657",
+      "risk_level": "Low",
+      "attrition_probability": 0.211,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1674": {
+      "employee_id": "EMP1674",
+      "risk_level": "High",
+      "attrition_probability": 0.7853,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1678": {
+      "employee_id": "EMP1678",
+      "risk_level": "Low",
+      "attrition_probability": 0.1085,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1680": {
+      "employee_id": "EMP1680",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3545,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1683": {
+      "employee_id": "EMP1683",
+      "risk_level": "Low",
+      "attrition_probability": 0.1892,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1687": {
+      "employee_id": "EMP1687",
+      "risk_level": "Low",
+      "attrition_probability": 0.1142,
+      "confirmed_drivers": [
+        "JobLevel"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1692": {
+      "employee_id": "EMP1692",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3897,
+      "confirmed_drivers": [
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1697": {
+      "employee_id": "EMP1697",
+      "risk_level": "Low",
+      "attrition_probability": 0.0318,
+      "confirmed_drivers": [
+        "JobInvolvement"
+      ],
+      "actionable_features": [
+        "JobInvolvement"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1714": {
+      "employee_id": "EMP1714",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5384,
+      "confirmed_drivers": [
+        "JobInvolvement",
+        "JobLevel",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "JobInvolvement"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1724": {
+      "employee_id": "EMP1724",
+      "risk_level": "High",
+      "attrition_probability": 0.7758,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1731": {
+      "employee_id": "EMP1731",
+      "risk_level": "Low",
+      "attrition_probability": 0.0459,
+      "confirmed_drivers": [
+        "WorkLifeBalance"
+      ],
+      "actionable_features": [
+        "WorkLifeBalance"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1733": {
+      "employee_id": "EMP1733",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5731,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1734": {
+      "employee_id": "EMP1734",
+      "risk_level": "High",
+      "attrition_probability": 0.8017,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobInvolvement",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobInvolvement",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1746": {
+      "employee_id": "EMP1746",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5447,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1752": {
+      "employee_id": "EMP1752",
+      "risk_level": "High",
+      "attrition_probability": 0.6673,
+      "confirmed_drivers": [
+        "JobInvolvement",
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobInvolvement",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1758": {
+      "employee_id": "EMP1758",
+      "risk_level": "High",
+      "attrition_probability": 0.8578,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1761": {
+      "employee_id": "EMP1761",
+      "risk_level": "Low",
+      "attrition_probability": 0.0946,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1762": {
+      "employee_id": "EMP1762",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3751,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1766": {
+      "employee_id": "EMP1766",
+      "risk_level": "High",
+      "attrition_probability": 0.8071,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobInvolvement",
+        "DistanceFromHome",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobInvolvement",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1767": {
+      "employee_id": "EMP1767",
+      "risk_level": "High",
+      "attrition_probability": 0.952,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "JobLevel",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1770": {
+      "employee_id": "EMP1770",
+      "risk_level": "Low",
+      "attrition_probability": 0.0064,
+      "confirmed_drivers": [
+        "JobSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1779": {
+      "employee_id": "EMP1779",
+      "risk_level": "Low",
+      "attrition_probability": 0.1113,
+      "confirmed_drivers": [
+        "JobInvolvement",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobInvolvement",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1780": {
+      "employee_id": "EMP1780",
+      "risk_level": "High",
+      "attrition_probability": 0.6515,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1783": {
+      "employee_id": "EMP1783",
+      "risk_level": "High",
+      "attrition_probability": 0.8295,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1786": {
+      "employee_id": "EMP1786",
+      "risk_level": "Low",
+      "attrition_probability": 0.0394,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1789": {
+      "employee_id": "EMP1789",
+      "risk_level": "Low",
+      "attrition_probability": 0.0037,
+      "confirmed_drivers": [
+        "OverTime_flag"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1801": {
+      "employee_id": "EMP1801",
+      "risk_level": "Low",
+      "attrition_probability": 0.2737,
+      "confirmed_drivers": [
+        "DistanceFromHome",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1803": {
+      "employee_id": "EMP1803",
+      "risk_level": "Low",
+      "attrition_probability": 0.2481,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1812": {
+      "employee_id": "EMP1812",
+      "risk_level": "Low",
+      "attrition_probability": 0.0754,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1837": {
+      "employee_id": "EMP1837",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4908,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1839": {
+      "employee_id": "EMP1839",
+      "risk_level": "Low",
+      "attrition_probability": 0.3414,
+      "confirmed_drivers": [
+        "JobLevel",
+        "WorkLifeBalance",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "WorkLifeBalance",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1842": {
+      "employee_id": "EMP1842",
+      "risk_level": "Low",
+      "attrition_probability": 0.3404,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "JobLevel",
+        "DistanceFromHome",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1844": {
+      "employee_id": "EMP1844",
+      "risk_level": "High",
+      "attrition_probability": 0.9053,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1847": {
+      "employee_id": "EMP1847",
+      "risk_level": "Low",
+      "attrition_probability": 0.2247,
+      "confirmed_drivers": [
+        "OverTime_flag"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1853": {
+      "employee_id": "EMP1853",
+      "risk_level": "Low",
+      "attrition_probability": 0.2186,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1856": {
+      "employee_id": "EMP1856",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5652,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1860": {
+      "employee_id": "EMP1860",
+      "risk_level": "Low",
+      "attrition_probability": 0.1804,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1862": {
+      "employee_id": "EMP1862",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5948,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1865": {
+      "employee_id": "EMP1865",
+      "risk_level": "Low",
+      "attrition_probability": 0.3173,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1868": {
+      "employee_id": "EMP1868",
+      "risk_level": "High",
+      "attrition_probability": 0.9675,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "BusinessTravel_freq",
+        "DistanceFromHome",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1871": {
+      "employee_id": "EMP1871",
+      "risk_level": "Low",
+      "attrition_probability": 0.0167,
+      "confirmed_drivers": [
+        "DistanceFromHome"
+      ],
+      "actionable_features": [],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1875": {
+      "employee_id": "EMP1875",
+      "risk_level": "Low",
+      "attrition_probability": 0.3001,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1876": {
+      "employee_id": "EMP1876",
+      "risk_level": "Medium",
+      "attrition_probability": 0.4385,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1878": {
+      "employee_id": "EMP1878",
+      "risk_level": "High",
+      "attrition_probability": 0.8324,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "RelationshipSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1893": {
+      "employee_id": "EMP1893",
+      "risk_level": "High",
+      "attrition_probability": 0.8277,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1903": {
+      "employee_id": "EMP1903",
+      "risk_level": "Low",
+      "attrition_probability": 0.0341,
+      "confirmed_drivers": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1916": {
+      "employee_id": "EMP1916",
+      "risk_level": "Medium",
+      "attrition_probability": 0.43,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1928": {
+      "employee_id": "EMP1928",
+      "risk_level": "High",
+      "attrition_probability": 0.8189,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "DistanceFromHome",
+        "JobSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "JobSatisfaction"
+      ],
+      "intervention_key": "role_fit_conversation",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1933": {
+      "employee_id": "EMP1933",
+      "risk_level": "Low",
+      "attrition_probability": 0.2252,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1935": {
+      "employee_id": "EMP1935",
+      "risk_level": "Low",
+      "attrition_probability": 0.2289,
+      "confirmed_drivers": [
+        "JobSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1938": {
+      "employee_id": "EMP1938",
+      "risk_level": "Low",
+      "attrition_probability": 0.055,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1943": {
+      "employee_id": "EMP1943",
+      "risk_level": "Low",
+      "attrition_probability": 0.2845,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1944": {
+      "employee_id": "EMP1944",
+      "risk_level": "High",
+      "attrition_probability": 0.9891,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "DistanceFromHome"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1961": {
+      "employee_id": "EMP1961",
+      "risk_level": "High",
+      "attrition_probability": 0.9446,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction",
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1966": {
+      "employee_id": "EMP1966",
+      "risk_level": "Low",
+      "attrition_probability": 0.1767,
+      "confirmed_drivers": [
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1968": {
+      "employee_id": "EMP1968",
+      "risk_level": "High",
+      "attrition_probability": 0.8779,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "DistanceFromHome",
+        "JobSatisfaction"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP1974": {
+      "employee_id": "EMP1974",
+      "risk_level": "Low",
+      "attrition_probability": 0.2541,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobInvolvement",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobInvolvement"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1987": {
+      "employee_id": "EMP1987",
+      "risk_level": "Low",
+      "attrition_probability": 0.2127,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1992": {
+      "employee_id": "EMP1992",
+      "risk_level": "Low",
+      "attrition_probability": 0.3443,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1994": {
+      "employee_id": "EMP1994",
+      "risk_level": "Low",
+      "attrition_probability": 0.0719,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP1996": {
+      "employee_id": "EMP1996",
+      "risk_level": "Low",
+      "attrition_probability": 0.2446,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP2003": {
+      "employee_id": "EMP2003",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3792,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP2012": {
+      "employee_id": "EMP2012",
+      "risk_level": "Low",
+      "attrition_probability": 0.3272,
+      "confirmed_drivers": [
+        "EnvironmentSatisfaction",
+        "JobLevel"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    },
+    "EMP2013": {
+      "employee_id": "EMP2013",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3708,
+      "confirmed_drivers": [
+        "JobLevel",
+        "EnvironmentSatisfaction"
+      ],
+      "actionable_features": [
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "team_environment_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP2021": {
+      "employee_id": "EMP2021",
+      "risk_level": "Medium",
+      "attrition_probability": 0.5444,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "JobSatisfaction",
+        "StockOptionLevel"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP2023": {
+      "employee_id": "EMP2023",
+      "risk_level": "High",
+      "attrition_probability": 0.7981,
+      "confirmed_drivers": [
+        "BusinessTravel_freq",
+        "JobSatisfaction",
+        "JobLevel",
+        "RelationshipSatisfaction"
+      ],
+      "actionable_features": [
+        "JobSatisfaction",
+        "RelationshipSatisfaction"
+      ],
+      "intervention_key": "assign_mentor",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP2027": {
+      "employee_id": "EMP2027",
+      "risk_level": "Medium",
+      "attrition_probability": 0.3507,
+      "confirmed_drivers": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction",
+        "JobLevel",
+        "NumCompaniesWorked"
+      ],
+      "actionable_features": [
+        "OverTime_flag",
+        "EnvironmentSatisfaction"
+      ],
+      "intervention_key": "workload_review",
+      "status": "APPROVED_FOR_REVIEW"
+    },
+    "EMP2048": {
+      "employee_id": "EMP2048",
+      "risk_level": "Low",
+      "attrition_probability": 0.1764,
+      "confirmed_drivers": [
+        "JobLevel",
+        "StockOptionLevel"
+      ],
+      "actionable_features": [
+        "StockOptionLevel"
+      ],
+      "intervention_key": null,
+      "status": "NO_ACTION"
+    }
+  }
+}

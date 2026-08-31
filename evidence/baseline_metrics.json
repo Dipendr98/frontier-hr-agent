@@ -1,0 +1,49 @@
+{
+  "trained_at": "2026-08-31T07:37:08.504098+00:00",
+  "environment": {
+    "python": "3.14.6",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+    "scikit_learn": "1.9.0",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2"
+  },
+  "data_sha256_16": "d2368983a4fc7c12",
+  "random_state": 42,
+  "dataset": "IBM HR Analytics Employee Attrition (fictional, IBM/Kaggle)",
+  "rows_total": 342,
+  "rows_train": 256,
+  "rows_test": 86,
+  "attrition_rate": 0.2982456140350877,
+  "features": [
+    "JobSatisfaction",
+    "EnvironmentSatisfaction",
+    "JobInvolvement",
+    "WorkLifeBalance",
+    "RelationshipSatisfaction",
+    "TrainingTimesLastYear",
+    "OverTime_flag",
+    "DistanceFromHome",
+    "BusinessTravel_freq",
+    "JobLevel",
+    "StockOptionLevel",
+    "NumCompaniesWorked",
+    "YearsWithCurrManager"
+  ],
+  "protected_attributes_excluded": [
+    "Gender",
+    "Age",
+    "MaritalStatus"
+  ],
+  "test_metrics": {
+    "roc_auc": 0.7980769230769231,
+    "pr_auc": 0.6937188386368586,
+    "precision": 0.5625,
+    "recall": 0.6923076923076923,
+    "f1": 0.6206896551724138,
+    "accuracy": 0.7441860465116279
+  },
+  "cv_roc_auc_mean": 0.8260416666666666,
+  "cv_roc_auc_std": 0.0835735349918191,
+  "reference_majority_class_accuracy": 0.6976744186046512,
+  "reference_random_auc": 0.5
+}
